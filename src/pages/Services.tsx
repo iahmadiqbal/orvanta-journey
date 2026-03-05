@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, Plane, FileText, Users, CheckCircle, Clock, Shield, Globe, Award, TrendingUp, HeartHandshake } from "lucide-react";
+import { CheckCircle, Clock, Shield, TrendingUp, HeartHandshake } from "lucide-react";
+import { FaGraduationCap, FaBriefcase, FaPlane, FaFileAlt, FaUsers, FaGlobe, FaTrophy, FaUserTie } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
@@ -11,7 +12,7 @@ const fadeUp = {
 
 const mainServices = [
   {
-    icon: GraduationCap,
+    icon: FaGraduationCap,
     title: "Study Visa Services",
     desc: "Complete guidance for international education",
     features: [
@@ -25,7 +26,7 @@ const mainServices = [
     color: "from-blue-500 to-cyan-500"
   },
   {
-    icon: Briefcase,
+    icon: FaBriefcase,
     title: "Work Visa Services",
     desc: "Professional immigration for career growth",
     features: [
@@ -39,7 +40,7 @@ const mainServices = [
     color: "from-purple-500 to-pink-500"
   },
   {
-    icon: Plane,
+    icon: FaPlane,
     title: "Tourist Visa Services",
     desc: "Hassle-free travel documentation",
     features: [
@@ -55,15 +56,15 @@ const mainServices = [
 ];
 
 const additionalServices = [
-  { icon: FileText, title: "Document Translation", desc: "Certified translation services for all visa documents" },
-  { icon: Users, title: "Family Sponsorship", desc: "Reunite with your loved ones abroad" },
-  { icon: Globe, title: "PR & Citizenship", desc: "Permanent residency and citizenship applications" },
-  { icon: Award, title: "Business Immigration", desc: "Investor and entrepreneur visa programs" }
+  { icon: FaFileAlt, title: "Document Translation", desc: "Certified translation services for all visa documents" },
+  { icon: FaUsers, title: "Family Sponsorship", desc: "Reunite with your loved ones abroad" },
+  { icon: FaGlobe, title: "PR & Citizenship", desc: "Permanent residency and citizenship applications" },
+  { icon: FaTrophy, title: "Business Immigration", desc: "Investor and entrepreneur visa programs" }
 ];
 
 const processSteps = [
-  { icon: Users, title: "Free Consultation", desc: "Discuss your goals with our experts" },
-  { icon: FileText, title: "Documentation", desc: "We prepare all required documents" },
+  { icon: FaUsers, title: "Free Consultation", desc: "Discuss your goals with our experts" },
+  { icon: FaFileAlt, title: "Documentation", desc: "We prepare all required documents" },
   { icon: CheckCircle, title: "Application", desc: "Submit your application with confidence" },
   { icon: Shield, title: "Follow-up", desc: "Track progress until approval" }
 ];
@@ -282,7 +283,7 @@ const Services = () => {
             </motion.p>
             <motion.div variants={fadeUp} custom={2}>
               <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg px-10 shadow-xl">
+                <Button size="lg" className="bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 font-semibold text-base xl:text-lg px-10 xl:px-12 shadow-xl hover:shadow-2xl transition-all duration-200 h-12 xl:h-14">
                   Book Free Consultation
                 </Button>
               </Link>

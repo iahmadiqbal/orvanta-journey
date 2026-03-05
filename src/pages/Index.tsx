@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, Plane, Users, Zap, TrendingUp, Heart, Star, ArrowRight } from "lucide-react";
+import { Users, Zap, TrendingUp, Heart, Star, ArrowRight } from "lucide-react";
+import { FaGraduationCap, FaBriefcase, FaPlane, FaPassport, FaUserTie, FaGlobe } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import heroBg from "@/assets/hero-bg.jpg";
@@ -11,17 +12,47 @@ const fadeUp = {
 };
 
 const services = [
-  { icon: GraduationCap, title: "Study Visa", desc: "Get accepted into top universities worldwide. We guide you through applications, documentation, and interviews." },
-  { icon: Briefcase, title: "Work Visa", desc: "Unlock international career opportunities. We handle employer sponsorship, permits, and compliance." },
-  { icon: Plane, title: "Tourist Visa", desc: "Travel the world hassle-free. Quick processing for tourist and visitor visas to any destination." },
+  { icon: FaGraduationCap, title: "Study Visa", desc: "Get accepted into top universities worldwide. We guide you through applications, documentation, and interviews." },
+  { icon: FaBriefcase, title: "Work Visa", desc: "Unlock international career opportunities. We handle employer sponsorship, permits, and compliance." },
+  { icon: FaPlane, title: "Tourist Visa", desc: "Travel the world hassle-free. Quick processing for tourist and visitor visas to any destination." },
 ];
 
 const countries = [
-  { flag: "🇬🇧", name: "United Kingdom", desc: "World-class education and career opportunities." },
-  { flag: "🇨🇦", name: "Canada", desc: "Immigration-friendly policies and high quality of life." },
-  { flag: "🇦🇺", name: "Australia", desc: "Excellent study and skilled worker programs." },
-  { flag: "🇩🇪", name: "Germany", desc: "Tuition-free education and strong economy." },
-  { flag: "🇦🇪", name: "UAE", desc: "Thriving job market and business opportunities." },
+  { 
+    flag: "🇬🇧", 
+    name: "United Kingdom", 
+    desc: "World-class education and career opportunities.",
+    image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=300&fit=crop",
+    gradient: "from-blue-500/30 via-indigo-500/30 to-purple-500/30"
+  },
+  { 
+    flag: "🇨🇦", 
+    name: "Canada", 
+    desc: "Immigration-friendly policies and high quality of life.",
+    image: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=400&h=300&fit=crop",
+    gradient: "from-red-500/30 via-rose-500/30 to-pink-500/30"
+  },
+  { 
+    flag: "🇦🇺", 
+    name: "Australia", 
+    desc: "Excellent study and skilled worker programs.",
+    image: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=400&h=300&fit=crop",
+    gradient: "from-blue-400/30 via-cyan-500/30 to-teal-500/30"
+  },
+  { 
+    flag: "🇩🇪", 
+    name: "Germany", 
+    desc: "Tuition-free education and strong economy.",
+    image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400&h=300&fit=crop",
+    gradient: "from-amber-500/30 via-orange-500/30 to-red-500/30"
+  },
+  { 
+    flag: "🇦🇪", 
+    name: "UAE", 
+    desc: "Thriving job market and business opportunities.",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop",
+    gradient: "from-emerald-500/30 via-green-500/30 to-teal-600/30"
+  },
 ];
 
 const features = [
@@ -69,12 +100,12 @@ const Index = () => {
             </motion.p>
             <motion.div variants={fadeUp} custom={2} className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-base px-8 shadow-lg">
+                <Button size="lg" className="bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 font-semibold text-base xl:text-lg px-8 xl:px-10 shadow-lg hover:shadow-xl transition-all duration-200 h-12 xl:h-14">
                   Book Free Consultation
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold text-base px-8">
+                <Button size="lg" variant="outline" className="border-2 border-white/60 bg-white/10 text-white hover:bg-white hover:text-primary hover:border-white font-semibold text-base xl:text-lg px-8 xl:px-10 backdrop-blur-md transition-all duration-200 h-12 xl:h-14 shadow-lg hover:shadow-xl">
                   Contact Us
                 </Button>
               </Link>
@@ -92,21 +123,22 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((s, i) => (
-              <motion.div
-                key={s.title}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                custom={i}
-                className="bg-card rounded-xl p-8 card-elevated border border-border text-center"
-              >
-                <div className="h-14 w-14 rounded-xl bg-secondary/10 flex items-center justify-center mx-auto mb-5">
-                  <s.icon size={28} className="text-secondary" />
-                </div>
-                <h3 className="font-heading font-bold text-xl mb-3 text-foreground">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-              </motion.div>
+              <Link key={s.title} to="/services">
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  custom={i}
+                  className="bg-card rounded-xl p-8 card-elevated border border-border text-center cursor-pointer group"
+                >
+                  <div className="h-14 w-14 rounded-xl bg-secondary/10 group-hover:bg-secondary/20 flex items-center justify-center mx-auto mb-5 transition-all duration-200">
+                    <s.icon size={28} className="text-secondary group-hover:scale-110 transition-transform duration-200" />
+                  </div>
+                  <h3 className="font-heading font-bold text-xl mb-3 text-foreground group-hover:text-secondary transition-colors">{s.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>
@@ -128,11 +160,22 @@ const Index = () => {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={i}
-                className="bg-card rounded-xl p-6 card-elevated border border-border text-center"
+                className="bg-card rounded-2xl overflow-hidden card-elevated border border-border group cursor-pointer"
               >
-                <span className="text-5xl mb-4 block">{c.flag}</span>
-                <h3 className="font-heading font-bold text-lg mb-2 text-foreground">{c.name}</h3>
-                <p className="text-muted-foreground text-sm">{c.desc}</p>
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={c.image} 
+                    alt={c.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${c.gradient} group-hover:opacity-60 transition-opacity duration-300`}></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span className="absolute top-4 right-4 text-5xl drop-shadow-2xl filter brightness-110">{c.flag}</span>
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="font-heading font-bold text-lg mb-2 text-foreground group-hover:text-secondary transition-colors">{c.name}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{c.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -213,8 +256,8 @@ const Index = () => {
             </motion.p>
             <motion.div variants={fadeUp} custom={2}>
               <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-base px-10 shadow-lg">
-                  Book Free Consultation <ArrowRight size={18} className="ml-2" />
+                <Button size="lg" className="bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 font-semibold text-base xl:text-lg px-10 xl:px-12 shadow-xl hover:shadow-2xl transition-all duration-200 h-12 xl:h-14">
+                  Book Free Consultation <ArrowRight size={20} className="ml-2" />
                 </Button>
               </Link>
             </motion.div>
