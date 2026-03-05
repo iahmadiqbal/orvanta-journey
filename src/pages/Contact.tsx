@@ -44,19 +44,22 @@ const Contact = () => {
 
       <section className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Form */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <motion.h2 variants={fadeUp} custom={0} className="text-2xl font-heading font-bold text-foreground mb-6">
+              <motion.h2 variants={fadeUp} custom={0} className="text-3xl font-heading font-bold text-foreground mb-3">
                 Book a Free Consultation
               </motion.h2>
+              <motion.p variants={fadeUp} custom={0} className="text-muted-foreground mb-8 text-base">
+                Fill out the form below and our team will get back to you within 24 hours.
+              </motion.p>
               <motion.form variants={fadeUp} custom={1} onSubmit={handleSubmit} className="space-y-5">
                 <Input
                   placeholder="Your Name"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   required
-                  className="h-12"
+                  className="h-12 text-base"
                 />
                 <Input
                   type="email"
@@ -64,13 +67,13 @@ const Contact = () => {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   required
-                  className="h-12"
+                  className="h-12 text-base"
                 />
                 <Input
                   placeholder="Phone Number"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="h-12"
+                  className="h-12 text-base"
                 />
                 <Textarea
                   placeholder="Your Message"
@@ -78,30 +81,37 @@ const Contact = () => {
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   required
                   rows={5}
+                  className="text-base"
                 />
                 <Button
                   type="submit"
                   size="lg"
                   disabled={loading}
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
+                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-base"
                 >
-                  {loading ? "Sending..." : "Send Message"} <Send size={16} className="ml-2" />
+                  {loading ? "Sending..." : "Send Message"} <Send size={18} className="ml-2" />
                 </Button>
               </motion.form>
             </motion.div>
 
-            {/* Info + Map */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <motion.h2 variants={fadeUp} custom={0} className="text-2xl font-heading font-bold text-foreground mb-6">
-                Get In Touch
-              </motion.h2>
-              <motion.div variants={fadeUp} custom={1} className="space-y-6 mb-10">
+            {/* Image + Info */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-8">
+              <motion.div variants={fadeUp} custom={0} className="rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop" 
+                  alt="Consultation" 
+                  className="w-full h-[400px] object-cover"
+                />
+              </motion.div>
+              
+              <motion.div variants={fadeUp} custom={1} className="space-y-6">
+                <h3 className="text-2xl font-heading font-bold text-foreground">Get In Touch</h3>
                 <div className="flex items-start gap-4">
                   <div className="h-12 w-12 rounded-xl bg-primary/5 flex items-center justify-center shrink-0">
                     <MapPin size={22} className="text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground">Office Address</p>
+                    <p className="font-semibold text-foreground text-base">Office Address</p>
                     <p className="text-muted-foreground text-sm">123 Business Tower, Suite 400, New York, NY 10001</p>
                   </div>
                 </div>
@@ -110,7 +120,7 @@ const Contact = () => {
                     <Mail size={22} className="text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground">Email</p>
+                    <p className="font-semibold text-foreground text-base">Email</p>
                     <p className="text-muted-foreground text-sm">info@orvantaadvisory.com</p>
                   </div>
                 </div>
@@ -119,25 +129,36 @@ const Contact = () => {
                     <Phone size={22} className="text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground">Phone</p>
+                    <p className="font-semibold text-foreground text-base">Phone</p>
                     <p className="text-muted-foreground text-sm">+1 (555) 123-4567</p>
                   </div>
                 </div>
               </motion.div>
-
-              <motion.div variants={fadeUp} custom={2} className="rounded-xl overflow-hidden border border-border h-64">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1!2d-73.98!3d40.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ1JzAwLjAiTiA3M8KwNTgnNDguMCJX!5e0!3m2!1sen!2sus!4v1234567890"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  title="Office Location"
-                />
-              </motion.div>
             </motion.div>
           </div>
+
+          {/* Map Section */}
+          <motion.div 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={2}
+            className="mt-16"
+          >
+            <h3 className="text-2xl font-heading font-bold text-foreground mb-6 text-center">Visit Our Office</h3>
+            <div className="rounded-2xl overflow-hidden border border-border h-96 shadow-lg">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1!2d-73.98!3d40.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ1JzAwLjAiTiA3M8KwNTgnNDguMCJX!5e0!3m2!1sen!2sus!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                title="Office Location"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
     </Layout>

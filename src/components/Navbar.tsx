@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 const navLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
   { label: "Countries", to: "/countries" },
   { label: "Contact", to: "/contact" },
 ];
@@ -17,12 +18,12 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="h-9 w-9 rounded-lg bg-primary flex items-center justify-center">
-            <span className="font-heading text-primary-foreground font-bold text-lg">O</span>
+        <Link to="/" className="flex items-center gap-3">
+          <div className="h-11 w-11 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
+            <span className="font-heading text-primary-foreground font-extrabold text-2xl">O</span>
           </div>
-          <span className="font-heading font-bold text-xl text-foreground tracking-tight">
-            Orvanta <span className="text-secondary">Advisory</span>
+          <span className="font-heading font-bold text-2xl text-foreground tracking-tight">
+            Orvanta <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">Advisory</span>
           </span>
         </Link>
 
@@ -32,7 +33,7 @@ const Navbar = () => {
             <Link
               key={link.to}
               to={link.to}
-              className={`text-sm font-medium transition-colors hover:text-secondary ${
+              className={`text-base font-medium transition-colors hover:text-secondary ${
                 location.pathname === link.to ? "text-secondary" : "text-muted-foreground"
               }`}
             >
