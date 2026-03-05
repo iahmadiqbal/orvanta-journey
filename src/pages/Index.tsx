@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Users, Zap, TrendingUp, Heart, Star, ArrowRight } from "lucide-react";
+import { Users, Zap, TrendingUp, Heart, Star, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { FaGraduationCap, FaBriefcase, FaPlane, FaPassport, FaUserTie, FaGlobe } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Layout from "@/components/Layout";
 import heroBg from "@/assets/hero-bg.jpg";
 
@@ -63,9 +64,42 @@ const features = [
 ];
 
 const testimonials = [
-  { name: "Sarah Mitchell", role: "Study Visa – UK", text: "Orvanta made my dream of studying in London a reality. Their team was incredibly supportive throughout." },
-  { name: "Ahmed Hassan", role: "Work Visa – Canada", text: "Professional, efficient, and genuinely caring. Got my work permit approved in record time!" },
-  { name: "Priya Sharma", role: "Tourist Visa – Australia", text: "Seamless process from start to finish. I highly recommend Orvanta Advisory to anyone." },
+  { 
+    name: "Sarah Mitchell", 
+    role: "Study Visa – UK", 
+    text: "Orvanta made my dream of studying in London a reality. Their team was incredibly supportive throughout.",
+    image: "https://i.pravatar.cc/150?img=5"
+  },
+  { 
+    name: "Ahmed Hassan", 
+    role: "Work Visa – Canada", 
+    text: "Professional, efficient, and genuinely caring. Got my work permit approved in record time!",
+    image: "https://i.pravatar.cc/150?img=12"
+  },
+  { 
+    name: "Priya Sharma", 
+    role: "Tourist Visa – Australia", 
+    text: "Seamless process from start to finish. I highly recommend Orvanta Advisory to anyone.",
+    image: "https://i.pravatar.cc/150?img=9"
+  },
+  { 
+    name: "Michael Chen", 
+    role: "Study Visa – Germany", 
+    text: "The team guided me through every step. Their expertise made the complex process so simple and stress-free.",
+    image: "https://i.pravatar.cc/150?img=33"
+  },
+  { 
+    name: "Fatima Al-Rashid", 
+    role: "Work Visa – UAE", 
+    text: "Outstanding service! They handled everything professionally and kept me informed throughout the entire process.",
+    image: "https://i.pravatar.cc/150?img=20"
+  },
+  { 
+    name: "David Thompson", 
+    role: "PR Application – Canada", 
+    text: "Thanks to Orvanta, my family and I are now permanent residents. Forever grateful for their dedication!",
+    image: "https://i.pravatar.cc/150?img=15"
+  },
 ];
 
 const Index = () => {
@@ -198,13 +232,13 @@ const Index = () => {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={i}
-                className="text-center"
+                className="bg-card rounded-2xl p-8 card-elevated border border-border text-center group cursor-pointer"
               >
-                <div className="h-16 w-16 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
-                  <f.icon size={30} className="text-accent" />
+                <div className="h-20 w-20 rounded-2xl bg-accent/10 group-hover:bg-accent/20 flex items-center justify-center mx-auto mb-6 transition-all duration-200">
+                  <f.icon size={36} className="text-accent group-hover:scale-110 transition-transform duration-200" />
                 </div>
-                <h3 className="font-heading font-bold text-lg mb-2 text-foreground">{f.title}</h3>
-                <p className="text-muted-foreground text-sm">{f.desc}</p>
+                <h3 className="font-heading font-bold text-xl mb-3 text-foreground group-hover:text-secondary transition-colors">{f.title}</h3>
+                <p className="text-muted-foreground text-base leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -216,30 +250,51 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">What Our Clients Say</h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">Real stories from our satisfied clients</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={t.name}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                custom={i}
-                className="bg-card rounded-xl p-8 card-elevated border border-border"
-              >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} size={16} className="fill-accent text-accent" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6 italic">"{t.text}"</p>
-                <div>
-                  <p className="font-heading font-semibold text-foreground">{t.name}</p>
-                  <p className="text-muted-foreground text-xs">{t.role}</p>
-                </div>
-              </motion.div>
-            ))}
+          <div className="max-w-6xl mx-auto">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4">
+                {testimonials.map((t, i) => (
+                  <CarouselItem key={t.name} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <motion.div
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      variants={fadeUp}
+                      custom={i}
+                      className="bg-card rounded-2xl p-8 card-elevated border border-border h-full flex flex-col"
+                    >
+                      <div className="flex gap-1 mb-4">
+                        {[...Array(5)].map((_, j) => (
+                          <Star key={j} size={18} className="fill-accent text-accent" />
+                        ))}
+                      </div>
+                      <p className="text-muted-foreground text-base leading-relaxed mb-6 italic flex-grow">"{t.text}"</p>
+                      <div className="flex items-center gap-4 mt-auto">
+                        <img 
+                          src={t.image} 
+                          alt={t.name}
+                          className="h-14 w-14 rounded-full object-cover border-2 border-secondary/20"
+                        />
+                        <div>
+                          <p className="font-heading font-semibold text-foreground text-lg">{t.name}</p>
+                          <p className="text-muted-foreground text-sm">{t.role}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="-left-4 lg:-left-12 h-10 w-10 lg:h-12 lg:w-12 border-2 hover:bg-secondary hover:text-white hover:border-secondary" />
+              <CarouselNext className="-right-4 lg:-right-12 h-10 w-10 lg:h-12 lg:w-12 border-2 hover:bg-secondary hover:text-white hover:border-secondary" />
+            </Carousel>
           </div>
         </div>
       </section>
