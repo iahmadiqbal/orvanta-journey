@@ -115,7 +115,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             animate="visible"
-            className="max-w-2xl"
+            className="max-w-4xl mx-auto text-center"
           >
             <motion.h1
               variants={fadeUp}
@@ -128,11 +128,11 @@ const Index = () => {
             <motion.p
               variants={fadeUp}
               custom={1}
-              className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed"
+              className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed max-w-3xl mx-auto"
             >
               Expert guidance for study visas, work permits, and tourist visas. We make your global aspirations a reality with personalized support every step of the way.
             </motion.p>
-            <motion.div variants={fadeUp} custom={2} className="flex flex-wrap gap-4">
+            <motion.div variants={fadeUp} custom={2} className="flex flex-wrap gap-4 justify-center">
               <Link to="/contact">
                 <Button size="lg" className="bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 font-semibold text-base xl:text-lg px-8 xl:px-10 shadow-lg hover:shadow-xl transition-all duration-200 h-12 xl:h-14">
                   Book Free Consultation
