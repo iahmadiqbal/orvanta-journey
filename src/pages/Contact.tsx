@@ -99,7 +99,7 @@ const Contact = () => {
                   className="h-12 text-base"
                 />
                 <Select value={form.desiredCountry} onValueChange={(value) => setForm({ ...form, desiredCountry: value })}>
-                  <SelectTrigger className="h-12 text-base [&>span]:text-base">
+                  <SelectTrigger className="h-12 text-base [&>span]:text-muted-foreground data-[placeholder]:text-muted-foreground">
                     <SelectValue placeholder="Desired Country" />
                   </SelectTrigger>
                   <SelectContent>
@@ -108,22 +108,16 @@ const Contact = () => {
                     <SelectItem value="australia" className="text-base">Australia</SelectItem>
                     <SelectItem value="germany" className="text-base">Germany</SelectItem>
                     <SelectItem value="uae" className="text-base">UAE</SelectItem>
-                    <SelectItem value="usa" className="text-base">United States</SelectItem>
-                    <SelectItem value="newzealand" className="text-base">New Zealand</SelectItem>
-                    <SelectItem value="other" className="text-base">Other</SelectItem>
                   </SelectContent>
                 </Select>
                 <Select value={form.visaType} onValueChange={(value) => setForm({ ...form, visaType: value })}>
-                  <SelectTrigger className="h-12 text-base [&>span]:text-base">
+                  <SelectTrigger className="h-12 text-base [&>span]:text-muted-foreground data-[placeholder]:text-muted-foreground">
                     <SelectValue placeholder="Visa Type" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="study" className="text-base">Study Visa</SelectItem>
                     <SelectItem value="work" className="text-base">Work Visa</SelectItem>
                     <SelectItem value="immigrant" className="text-base">Immigrant Visa</SelectItem>
-                    <SelectItem value="business" className="text-base">Business Visa</SelectItem>
-                    <SelectItem value="family" className="text-base">Family Sponsorship</SelectItem>
-                    <SelectItem value="pr" className="text-base">Permanent Residency</SelectItem>
                   </SelectContent>
                 </Select>
                 <Textarea
