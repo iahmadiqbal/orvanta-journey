@@ -61,7 +61,7 @@ const Contact = () => {
 
       <section className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Form */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.h2 variants={fadeUp} custom={0} className="text-3xl font-heading font-bold text-foreground mb-3">
