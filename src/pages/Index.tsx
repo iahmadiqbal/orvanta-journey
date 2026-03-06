@@ -175,13 +175,15 @@ const Index = () => {
 
       {/* Countries */}
       <section className="py-20 lg:py-28 bg-muted">
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">Popular Destinations</h2>
             <p className="text-muted-foreground max-w-xl mx-auto">We help you settle in some of the best countries worldwide.</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {countries.map((c, i) => (
+          
+          {/* First row - 3 cards */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+            {countries.slice(0, 3).map((c, i) => (
               <motion.div
                 key={c.name}
                 initial="hidden"
@@ -189,6 +191,35 @@ const Index = () => {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={i}
+                className="bg-card rounded-2xl overflow-hidden card-elevated border border-border group cursor-pointer"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={c.image} 
+                    alt={c.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${c.gradient} group-hover:opacity-60 transition-opacity duration-300`}></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="font-heading font-bold text-lg mb-2 text-foreground group-hover:text-secondary transition-colors">{c.name}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{c.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Second row - 2 cards centered */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {countries.slice(3, 5).map((c, i) => (
+              <motion.div
+                key={c.name}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={i + 3}
                 className="bg-card rounded-2xl overflow-hidden card-elevated border border-border group cursor-pointer"
               >
                 <div className="relative h-48 overflow-hidden">

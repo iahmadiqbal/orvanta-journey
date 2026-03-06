@@ -85,9 +85,10 @@ const Countries = () => {
       </section>
 
       <section className="py-20 lg:py-28 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {countries.map((c, i) => (
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+          {/* First row - 3 cards */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+            {countries.slice(0, 3).map((c, i) => (
               <motion.div
                 key={c.name}
                 initial="hidden"
@@ -95,6 +96,41 @@ const Countries = () => {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={i}
+                className="bg-card rounded-2xl overflow-hidden card-elevated border border-border flex flex-col group"
+              >
+                <div className="relative h-56 overflow-hidden">
+                  <img 
+                    src={c.image} 
+                    alt={c.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${c.gradient}`}></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  <span className="absolute top-4 right-4 text-5xl drop-shadow-2xl filter brightness-110">{c.flag}</span>
+                  <h3 className="absolute bottom-4 left-4 font-heading font-bold text-2xl text-white drop-shadow-lg">{c.name}</h3>
+                </div>
+                <div className="p-8 flex flex-col flex-1">
+                  <p className="text-muted-foreground text-base leading-relaxed mb-8 flex-1">{c.desc}</p>
+                  <Link to="/contact">
+                    <Button className="w-full group bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 h-12 text-base">
+                      {c.buttonText} <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Second row - 2 cards centered */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {countries.slice(3, 5).map((c, i) => (
+              <motion.div
+                key={c.name}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={i + 3}
                 className="bg-card rounded-2xl overflow-hidden card-elevated border border-border flex flex-col group"
               >
                 <div className="relative h-56 overflow-hidden">
