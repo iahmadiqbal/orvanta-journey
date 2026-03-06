@@ -66,23 +66,18 @@ const Footer = () => {
             <h4 className="font-heading font-semibold mb-5 text-lg">Services</h4>
             <ul className="space-y-3 text-[15px] text-primary-foreground/80">
               <li>
-                <Link to="/services" className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200">
+                <Link to="/services#study-visa" className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200">
                   Study Visa
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200">
+                <Link to="/services#work-visa" className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200">
                   Work Visa
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200">
-                  Tourist Visa
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200">
-                  Immigration Consulting
+                <Link to="/services#immigrant-visa" className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200">
+                  Immigrant Visa
                 </Link>
               </li>
             </ul>

@@ -12,6 +12,7 @@ const fadeUp = {
 
 const mainServices = [
   {
+    id: "study-visa",
     icon: FaGraduationCap,
     title: "Study Visa Services",
     desc: "Complete guidance for international education",
@@ -26,6 +27,7 @@ const mainServices = [
     color: "from-blue-500 to-cyan-500"
   },
   {
+    id: "work-visa",
     icon: FaBriefcase,
     title: "Work Visa Services",
     desc: "Professional immigration for career growth",
@@ -40,6 +42,7 @@ const mainServices = [
     color: "from-purple-500 to-pink-500"
   },
   {
+    id: "immigrant-visa",
     icon: FaPlane,
     title: "Immigrant Visa Services",
     desc: "Permanent residency and immigration solutions",
@@ -125,6 +128,7 @@ const Services = () => {
             {mainServices.map((service, i) => (
               <motion.div
                 key={service.title}
+                id={service.id}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
