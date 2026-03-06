@@ -11,8 +11,11 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <div className="h-11 w-11 rounded-xl bg-gradient-to-br from-accent to-amber-500 flex items-center justify-center shadow-lg">
-                <span className="font-heading font-extrabold text-xl text-accent-foreground">O</span>
+              <div className="relative h-11 w-11 rounded-xl bg-gradient-to-br from-accent to-amber-500 flex items-center justify-center shadow-lg overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent"></div>
+                <svg className="w-6 h-6 text-accent-foreground relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M21 16V14L13 9V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9L2 14V16L10 13.5V19L8 20.5V22L11.5 21L15 22V20.5L13 19V13.5L21 16Z" fill="currentColor"/>
+                </svg>
               </div>
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-lg leading-none">Orvanta</span>
