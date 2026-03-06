@@ -87,7 +87,7 @@ const Countries = () => {
       <section className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
           {/* First row - 3 cards */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             {countries.slice(0, 3).map((c, i) => (
               <motion.div
                 key={c.name}
@@ -121,9 +121,9 @@ const Countries = () => {
             ))}
           </div>
 
-          {/* Second row - 2 cards centered */}
+          {/* Second row - 2 cards centered on desktop, full width on mobile */}
           <div className="flex justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8" style={{ maxWidth: 'calc(66.666% + 1rem)' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full lg:w-auto">
             {countries.slice(3, 5).map((c, i) => (
               <motion.div
                 key={c.name}
@@ -132,7 +132,7 @@ const Countries = () => {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={i + 3}
-                className="bg-card rounded-2xl overflow-hidden card-elevated border border-border flex flex-col group"
+                className="bg-card rounded-2xl overflow-hidden card-elevated border border-border flex flex-col group lg:w-[calc((100vw-8rem)/3)] lg:max-w-[400px]"
               >
                 <div className="relative h-56 overflow-hidden">
                   <img 
