@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Target, Eye, Shield, Award, CheckCircle } from "lucide-react";
+import { Target, Eye, Shield, Award, CheckCircle, MapPin } from "lucide-react";
 import Layout from "@/components/Layout";
 
 const fadeUp = {
@@ -11,6 +11,37 @@ const values = [
   { icon: Shield, title: "Integrity", desc: "Transparent and honest guidance at every step." },
   { icon: Award, title: "Excellence", desc: "Committed to the highest standards of service." },
   { icon: CheckCircle, title: "Reliability", desc: "Consistent results you can count on." },
+];
+
+const offices = [
+  { 
+    city: "Chandigarh", 
+    country: "India",
+    address: "SCO 123-124, Sector 34-A, Chandigarh, 160022",
+    flag: "🇮🇳",
+    image: "https://images.unsplash.com/photo-1595658658481-d53d3f999875?w=600&h=400&fit=crop"
+  },
+  { 
+    city: "Calgary", 
+    country: "Canada",
+    address: "Suite 200, 1234 17th Avenue SW, Calgary, AB T2T 0B5",
+    flag: "🇨🇦",
+    image: "https://images.unsplash.com/photo-1519659528534-7fd733a832a0?w=600&h=400&fit=crop"
+  },
+  { 
+    city: "Dubai", 
+    country: "UAE",
+    address: "Office 1502, Business Bay Tower, Dubai, UAE",
+    flag: "🇦🇪",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop"
+  },
+  { 
+    city: "London", 
+    country: "England",
+    address: "45 Baker Street, Marylebone, London W1U 8EW",
+    flag: "🇬🇧",
+    image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=400&fit=crop"
+  },
 ];
 
 const About = () => {
@@ -142,6 +173,49 @@ const About = () => {
                 </div>
                 <h3 className="font-heading font-bold text-lg mb-2 text-foreground">{v.title}</h3>
                 <p className="text-muted-foreground text-sm">{v.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Offices */}
+      <section className="py-20 lg:py-28 bg-muted">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">Our Global Offices</h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">We're here to serve you across multiple locations worldwide.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {offices.map((office, i) => (
+              <motion.div
+                key={office.city}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={i}
+                className="bg-card rounded-2xl overflow-hidden card-elevated border border-border group cursor-pointer"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={office.image} 
+                    alt={`${office.city}, ${office.country}`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                  <span className="absolute top-4 right-4 text-4xl drop-shadow-2xl filter brightness-110">{office.flag}</span>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-start gap-2 mb-3">
+                    <MapPin size={20} className="text-secondary mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-heading font-bold text-xl text-foreground mb-1">{office.city}</h3>
+                      <p className="text-muted-foreground text-sm font-medium mb-2">{office.country}</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{office.address}</p>
+                </div>
               </motion.div>
             ))}
           </div>
