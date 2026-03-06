@@ -19,7 +19,7 @@ const About = () => {
       {/* Hero */}
       <section className="hero-bg py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
-          <motion.div initial="hidden" animate="visible" className="max-w-2xl">
+          <motion.div initial="hidden" animate="visible" className="max-w-2xl mx-auto text-center">
             <motion.h1 variants={fadeUp} custom={0} className="text-4xl md:text-5xl font-heading font-extrabold text-primary-foreground mb-6">
               About Orvanta Advisory
             </motion.h1>
