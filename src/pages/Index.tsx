@@ -211,7 +211,8 @@ const Index = () => {
           </div>
 
           {/* Second row - 2 cards centered */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8" style={{ maxWidth: 'calc(66.666% + 1rem)' }}>
             {countries.slice(3, 5).map((c, i) => (
               <motion.div
                 key={c.name}
@@ -237,6 +238,7 @@ const Index = () => {
                 </div>
               </motion.div>
             ))}
+            </div>
           </div>
         </div>
       </section>
