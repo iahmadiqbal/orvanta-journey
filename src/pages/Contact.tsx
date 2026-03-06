@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import Layout from "@/components/Layout";
 
@@ -14,7 +15,15 @@ const fadeUp = {
 
 const Contact = () => {
   const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [form, setForm] = useState({ 
+    name: "", 
+    email: "", 
+    phone: "", 
+    address: "",
+    desiredCountry: "",
+    visaType: "",
+    message: "" 
+  });
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -22,15 +31,23 @@ const Contact = () => {
     setLoading(true);
     setTimeout(() => {
       toast({ title: "Message Sent!", description: "We'll get back to you within 24 hours." });
-      setForm({ name: "", email: "", phone: "", message: "" });
+      setForm({ name: "", email: "", phone: "", address: "", desiredCountry: "", visaType: "", message: "" });
       setLoading(false);
     }, 1000);
   };
 
   return (
     <Layout>
-      <section className="hero-bg py-20 lg:py-28">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&h=1080&fit=crop" 
+            alt="Contact Us" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/80" />
+        </div>
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <motion.div initial="hidden" animate="visible" className="max-w-2xl mx-auto text-center">
             <motion.h1 variants={fadeUp} custom={0} className="text-4xl md:text-5xl font-heading font-extrabold text-primary-foreground mb-6">
               Contact Us
@@ -75,6 +92,40 @@ const Contact = () => {
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   className="h-12 text-base"
                 />
+                <Input
+                  placeholder="Address"
+                  value={form.address}
+                  onChange={(e) => setForm({ ...form, address: e.target.value })}
+                  className="h-12 text-base"
+                />
+                <Select value={form.desiredCountry} onValueChange={(value) => setForm({ ...form, desiredCountry: value })}>
+                  <SelectTrigger className="h-12 text-base [&>span]:text-base">
+                    <SelectValue placeholder="Desired Country" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="uk" className="text-base">United Kingdom</SelectItem>
+                    <SelectItem value="canada" className="text-base">Canada</SelectItem>
+                    <SelectItem value="australia" className="text-base">Australia</SelectItem>
+                    <SelectItem value="germany" className="text-base">Germany</SelectItem>
+                    <SelectItem value="uae" className="text-base">UAE</SelectItem>
+                    <SelectItem value="usa" className="text-base">United States</SelectItem>
+                    <SelectItem value="newzealand" className="text-base">New Zealand</SelectItem>
+                    <SelectItem value="other" className="text-base">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+                <Select value={form.visaType} onValueChange={(value) => setForm({ ...form, visaType: value })}>
+                  <SelectTrigger className="h-12 text-base [&>span]:text-base">
+                    <SelectValue placeholder="Visa Type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="study" className="text-base">Study Visa</SelectItem>
+                    <SelectItem value="work" className="text-base">Work Visa</SelectItem>
+                    <SelectItem value="immigrant" className="text-base">Immigrant Visa</SelectItem>
+                    <SelectItem value="business" className="text-base">Business Visa</SelectItem>
+                    <SelectItem value="family" className="text-base">Family Sponsorship</SelectItem>
+                    <SelectItem value="pr" className="text-base">Permanent Residency</SelectItem>
+                  </SelectContent>
+                </Select>
                 <Textarea
                   placeholder="Your Message"
                   value={form.message}

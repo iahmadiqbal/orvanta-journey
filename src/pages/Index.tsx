@@ -15,40 +15,35 @@ const fadeUp = {
 const services = [
   { icon: FaGraduationCap, title: "Study Visa", desc: "Get accepted into top universities worldwide. We guide you through applications, documentation, and interviews." },
   { icon: FaBriefcase, title: "Work Visa", desc: "Unlock international career opportunities. We handle employer sponsorship, permits, and compliance." },
-  { icon: FaPlane, title: "Tourist Visa", desc: "Travel the world hassle-free. Quick processing for tourist and visitor visas to any destination." },
+  { icon: FaPlane, title: "Immigrant Visa", desc: "Permanent residency solutions. Expert guidance for immigration and settlement in your dream country." },
 ];
 
 const countries = [
   { 
-    flag: "🇬🇧", 
     name: "United Kingdom", 
     desc: "World-class education and career opportunities.",
     image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=300&fit=crop",
     gradient: "from-blue-500/30 via-indigo-500/30 to-purple-500/30"
   },
   { 
-    flag: "🇨🇦", 
     name: "Canada", 
     desc: "Immigration-friendly policies and high quality of life.",
     image: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=400&h=300&fit=crop",
     gradient: "from-red-500/30 via-rose-500/30 to-pink-500/30"
   },
   { 
-    flag: "🇦🇺", 
     name: "Australia", 
     desc: "Excellent study and skilled worker programs.",
     image: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=400&h=300&fit=crop",
     gradient: "from-blue-400/30 via-cyan-500/30 to-teal-500/30"
   },
   { 
-    flag: "🇩🇪", 
     name: "Germany", 
     desc: "Tuition-free education and strong economy.",
     image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400&h=300&fit=crop",
     gradient: "from-amber-500/30 via-orange-500/30 to-red-500/30"
   },
   { 
-    flag: "🇦🇪", 
     name: "UAE", 
     desc: "Thriving job market and business opportunities.",
     image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop",
@@ -78,7 +73,7 @@ const testimonials = [
   },
   { 
     name: "Priya Sharma", 
-    role: "Tourist Visa – Australia", 
+    role: "Immigrant Visa – Australia", 
     text: "Seamless process from start to finish. I highly recommend Orvanta Advisory to anyone.",
     image: "https://i.pravatar.cc/150?img=9"
   },
@@ -157,16 +152,16 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((s, i) => (
-              <Link key={s.title} to="/services">
+              <Link key={s.title} to="/services" className="h-full">
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeUp}
                   custom={i}
-                  className="bg-card rounded-xl p-8 card-elevated border border-border text-center cursor-pointer group"
+                  className="bg-card rounded-xl p-8 card-elevated border border-border text-center cursor-pointer group h-full min-h-[280px] flex flex-col items-center justify-start"
                 >
-                  <div className="h-14 w-14 rounded-xl bg-secondary/10 group-hover:bg-secondary/20 flex items-center justify-center mx-auto mb-5 transition-all duration-200">
+                  <div className="h-14 w-14 rounded-xl bg-secondary/10 group-hover:bg-secondary/20 flex items-center justify-center mb-5 transition-all duration-200">
                     <s.icon size={28} className="text-secondary group-hover:scale-110 transition-transform duration-200" />
                   </div>
                   <h3 className="font-heading font-bold text-xl mb-3 text-foreground group-hover:text-secondary transition-colors">{s.title}</h3>
@@ -204,7 +199,6 @@ const Index = () => {
                   />
                   <div className={`absolute inset-0 bg-gradient-to-br ${c.gradient} group-hover:opacity-60 transition-opacity duration-300`}></div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                  <span className="absolute top-4 right-4 text-5xl drop-shadow-2xl filter brightness-110">{c.flag}</span>
                 </div>
                 <div className="p-6 text-center">
                   <h3 className="font-heading font-bold text-lg mb-2 text-foreground group-hover:text-secondary transition-colors">{c.name}</h3>

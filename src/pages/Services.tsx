@@ -41,15 +41,15 @@ const mainServices = [
   },
   {
     icon: FaPlane,
-    title: "Tourist Visa Services",
-    desc: "Hassle-free travel documentation",
+    title: "Immigrant Visa Services",
+    desc: "Permanent residency and immigration solutions",
     features: [
-      "Quick visa processing",
-      "Travel itinerary planning",
-      "Document checklist",
-      "Application form assistance",
-      "Travel insurance guidance",
-      "Embassy appointment booking"
+      "Immigration pathway assessment",
+      "Permanent residency applications",
+      "Family sponsorship programs",
+      "Document preparation and verification",
+      "Settlement and integration support",
+      "Post-arrival assistance"
     ],
     color: "from-orange-500 to-red-500"
   }
@@ -80,8 +80,16 @@ const Services = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="hero-bg py-20 lg:py-28">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&h=1080&fit=crop" 
+            alt="Immigration Services" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/80" />
+        </div>
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <motion.div initial="hidden" animate="visible" className="max-w-3xl mx-auto text-center">
             <motion.h1 
               variants={fadeUp} 
@@ -95,7 +103,7 @@ const Services = () => {
               custom={1} 
               className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed"
             >
-              Comprehensive visa and immigration solutions tailored to your unique needs. From study to work to travel, we've got you covered.
+              Comprehensive visa and immigration solutions tailored to your unique needs. From study to work to immigration, we've got you covered.
             </motion.p>
           </motion.div>
         </div>
