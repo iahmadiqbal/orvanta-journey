@@ -60,7 +60,7 @@ const Footer = () => {
             <ul className="space-y-3 text-[15px] text-primary-foreground/80">
               {[
                 { label: "Home", to: "/" },
-                { label: "About Us", to: "/about" },
+                { label: "About", to: "/about" },
                 { label: "Services", to: "/services" },
                 { label: "Countries", to: "/countries" },
                 { label: "Contact", to: "/contact" },
@@ -110,7 +110,7 @@ const Footer = () => {
                 <Mail size={18} className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200" />
                 <a 
                   href="mailto:info@orvantaadvisory.com"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-accent transition-colors cursor-pointer"
                 >
                   info@orvantaadvisory.com
                 </a>
@@ -119,7 +119,7 @@ const Footer = () => {
                 <Phone size={18} className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200" />
                 <a 
                   href="tel:+1605013006"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-accent transition-colors cursor-pointer"
                 >
                   1605013006
                 </a>

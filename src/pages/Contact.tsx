@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import Layout from "@/components/Layout";
@@ -21,8 +20,7 @@ const Contact = () => {
     phone: "", 
     address: "",
     desiredCountry: "",
-    visaType: "",
-    message: "" 
+    visaType: ""
   });
   const [loading, setLoading] = useState(false);
 
@@ -31,7 +29,7 @@ const Contact = () => {
     setLoading(true);
     setTimeout(() => {
       toast({ title: "Message Sent!", description: "We'll get back to you within 24 hours." });
-      setForm({ name: "", email: "", phone: "", address: "", desiredCountry: "", visaType: "", message: "" });
+      setForm({ name: "", email: "", phone: "", address: "", desiredCountry: "", visaType: "" });
       setLoading(false);
     }, 1000);
   };
@@ -76,7 +74,7 @@ const Contact = () => {
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   required
-                  className="h-12 text-base"
+                  className="h-12 text-base focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
                 <Input
                   type="email"
@@ -84,34 +82,28 @@ const Contact = () => {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   required
-                  className="h-12 text-base"
+                  className="h-12 text-base focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
                 <Input
                   placeholder="Phone Number"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="h-12 text-base"
+                  className="h-12 text-base focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
                 <Input
                   placeholder="Address"
                   value={form.address}
                   onChange={(e) => setForm({ ...form, address: e.target.value })}
-                  className="h-12 text-base"
+                  className="h-12 text-base focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
-                <Select value={form.desiredCountry} onValueChange={(value) => setForm({ ...form, desiredCountry: value })}>
-                  <SelectTrigger className="h-12 text-base [&>span]:text-muted-foreground data-[placeholder]:text-muted-foreground">
-                    <SelectValue placeholder="Desired Country" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="uk" className="text-base">United Kingdom</SelectItem>
-                    <SelectItem value="canada" className="text-base">Canada</SelectItem>
-                    <SelectItem value="australia" className="text-base">Australia</SelectItem>
-                    <SelectItem value="germany" className="text-base">Germany</SelectItem>
-                    <SelectItem value="uae" className="text-base">UAE</SelectItem>
-                  </SelectContent>
-                </Select>
+                <Input
+                  placeholder="Desired Country"
+                  value={form.desiredCountry}
+                  onChange={(e) => setForm({ ...form, desiredCountry: e.target.value })}
+                  className="h-12 text-base focus-visible:ring-0 focus-visible:ring-offset-0"
+                />
                 <Select value={form.visaType} onValueChange={(value) => setForm({ ...form, visaType: value })}>
-                  <SelectTrigger className="h-12 text-base [&>span]:text-muted-foreground data-[placeholder]:text-muted-foreground">
+                  <SelectTrigger className="h-12 text-base [&>span]:text-muted-foreground data-[placeholder]:text-muted-foreground focus:ring-0 focus:ring-offset-0">
                     <SelectValue placeholder="Visa Type" />
                   </SelectTrigger>
                   <SelectContent>
@@ -120,21 +112,13 @@ const Contact = () => {
                     <SelectItem value="immigrant" className="text-base">Immigrant Visa</SelectItem>
                   </SelectContent>
                 </Select>
-                <Textarea
-                  placeholder="Your Message"
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  required
-                  rows={5}
-                  className="text-base"
-                />
                 <Button
                   type="submit"
                   size="lg"
                   disabled={loading}
                   className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-base"
                 >
-                  {loading ? "Sending..." : "Send Message"} <Send size={18} className="ml-2" />
+                  {loading ? "Sending..." : "Submit"} <Send size={18} className="ml-2" />
                 </Button>
               </motion.form>
             </motion.div>
@@ -175,7 +159,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground text-base">Phone</p>
-                    <p className="text-muted-foreground text-sm">+1 (555) 123-4567</p>
+                    <p className="text-muted-foreground text-sm">1605013006</p>
                   </div>
                 </div>
               </motion.div>
