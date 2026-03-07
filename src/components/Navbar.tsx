@@ -21,10 +21,20 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between h-20 px-6 lg:px-12 max-w-[1920px]">
         <Link to="/" className="flex items-center gap-3 group">
           <div className="relative h-12 w-12 rounded-xl bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <svg className="w-7 h-7 text-white relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M21 16V14L13 9V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9L2 14V16L10 13.5V19L8 20.5V22L11.5 21L15 22V20.5L13 19V13.5L21 16Z" fill="currentColor"/>
-            </svg>
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-1 left-1 w-2 h-2 border-t-2 border-l-2 border-white"></div>
+              <div className="absolute top-1 right-1 w-2 h-2 border-t-2 border-r-2 border-white"></div>
+              <div className="absolute bottom-1 left-1 w-2 h-2 border-b-2 border-l-2 border-white"></div>
+              <div className="absolute bottom-1 right-1 w-2 h-2 border-b-2 border-r-2 border-white"></div>
+            </div>
+            <div className="relative z-10 flex flex-col items-center">
+              <span className="font-heading text-primary-foreground font-extrabold text-2xl leading-none">O</span>
+              <div className="flex gap-0.5 mt-0.5">
+                <div className="w-1 h-0.5 bg-white/60"></div>
+                <div className="w-1 h-0.5 bg-white/60"></div>
+                <div className="w-1 h-0.5 bg-white/60"></div>
+              </div>
+            </div>
           </div>
           <div className="flex flex-col">
             <span className="font-heading font-bold text-xl lg:text-2xl text-foreground tracking-tight leading-none">
