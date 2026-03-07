@@ -6,7 +6,7 @@ const submitContact = async (req, res) => {
     req.body;
 
   try {
-    // 1. Save to MongoDB first
+    // 1. Save to MongoDB
     const newContact = new Contact({
       name,
       email,
@@ -19,7 +19,14 @@ const submitContact = async (req, res) => {
     await newContact.save();
     console.log("✅ Contact saved to MongoDB");
 
-    // 2. Try to send email notification (non-blocking)
+    // 2. Send response IMMEDIATELY (don't wait for email)
+    res.status(200).json({
+      success: true,
+      message:
+        "Your message has been received! We will get back to you within 24 hours.",
+    });
+
+    // 3. Send email AFTER response (fire-and-forget)
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
@@ -30,8 +37,8 @@ const submitContact = async (req, res) => {
       },
     });
 
-    try {
-      await transporter.sendMail({
+    transporter
+      .sendMail({
         from: process.env.EMAIL_USER,
         to: process.env.EMAIL_USER,
         subject: `📩 New Consultation Request from ${name}`,
@@ -46,18 +53,16 @@ const submitContact = async (req, res) => {
           <p><strong>Message:</strong> ${message || "No message provided"}</p>
           <p><strong>Submitted at:</strong> ${new Date().toLocaleString()}</p>
         `,
+      })
+      .then(() => {
+        console.log("✅ Email sent successfully");
+      })
+      .catch((emailError) => {
+        console.error(
+          "⚠️ Email failed but data was saved:",
+          emailError.message,
+        );
       });
-      console.log("✅ Email sent successfully");
-    } catch (emailError) {
-      console.error("⚠️ Email failed but data was saved:", emailError.message);
-    }
-
-    // Always return success if data was saved to MongoDB
-    res.status(200).json({
-      success: true,
-      message:
-        "Your message has been received! We will get back to you within 24 hours.",
-    });
   } catch (error) {
     console.error("❌ Error in submitContact:", error.message);
     res.status(500).json({
