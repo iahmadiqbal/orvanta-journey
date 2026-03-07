@@ -101,13 +101,13 @@ const Footer = () => {
             <h4 className="font-heading font-semibold mb-5 text-lg">Contact Us</h4>
             <ul className="space-y-4 text-[15px] text-primary-foreground/80">
               <li className="flex items-start gap-3">
-                <MapPin size={18} className="mt-0.5 shrink-0 text-accent" />
-                <span className="hover:text-accent transition-colors leading-relaxed max-w-[280px]">
+                <MapPin size={18} className="mt-0.5 shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200" />
+                <span className="leading-relaxed max-w-[280px]">
                   Mohali (Punjab) | London (United Kingdom) | Dubai (United Arab Emirates)
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={18} className="shrink-0 text-accent" />
+                <Mail size={18} className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200" />
                 <a 
                   href="mailto:info@orvantaadvisory.com"
                   className="hover:text-accent transition-colors"
@@ -116,7 +116,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={18} className="shrink-0 text-accent" />
+                <Phone size={18} className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200" />
                 <a 
                   href="tel:+1605013006"
                   className="hover:text-accent transition-colors"
