@@ -45,7 +45,7 @@ const Footer = () => {
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110">
                 <FaLinkedinIn className="text-primary-foreground text-lg" />
               </a>
-              <a href="https://wa.me/15551234567" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110">
+              <a href="https://wa.me/1605013006" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110">
                 <FaWhatsapp className="text-primary-foreground text-lg" />
               </a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110">
@@ -102,14 +102,9 @@ const Footer = () => {
             <ul className="space-y-4 text-[15px] text-primary-foreground/80">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="mt-0.5 shrink-0 text-accent" />
-                <a 
-                  href="https://maps.google.com/?q=123+Business+Tower+Suite+400+New+York+NY+10001" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-accent transition-colors"
-                >
-                  123 Business Tower, Suite 400, New York, NY 10001
-                </a>
+                <span className="hover:text-accent transition-colors leading-relaxed max-w-[280px]">
+                  Mohali (Punjab) | London (United Kingdom) | Dubai (United Arab Emirates)
+                </span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="shrink-0 text-accent" />
@@ -123,10 +118,10 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <Phone size={18} className="shrink-0 text-accent" />
                 <a 
-                  href="tel:+15551234567"
+                  href="tel:+1605013006"
                   className="hover:text-accent transition-colors"
                 >
-                  +1 (555) 123-4567
+                  1605013006
                 </a>
               </li>
             </ul>
