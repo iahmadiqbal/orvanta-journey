@@ -102,7 +102,7 @@ const Footer = () => {
             <ul className="space-y-4 text-[15px] text-primary-foreground/80">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="mt-0.5 shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200" />
-                <span className="leading-relaxed max-w-[280px]">
+                <span className="leading-relaxed max-w-[280px] hover:text-accent transition-colors cursor-pointer">
                   Mohali (Punjab) | London (United Kingdom) | Dubai (United Arab Emirates)
                 </span>
               </li>
