@@ -20,30 +20,11 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-border/50 shadow-sm">
       <div className="container mx-auto flex items-center justify-between h-20 px-6 lg:px-12 max-w-[1920px]">
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="relative h-12 w-12 rounded-xl bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105 overflow-hidden">
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-1 left-1 w-2 h-2 border-t-2 border-l-2 border-white"></div>
-              <div className="absolute top-1 right-1 w-2 h-2 border-t-2 border-r-2 border-white"></div>
-              <div className="absolute bottom-1 left-1 w-2 h-2 border-b-2 border-l-2 border-white"></div>
-              <div className="absolute bottom-1 right-1 w-2 h-2 border-b-2 border-r-2 border-white"></div>
-            </div>
-            <div className="relative z-10 flex flex-col items-center">
-              <span className="font-heading text-primary-foreground font-extrabold text-2xl leading-none">O</span>
-              <div className="flex gap-0.5 mt-0.5">
-                <div className="w-1 h-0.5 bg-white/60"></div>
-                <div className="w-1 h-0.5 bg-white/60"></div>
-                <div className="w-1 h-0.5 bg-white/60"></div>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-heading font-bold text-xl lg:text-2xl text-foreground tracking-tight leading-none">
-              Orvanta
-            </span>
-            <span className="font-heading font-semibold text-sm lg:text-base text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent leading-none">
-              Advisory
-            </span>
-          </div>
+          <img 
+            src="/logo.png" 
+            alt="Orvanta Advisory Logo" 
+            className="h-12 w-auto object-contain transition-all duration-300 group-hover:scale-105 mix-blend-multiply"
+          />
         </Link>
 
         {/* Desktop nav */}

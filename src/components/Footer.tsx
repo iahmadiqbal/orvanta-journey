@@ -10,28 +10,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="relative h-11 w-11 rounded-xl bg-gradient-to-br from-accent to-amber-500 flex items-center justify-center shadow-lg overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-1 left-1 w-2 h-2 border-t-2 border-l-2 border-white"></div>
-                  <div className="absolute top-1 right-1 w-2 h-2 border-t-2 border-r-2 border-white"></div>
-                  <div className="absolute bottom-1 left-1 w-2 h-2 border-b-2 border-l-2 border-white"></div>
-                  <div className="absolute bottom-1 right-1 w-2 h-2 border-b-2 border-r-2 border-white"></div>
-                </div>
-                <div className="relative z-10 flex flex-col items-center">
-                  <span className="font-heading font-extrabold text-xl text-accent-foreground leading-none">O</span>
-                  <div className="flex gap-0.5 mt-0.5">
-                    <div className="w-1 h-0.5 bg-accent-foreground/60"></div>
-                    <div className="w-1 h-0.5 bg-accent-foreground/60"></div>
-                    <div className="w-1 h-0.5 bg-accent-foreground/60"></div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading font-bold text-lg leading-none">Orvanta</span>
-                <span className="font-heading font-semibold text-sm text-accent leading-none mt-1">Advisory</span>
-              </div>
-            </div>
+            <Link to="/" className="inline-block mb-5">
+              <img 
+                src="/logo.png" 
+                alt="Orvanta Advisory Logo" 
+                className="h-12 w-auto object-contain brightness-0 invert"
+              />
+            </Link>
             <p className="text-primary-foreground/80 text-[15px] leading-relaxed mb-6">
               Your trusted partner for study, work, and tourist visa applications worldwide.
             </p>
