@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp, FaTwitter } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaWhatsapp,
+  FaTwitter,
+} from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
@@ -11,29 +17,55 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block mb-3">
-              <img 
-                src="/logo.png" 
-                alt="Orvanta Advisory Logo" 
+              <img
+                src="/logo.png"
+                alt="Orvanta Advisory Logo"
                 className="h-12 w-auto object-contain brightness-0 invert"
               />
             </Link>
             <p className="text-primary-foreground/80 text-[15px] leading-relaxed mb-4">
-              Your trusted partner for study, work, and tourist visa applications worldwide.
+              Your trusted partner for study, work, and tourist visa
+              applications worldwide.
             </p>
             <div className="flex gap-2.5">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
+              >
                 <FaFacebookF className="text-primary-foreground text-lg" />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110">
+              <a
+                href="https://www.instagram.com/orvantaadvisory/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
+              >
                 <FaInstagram className="text-primary-foreground text-lg" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
+              >
                 <FaLinkedinIn className="text-primary-foreground text-lg" />
               </a>
-              <a href="https://wa.me/1605013006" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110">
+              <a
+                href="https://wa.me/1605013006"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
+              >
                 <FaWhatsapp className="text-primary-foreground text-lg" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
+              >
                 <FaTwitter className="text-primary-foreground text-lg" />
               </a>
             </div>
@@ -41,7 +73,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading font-semibold mb-3 text-lg">Quick Links</h4>
+            <h4 className="font-heading font-semibold mb-3 text-lg">
+              Quick Links
+            </h4>
             <ul className="space-y-2 text-[15px] text-primary-foreground/80">
               {[
                 { label: "Home", to: "/" },
@@ -51,7 +85,10 @@ const Footer = () => {
                 { label: "Contact", to: "/contact" },
               ].map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200">
+                  <Link
+                    to={l.to}
+                    className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
+                  >
                     {l.label}
                   </Link>
                 </li>
@@ -61,20 +98,31 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-heading font-semibold mb-3 text-lg">Services</h4>
+            <h4 className="font-heading font-semibold mb-3 text-lg">
+              Services
+            </h4>
             <ul className="space-y-2 text-[15px] text-primary-foreground/80">
               <li>
-                <Link to="/services#study-visa" className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200">
+                <Link
+                  to="/services#study-visa"
+                  className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
+                >
                   Study Visa
                 </Link>
               </li>
               <li>
-                <Link to="/services#work-visa" className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200">
+                <Link
+                  to="/services#work-visa"
+                  className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
+                >
                   Work Visa
                 </Link>
               </li>
               <li>
-                <Link to="/services#immigrant-visa" className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200">
+                <Link
+                  to="/services#immigrant-visa"
+                  className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
+                >
                   Immigrant Visa
                 </Link>
               </li>
@@ -83,17 +131,26 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-heading font-semibold mb-3 text-lg">Contact Us</h4>
+            <h4 className="font-heading font-semibold mb-3 text-lg">
+              Contact Us
+            </h4>
             <ul className="space-y-3 text-[15px] text-primary-foreground/80">
               <li className="flex items-start gap-3">
-                <MapPin size={18} className="mt-0.5 shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200" />
+                <MapPin
+                  size={18}
+                  className="mt-0.5 shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200"
+                />
                 <span className="leading-relaxed hover:text-accent transition-colors cursor-pointer">
-                  Mohali, India | London, United Kingdom | Dubai, United Arab Emirates
+                  Mohali, India | London, United Kingdom | Dubai, United Arab
+                  Emirates
                 </span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail size={18} className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200" />
-                <a 
+                <Mail
+                  size={18}
+                  className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200"
+                />
+                <a
                   href="mailto:info@orvantaadvisory.com"
                   className="hover:text-accent transition-colors cursor-pointer"
                 >
@@ -101,8 +158,11 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone size={18} className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200" />
-                <a 
+                <Phone
+                  size={18}
+                  className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200"
+                />
+                <a
                   href="tel:+1605013006"
                   className="hover:text-accent transition-colors cursor-pointer"
                 >
@@ -114,10 +174,17 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/10 mt-8 lg:mt-10 pt-5 flex flex-col md:flex-row items-center justify-between gap-3 text-[15px] text-primary-foreground/60">
-          <p>&copy; {new Date().getFullYear()} Orvanta Advisory. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Orvanta Advisory. All rights
+            reserved.
+          </p>
           <div className="flex gap-6">
-            <Link to="/contact" className="hover:text-accent transition-colors">Privacy Policy</Link>
-            <Link to="/contact" className="hover:text-accent transition-colors">Terms of Service</Link>
+            <Link to="/contact" className="hover:text-accent transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/contact" className="hover:text-accent transition-colors">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>
