@@ -13,6 +13,8 @@ app.use(
     origin: [
       "http://localhost:8080",
       "https://orvanta-journey.vercel.app",
+      "https://orvantaadvisory.com",
+      "https://www.orvantaadvisory.com",
       /\.vercel\.app$/,
     ],
     credentials: true,
