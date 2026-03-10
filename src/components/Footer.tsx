@@ -173,18 +173,6 @@ const Footer = () => {
                   info@orvantaadvisory.com
                 </a>
               </li>
-              <li className="flex items-center gap-2.5">
-                <Phone
-                  size={18}
-                  className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200"
-                />
-                <a
-                  href="tel:+918196982305"
-                  className="hover:text-accent transition-colors cursor-pointer"
-                >
-                  +91 81969 82305
-                </a>
-              </li>
             </ul>
           </div>
         </div>
