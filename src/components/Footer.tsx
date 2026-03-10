@@ -53,7 +53,7 @@ const Footer = () => {
                 <FaLinkedinIn className="text-primary-foreground text-lg" />
               </a>
               <a
-                href="https://wa.me/1605013006"
+                href="https://wa.me/447411962102"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
@@ -163,10 +163,10 @@ const Footer = () => {
                   className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200"
                 />
                 <a
-                  href="tel:+1605013006"
+                  href="tel:+918196982305"
                   className="hover:text-accent transition-colors cursor-pointer"
                 >
-                  1605013006
+                  +91 81969 82305
                 </a>
               </li>
             </ul>
