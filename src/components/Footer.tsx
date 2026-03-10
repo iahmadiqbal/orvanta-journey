@@ -142,6 +142,14 @@ const Footer = () => {
                   Financial Advisors
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/services#additional-services"
+                  className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
+                >
+                  Document Translation
+                </Link>
+              </li>
             </ul>
           </div>
 

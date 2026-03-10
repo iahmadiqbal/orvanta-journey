@@ -94,6 +94,12 @@ const additionalServices = [
     title: "Education Career Online Course", 
     desc: "Access premium online courses and career development programs designed for global professionals. Enhance your skills with industry-recognized certifications, language training, and specialized courses. Our educational programs help you stay competitive in the international job market and advance your career with confidence.",
     image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&h=600&fit=crop"
+  },
+  { 
+    id: "document-translation",
+    title: "Document Translation Services", 
+    desc: "Professional translation and certification of documents for visa and immigration purposes. Our certified translators ensure accuracy and compliance with embassy requirements. We handle birth certificates, academic transcripts, employment letters, and all official documents needed for your application process.",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop"
   }
 ];
 
