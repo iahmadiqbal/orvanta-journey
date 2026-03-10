@@ -37,7 +37,7 @@ const Footer = () => {
                 <FaFacebookF className="text-primary-foreground text-lg" />
               </a>
               <a
-                href="https://www.instagram.com/orvantaadvisory/"
+                href="https://www.instagram.com/orvanta_advisory?igsh=bTZ2aHFoNGEyZmZ4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
