@@ -126,6 +126,22 @@ const Footer = () => {
                   Immigrant Visa
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/services#additional-services"
+                  className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
+                >
+                  Business Consultation
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services#additional-services"
+                  className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
+                >
+                  Financial Advisors
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -60,31 +60,37 @@ const mainServices = [
 
 const additionalServices = [
   { 
+    id: "business-consultation",
     title: "Business Consultation", 
     desc: "Expert guidance for starting and growing your business internationally. We help you navigate market entry, business setup, and expansion strategies. Our consultants provide comprehensive support in business planning, market research, and operational optimization to ensure your success in global markets.",
     image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop"
   },
   { 
+    id: "business-investment",
     title: "Business Investment", 
     desc: "Explore lucrative investment opportunities in global markets with our expert guidance. Our team provides detailed market analysis, risk assessment, and investment planning services. We help you identify profitable ventures, structure investments, and maximize returns while ensuring compliance with international regulations.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
   },
   { 
+    id: "stock-investment",
     title: "Stock Investment", 
     desc: "Professional stock market advisory and portfolio management services tailored to your financial goals. Get expert insights on market trends, investment strategies, and risk management. Our financial analysts help you build a diversified portfolio and make informed decisions for better returns and long-term wealth creation.",
     image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop"
   },
   { 
+    id: "financial-advisors",
     title: "Financial Advisors", 
     desc: "Comprehensive financial planning and wealth management solutions for individuals and businesses. From retirement planning to tax optimization and asset allocation, our experienced advisors help you achieve financial security. We provide personalized strategies to grow, protect, and preserve your wealth for future generations.",
     image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop"
   },
   { 
+    id: "legal",
     title: "Legal", 
     desc: "Professional legal consultation for immigration, business contracts, and documentation needs. Our legal team provides expert support for visa applications, business agreements, and compliance matters. We ensure all your legal requirements are met with accuracy and efficiency. Please note: Legal services are not available for Canada.",
     image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=600&fit=crop"
   },
   { 
+    id: "education-career",
     title: "Education Career Online Course", 
     desc: "Access premium online courses and career development programs designed for global professionals. Enhance your skills with industry-recognized certifications, language training, and specialized courses. Our educational programs help you stay competitive in the international job market and advance your career with confidence.",
     image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&h=600&fit=crop"
@@ -186,7 +192,7 @@ const Services = () => {
       </section>
 
       {/* Additional Services */}
-      <section className="py-20 lg:py-28 bg-muted">
+      <section id="additional-services" className="py-20 lg:py-28 bg-muted">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
@@ -201,6 +207,7 @@ const Services = () => {
             {additionalServices.map((service, i) => (
               <motion.div
                 key={service.title}
+                id={service.id}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
