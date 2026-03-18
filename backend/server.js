@@ -3,6 +3,7 @@ const cors = require("cors");
 require("dotenv").config();
 const connectDB = require("./config/db");
 const contactRoutes = require("./routes/contactRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -29,6 +30,7 @@ app.get("/", (req, res) => {
 
 // Routes
 app.use("/api/contact", contactRoutes);
+app.use("/api/payments", paymentRoutes);
 
 // Connect DB then start server
 connectDB().then(() => {
