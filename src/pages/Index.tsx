@@ -326,6 +326,71 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Office Locations */}
+      <section className="py-20 lg:py-28 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">Our Global Offices</h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">Visit us at one of our offices around the world.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                country: "United Kingdom",
+                label: "UK Address (Orvanta Advisory)",
+                address: "124 City Rd, London EC1V 2NX, United Kingdom",
+                image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=300&fit=crop",
+              },
+              {
+                country: "Belize",
+                label: "Belize Address",
+                address: "New Horizon Building, Suite 105, 3½ Miles Philip S.W, Philip Goldson Hwy, Belize City, Belize",
+                image: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=600&h=300&fit=crop",
+              },
+              {
+                country: "Hong Kong",
+                label: "Hong Kong Address",
+                address: "Unit 2201-02, 22/F, Universal Trade Centre, 3 Arbuthnot Road, Central, Hong Kong, 999077",
+                image: "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=600&h=300&fit=crop",
+              },
+            ].map((office, i) => (
+              <motion.div
+                key={office.country}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={i}
+                className="bg-card rounded-2xl overflow-hidden card-elevated border border-border"
+              >
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={office.image}
+                    alt={office.country}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-primary/40" />
+                  <div className="absolute bottom-3 left-4">
+                    <span className="text-white font-heading font-bold text-lg drop-shadow">{office.country}</span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-start gap-3">
+                    <div className="h-9 w-9 rounded-lg bg-primary/5 flex items-center justify-center shrink-0 mt-0.5">
+                      <FaGlobe size={18} className="text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-heading font-semibold text-foreground text-sm mb-1">{office.label}</p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{office.address}</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 lg:py-28 hero-bg">
         <div className="container mx-auto px-4 lg:px-8 text-center">

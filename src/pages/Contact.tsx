@@ -346,12 +346,26 @@ const Contact = () => {
                     <MapPin size={22} className="text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground text-base">
-                      Office Address
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      123 Business Tower, Suite 400, New York, NY 10001
-                    </p>
+                    <p className="font-semibold text-foreground text-base">UK Address (Orvanta Advisory)</p>
+                    <p className="text-muted-foreground text-sm">124 City Rd, London EC1V 2NX, United Kingdom</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="h-12 w-12 rounded-xl bg-primary/5 flex items-center justify-center shrink-0">
+                    <MapPin size={22} className="text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground text-base">Belize Address</p>
+                    <p className="text-muted-foreground text-sm">New Horizon Building, Suite 105, 3½ Miles Philip S.W, Philip Goldson Hwy, Belize City, Belize</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="h-12 w-12 rounded-xl bg-primary/5 flex items-center justify-center shrink-0">
+                    <MapPin size={22} className="text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground text-base">Hong Kong Address</p>
+                    <p className="text-muted-foreground text-sm">Unit 2201-02, 22/F, Universal Trade Centre, 3 Arbuthnot Road, Central, Hong Kong, 999077</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
