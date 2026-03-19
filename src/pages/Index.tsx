@@ -22,30 +22,35 @@ const countries = [
   { 
     name: "United Kingdom", 
     desc: "World-class education and career opportunities.",
+    details: ["Top-ranked universities like Oxford & Cambridge", "Post-study work visa up to 2 years", "Diverse multicultural environment", "Strong job market across all sectors", "Gateway to Europe and global careers"],
     image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=300&fit=crop",
     gradient: "from-blue-500/30 via-indigo-500/30 to-purple-500/30"
   },
   { 
     name: "Canada", 
     desc: "Immigration-friendly policies and high quality of life.",
+    details: ["Express Entry & PNP immigration pathways", "Free healthcare and social benefits for PR", "One of the safest countries in the world", "High demand for skilled workers", "Clear pathway to permanent residency"],
     image: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=400&h=300&fit=crop",
     gradient: "from-red-500/30 via-rose-500/30 to-pink-500/30"
   },
   { 
     name: "Australia", 
     desc: "Excellent study and skilled worker programs.",
+    details: ["World-class universities and research institutes", "Skilled Migration & Graduate visa options", "High average salary and living standards", "Beautiful climate and outdoor lifestyle", "Strong demand in healthcare, IT & engineering"],
     image: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=400&h=300&fit=crop",
     gradient: "from-blue-400/30 via-cyan-500/30 to-teal-500/30"
   },
   { 
     name: "Germany", 
     desc: "Tuition-free education and strong economy.",
+    details: ["No tuition fees at public universities", "EU Blue Card for skilled professionals", "Largest economy in Europe", "High quality of life and work-life balance", "Opportunity to settle permanently after 5 years"],
     image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400&h=300&fit=crop",
     gradient: "from-amber-500/30 via-orange-500/30 to-red-500/30"
   },
   { 
     name: "UAE", 
     desc: "Thriving job market and business opportunities.",
+    details: ["Tax-free income for professionals", "Golden Visa for investors & skilled talent", "Booming sectors: tech, finance & real estate", "World-class infrastructure and lifestyle", "Strategic hub connecting East and West"],
     image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop",
     gradient: "from-emerald-500/30 via-green-500/30 to-teal-600/30"
   },
@@ -202,9 +207,17 @@ const Index = () => {
                   <div className={`absolute inset-0 bg-gradient-to-br ${c.gradient} group-hover:opacity-60 transition-opacity duration-300`}></div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                 </div>
-                <div className="p-6 text-center">
-                  <h3 className="font-heading font-bold text-lg mb-2 text-foreground group-hover:text-secondary transition-colors">{c.name}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{c.desc}</p>
+                <div className="p-6">
+                  <h3 className="font-heading font-bold text-lg mb-1 text-foreground group-hover:text-secondary transition-colors">{c.name}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-3">{c.desc}</p>
+                  <ul className="space-y-1.5">
+                    {c.details.map((d) => (
+                      <li key={d} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className="text-secondary font-bold mt-0.5">✓</span>
+                        <span>{d}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}
@@ -232,9 +245,17 @@ const Index = () => {
                   <div className={`absolute inset-0 bg-gradient-to-br ${c.gradient} group-hover:opacity-60 transition-opacity duration-300`}></div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                 </div>
-                <div className="p-6 text-center">
-                  <h3 className="font-heading font-bold text-lg mb-2 text-foreground group-hover:text-secondary transition-colors">{c.name}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{c.desc}</p>
+                <div className="p-6">
+                  <h3 className="font-heading font-bold text-lg mb-1 text-foreground group-hover:text-secondary transition-colors">{c.name}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-3">{c.desc}</p>
+                  <ul className="space-y-1.5">
+                    {c.details.map((d) => (
+                      <li key={d} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className="text-secondary font-bold mt-0.5">✓</span>
+                        <span>{d}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}
