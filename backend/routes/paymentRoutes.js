@@ -97,4 +97,38 @@ router.post("/confirm-signup", async (req, res) => {
   }
 });
 
+// Create payment intent for booking (hourly service)
+router.post("/create-booking-intent", async (req, res) => {
+  const { hours, clerkUserId } = req.body;
+
+  try {
+    const ratePerHour = 850; // £850 per hour
+    const amount = hours * ratePerHour * 100; // Convert to pence
+
+    // Create payment intent
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount,
+      currency: "gbp",
+      metadata: {
+        clerkUserId,
+        hours: hours.toString(),
+        type: "booking_payment",
+      },
+    });
+
+    console.log("✅ Booking payment intent created:", paymentIntent.id);
+
+    res.status(200).json({
+      clientSecret: paymentIntent.client_secret,
+      amount: amount / 100, // Return amount in pounds
+    });
+  } catch (error) {
+    console.error("❌ Error creating booking payment intent:", error.message);
+    res.status(500).json({
+      success: false,
+      message: "Failed to create payment intent",
+    });
+  }
+});
+
 module.exports = router;

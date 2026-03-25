@@ -1,20 +1,22 @@
-import { useUser } from "@clerk/clerk-react";
-import Layout from "@/components/Layout";
+import { Routes, Route } from "react-router-dom";
+import DashboardLayout from "@/components/dashboard/DashboardLayout";
+import Overview from "./dashboard/Overview";
+import BookService from "./dashboard/BookService";
+import MyBookings from "./dashboard/MyBookings";
+import Invoices from "./dashboard/Invoices";
+import Profile from "./dashboard/Profile";
 
 const Dashboard = () => {
-  const { user } = useUser();
-
   return (
-    <Layout>
-      <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-heading font-bold mb-4">
-          Welcome to Your Dashboard
-        </h1>
-        <p className="text-lg text-muted-foreground">
-          Hello {user?.firstName}! Your B2B portal is ready.
-        </p>
-      </div>
-    </Layout>
+    <DashboardLayout>
+      <Routes>
+        <Route path="/" element={<Overview />} />
+        <Route path="/book" element={<BookService />} />
+        <Route path="/bookings" element={<MyBookings />} />
+        <Route path="/invoices" element={<Invoices />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+    </DashboardLayout>
   );
 };
 

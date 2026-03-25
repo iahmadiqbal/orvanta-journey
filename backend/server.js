@@ -4,6 +4,7 @@ require("dotenv").config();
 const connectDB = require("./config/db");
 const contactRoutes = require("./routes/contactRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
+const bookingRoutes = require("./routes/bookingRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -31,6 +32,7 @@ app.get("/", (req, res) => {
 // Routes
 app.use("/api/contact", contactRoutes);
 app.use("/api/payments", paymentRoutes);
+app.use("/api/bookings", bookingRoutes);
 
 // Connect DB then start server
 connectDB().then(() => {
