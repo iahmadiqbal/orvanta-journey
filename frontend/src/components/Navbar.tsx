@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
@@ -69,6 +69,20 @@ const Navbar = () => {
   // Add timeout refs for delayed closing
   const menuTimeoutRef = useState<NodeJS.Timeout | null>(null)[0];
   const categoryTimeoutRef = useState<NodeJS.Timeout | null>(null)[0];
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [open]);
 
   const handleMenuEnter = (label: string) => {
     if (menuTimeoutRef) clearTimeout(menuTimeoutRef);
@@ -200,59 +214,61 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-white border-b border-border px-6 py-6 space-y-4 animate-fade-in-up shadow-lg">
-          {navLinks.map((link) => (
-            <div key={link.to}>
-              <Link
-                to={link.to}
-                onClick={() => !link.dropdown && setOpen(false)}
-                className={`block py-3 text-base font-medium transition-colors hover:text-secondary ${
-                  location.pathname === link.to ? "text-secondary" : "text-muted-foreground"
-                }`}
-              >
-                {link.label}
-              </Link>
-              {link.dropdown && (
-                <div className="ml-4 mt-2 space-y-2">
-                  {link.label === "Services" ? (
-                    link.dropdown.map((category: any) => (
-                      <div key={category.category} className="mb-3">
-                        <h4 className="font-semibold text-sm text-foreground mb-1">
-                          {category.category}
-                        </h4>
-                        {category.items.map((item: any) => (
-                          <Link
-                            key={item.to}
-                            to={item.to}
-                            onClick={() => setOpen(false)}
-                            className="block py-2 text-sm text-muted-foreground hover:text-secondary"
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </div>
-                    ))
-                  ) : (
-                    link.dropdown.map((item: any) => (
-                      <Link
-                        key={item.to}
-                        to={item.to}
-                        onClick={() => setOpen(false)}
-                        className="block py-2 text-sm text-muted-foreground hover:text-secondary"
-                      >
-                        {item.label}
-                      </Link>
-                    ))
-                  )}
-                </div>
-              )}
-            </div>
-          ))}
-          <Link to="/sign-up" onClick={() => setOpen(false)}>
-            <Button className="w-full bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 font-semibold h-12 text-base">
-              Sign Up
-            </Button>
-          </Link>
+        <div className="lg:hidden fixed inset-0 top-20 bg-white z-40 overflow-y-auto animate-fade-in-up shadow-lg">
+          <div className="px-6 py-6 space-y-4">
+            {navLinks.map((link) => (
+              <div key={link.to}>
+                <Link
+                  to={link.to}
+                  onClick={() => !link.dropdown && setOpen(false)}
+                  className={`block py-3 text-base font-medium transition-colors hover:text-secondary ${
+                    location.pathname === link.to ? "text-secondary" : "text-muted-foreground"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+                {link.dropdown && (
+                  <div className="ml-4 mt-2 space-y-2">
+                    {link.label === "Services" ? (
+                      link.dropdown.map((category: any) => (
+                        <div key={category.category} className="mb-3">
+                          <h4 className="font-semibold text-sm text-foreground mb-1">
+                            {category.category}
+                          </h4>
+                          {category.items.map((item: any) => (
+                            <Link
+                              key={item.to}
+                              to={item.to}
+                              onClick={() => setOpen(false)}
+                              className="block py-2 text-sm text-muted-foreground hover:text-secondary"
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      ))
+                    ) : (
+                      link.dropdown.map((item: any) => (
+                        <Link
+                          key={item.to}
+                          to={item.to}
+                          onClick={() => setOpen(false)}
+                          className="block py-2 text-sm text-muted-foreground hover:text-secondary"
+                        >
+                          {item.label}
+                        </Link>
+                      ))
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+            <Link to="/sign-up" onClick={() => setOpen(false)}>
+              <Button className="w-full bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 font-semibold h-12 text-base">
+                Sign Up
+              </Button>
+            </Link>
+          </div>
         </div>
       )}
     </nav>
