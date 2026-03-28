@@ -214,8 +214,8 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden fixed inset-0 top-20 bg-white z-40 overflow-y-auto animate-fade-in-up shadow-lg">
-          <div className="px-6 py-6 space-y-4">
+        <div className="lg:hidden fixed left-0 right-0 top-20 bottom-0 bg-white z-40 overflow-y-auto animate-fade-in-up shadow-lg border-t border-border">
+          <div className="px-6 py-6 space-y-4 pb-24">
             {navLinks.map((link) => (
               <div key={link.to}>
                 <Link
