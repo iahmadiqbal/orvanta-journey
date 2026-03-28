@@ -214,24 +214,24 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-white border-b border-border px-6 py-6 space-y-4 animate-fade-in-up shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto">
+        <div className="lg:hidden bg-white border-b border-border px-6 py-4 space-y-1 animate-fade-in-up shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto">
           {navLinks.map((link) => (
             <div key={link.to}>
               <Link
                 to={link.to}
                 onClick={() => !link.dropdown && setOpen(false)}
-                className={`block py-3 text-base font-medium transition-colors hover:text-secondary ${
+                className={`block py-2 text-base font-medium transition-colors hover:text-secondary ${
                   location.pathname === link.to ? "text-secondary" : "text-muted-foreground"
                 }`}
               >
                 {link.label}
               </Link>
               {link.dropdown && (
-                <div className="ml-4 mt-2 space-y-2">
+                <div className="ml-4 mt-1 space-y-0">
                   {link.label === "Services" ? (
                     link.dropdown.map((category: any) => (
-                      <div key={category.category} className="mb-3">
-                        <h4 className="font-semibold text-sm text-foreground mb-1">
+                      <div key={category.category} className="mb-2">
+                        <h4 className="font-semibold text-sm text-foreground mb-0.5">
                           {category.category}
                         </h4>
                         {category.items.map((item: any) => (
@@ -239,7 +239,7 @@ const Navbar = () => {
                             key={item.to}
                             to={item.to}
                             onClick={() => setOpen(false)}
-                            className="block py-2 text-sm text-muted-foreground hover:text-secondary"
+                            className="block py-1.5 text-sm text-muted-foreground hover:text-secondary"
                           >
                             {item.label}
                           </Link>
@@ -252,7 +252,7 @@ const Navbar = () => {
                         key={item.to}
                         to={item.to}
                         onClick={() => setOpen(false)}
-                        className="block py-2 text-sm text-muted-foreground hover:text-secondary"
+                        className="block py-1.5 text-sm text-muted-foreground hover:text-secondary"
                       >
                         {item.label}
                       </Link>
