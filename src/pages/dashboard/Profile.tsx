@@ -1,129 +1,173 @@
-import { useEffect, useState } from "react";
-import { useUser } from "@clerk/clerk-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { User, Mail, Calendar, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { User, Mail, Building2, Phone, LogOut } from "lucide-react";
 
 const Profile = () => {
-  const { user } = useUser();
-  const [bookingsCount, setBookingsCount] = useState(0);
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: localStorage.getItem("userName") || "",
+    email: localStorage.getItem("userEmail") || "",
+    company: localStorage.getItem("userCompany") || "",
+    phone: "+1 234 567 8900"
+  });
 
-  useEffect(() => {
-    fetchBookingsCount();
-  }, [user]);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
-  const fetchBookingsCount = async () => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/bookings/my-bookings?clerkUserId=${user?.id}`,
-      );
-      const data = await response.json();
+  const handleSave = (e: React.FormEvent) => {
+    e.preventDefault();
+    localStorage.setItem("userName", formData.name);
+    localStorage.setItem("userCompany", formData.company);
+    alert("Profile updated successfully!");
+  };
 
-      if (data.success) {
-        setBookingsCount(data.bookings.length);
-      }
-    } catch (error) {
-      console.error("Error fetching bookings count:", error);
-    }
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("paymentCompleted");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userCompany");
+    navigate("/sign-in");
   };
 
   return (
-    <div className="max-w-3xl mx-auto space-y-6">
+    <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-heading font-bold mb-2">Profile</h1>
-        <p className="text-muted-foreground">
-          Your account information and settings
-        </p>
+        <h1 className="text-3xl font-heading font-bold mb-2">Account Settings</h1>
+        <p className="text-muted-foreground">Manage your profile and account preferences</p>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Account Information</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="flex items-start gap-4">
-            <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-              <User className="text-accent" size={24} />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Full Name</p>
-              <p className="text-lg font-medium">
-                {user?.firstName} {user?.lastName}
-              </p>
-            </div>
-          </div>
+      <div className="grid lg:grid-cols-3 gap-6">
+        {/* Profile Form */}
+        <div className="lg:col-span-2">
+          <Card>
+            <CardHeader>
+              <CardTitle>Profile Information</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSave} className="space-y-5">
+                <div>
+                  <Label htmlFor="name" className="text-sm font-medium text-foreground mb-2 flex items-center gap-2">
+                    <User size={16} />
+                    Full Name
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="h-11"
+                  />
+                </div>
 
-          <div className="flex items-start gap-4">
-            <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-              <Mail className="text-accent" size={24} />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Email Address</p>
-              <p className="text-lg font-medium">
-                {user?.primaryEmailAddress?.emailAddress}
-              </p>
-            </div>
-          </div>
+                <div>
+                  <Label htmlFor="email" className="text-sm font-medium text-foreground mb-2 flex items-center gap-2">
+                    <Mail size={16} />
+                    Email Address
+                  </Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="h-11"
+                    disabled
+                  />
+                  <p className="text-xs text-muted-foreground mt-1">Email cannot be changed</p>
+                </div>
 
-          <div className="flex items-start gap-4">
-            <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-              <Calendar className="text-accent" size={24} />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Member Since</p>
-              <p className="text-lg font-medium">
-                {user?.createdAt
-                  ? new Date(user.createdAt).toLocaleDateString("en-GB", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })
-                  : "-"}
-              </p>
-            </div>
-          </div>
+                <div>
+                  <Label htmlFor="company" className="text-sm font-medium text-foreground mb-2 flex items-center gap-2">
+                    <Building2 size={16} />
+                    Company Name
+                  </Label>
+                  <Input
+                    id="company"
+                    name="company"
+                    type="text"
+                    value={formData.company}
+                    onChange={handleChange}
+                    className="h-11"
+                  />
+                </div>
 
-          <div className="flex items-start gap-4">
-            <div className="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center shrink-0">
-              <CheckCircle className="text-green-600" size={24} />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Account Status</p>
-              <p className="text-lg font-medium text-green-600">
-                Active - B2B Member
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+                <div>
+                  <Label htmlFor="phone" className="text-sm font-medium text-foreground mb-2 flex items-center gap-2">
+                    <Phone size={16} />
+                    Phone Number
+                  </Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="h-11"
+                  />
+                </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Account Statistics</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-2 gap-6">
-            <div>
-              <p className="text-sm text-muted-foreground mb-1">
-                Total Bookings
-              </p>
-              <p className="text-3xl font-bold">{bookingsCount}</p>
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground mb-1">
-                Registration Date
-              </p>
-              <p className="text-3xl font-bold">
-                {user?.createdAt
-                  ? new Date(user.createdAt).toLocaleDateString("en-GB", {
-                      month: "short",
-                      year: "numeric",
-                    })
-                  : "-"}
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+                <Button
+                  type="submit"
+                  className="bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90"
+                >
+                  Save Changes
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Account Actions */}
+        <div className="space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Membership</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <p className="text-sm text-muted-foreground mb-1">Plan</p>
+                <p className="font-semibold">B2B Annual</p>
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground mb-1">Status</p>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">
+                  Active
+                </span>
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground mb-1">Amount</p>
+                <p className="font-semibold">$999/year</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Account Actions</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Button
+                onClick={handleLogout}
+                variant="destructive"
+                className="w-full"
+              >
+                <LogOut className="mr-2" size={18} />
+                Logout
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 };

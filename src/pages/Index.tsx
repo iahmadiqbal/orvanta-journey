@@ -13,9 +13,30 @@ const fadeUp = {
 };
 
 const services = [
-  { icon: FaGraduationCap, title: "Study Visa", desc: "Get accepted into top universities worldwide. We guide you through applications, documentation, and interviews." },
-  { icon: FaBriefcase, title: "Work Visa", desc: "Unlock international career opportunities. We handle employer sponsorship, permits, and compliance." },
-  { icon: FaPlane, title: "Immigrant Visa", desc: "Permanent residency solutions. Expert guidance for immigration and settlement in your dream country." },
+  { 
+    icon: FaPlane, 
+    title: "Immigration Services", 
+    desc: "Visa services, PR applications, work permits, and study abroad programs for UK, Hong Kong, and India.",
+    link: "/services/immigration/visa"
+  },
+  { 
+    icon: FaBriefcase, 
+    title: "Investment Services", 
+    desc: "Real estate investments, stock market guidance, tax planning, and NRI investment solutions.",
+    link: "/services/investments/real-estate"
+  },
+  { 
+    icon: FaUserTie, 
+    title: "Consultation Services", 
+    desc: "Global market guidance, business expansion support, and strategic growth planning.",
+    link: "/services/consultation/global-market"
+  },
+  { 
+    icon: FaGraduationCap, 
+    title: "Legal Services", 
+    desc: "Legal documentation, risk management, and dispute prevention for international business.",
+    link: "/services/legal/documentation"
+  },
 ];
 
 const countries = [
@@ -122,20 +143,20 @@ const Index = () => {
               custom={0}
               className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-primary-foreground leading-tight mb-6"
             >
-              Start Your Journey Abroad with{" "}
-              <span className="text-gradient">Trusted Immigration Experts</span>
+              Your Global Business Partner for{" "}
+              <span className="text-gradient">Immigration & Investment Solutions</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}
               custom={1}
               className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed max-w-3xl mx-auto"
             >
-              Expert guidance for study visas, work permits, and tourist visas. We make your global aspirations a reality with personalized support every step of the way.
+              Expert B2B services for immigration, investments, consultation, and legal support across UK, Hong Kong, and India. We help businesses expand globally with personalized guidance.
             </motion.p>
             <motion.div variants={fadeUp} custom={2} className="flex flex-wrap gap-4 justify-center">
-              <Link to="/contact">
+              <Link to="/sign-up">
                 <Button size="lg" className="bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 font-semibold text-base xl:text-lg px-8 xl:px-10 shadow-lg hover:shadow-xl transition-all duration-200 h-12 xl:h-14">
-                  Book Free Consultation
+                  Get Started
                 </Button>
               </Link>
               <Link to="/contact">
@@ -155,16 +176,16 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">Our Services</h2>
             <p className="text-muted-foreground max-w-xl mx-auto">Comprehensive immigration solutions tailored to your needs.</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((s, i) => (
-              <Link key={s.title} to="/services" className="h-full">
+              <Link key={s.title} to={s.link} className="h-full">
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeUp}
                   custom={i}
-                  className="bg-card rounded-xl p-8 card-elevated border border-border text-center cursor-pointer group h-full min-h-[280px] flex flex-col items-center justify-start"
+                  className="bg-card rounded-xl p-8 card-elevated border border-border text-center cursor-pointer group h-full min-h-[280px] flex flex-col items-center justify-start hover:shadow-2xl transition-all duration-300"
                 >
                   <div className="h-14 w-14 rounded-xl bg-secondary/10 group-hover:bg-secondary/20 flex items-center justify-center mb-5 transition-all duration-200">
                     <s.icon size={28} className="text-secondary group-hover:scale-110 transition-transform duration-200" />
@@ -358,55 +379,71 @@ const Index = () => {
             {[
               {
                 country: "United Kingdom",
-                label: "UK Address (Orvanta Advisory)",
-                address: "124 City Rd, London EC1V 2NX, United Kingdom",
+                flag: "🇬🇧",
+                address: "Unit 1603, 16/F, The L.Plaza, 367-375 Queens Road Central, Sheung Wan, Hong Kong",
+                phone: "+44 20 1234 5678",
+                email: "uk@orvanta.com",
                 image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=300&fit=crop",
+                link: "/locations/uk"
               },
               {
-                country: "Belize",
-                label: "Belize Address",
-                address: "New Horizon Building, Suite 105, 3½ Miles Philip S.W, Philip Goldson Hwy, Belize City, Belize",
-                image: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=600&h=300&fit=crop",
+                country: "India",
+                flag: "🇮🇳",
+                address: "SCO 29, First Floor, New Sunny Enclave, Sector 125, Mohali - 140301, Punjab",
+                phone: "+91 123 456 7890",
+                email: "india@orvanta.com",
+                image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&h=300&fit=crop",
+                link: "/locations/india"
               },
               {
                 country: "Hong Kong",
-                label: "Hong Kong Address",
-                address: "Unit 2201-02, 22/F, Universal Trade Centre, 3 Arbuthnot Road, Central, Hong Kong, 999077",
+                flag: "🇭🇰",
+                address: "Unit 1603, 16/F, The L.Plaza, 367-375 Queens Road Central, Sheung Wan, Hong Kong",
+                phone: "+852 1234 5678",
+                email: "hongkong@orvanta.com",
                 image: "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=600&h=300&fit=crop",
+                link: "/locations/hong-kong"
               },
             ].map((office, i) => (
-              <motion.div
-                key={office.country}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                custom={i}
-                className="bg-card rounded-2xl overflow-hidden card-elevated border border-border"
-              >
-                <div className="relative h-44 overflow-hidden">
-                  <img
-                    src={office.image}
-                    alt={office.country}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-primary/40" />
-                  <div className="absolute bottom-3 left-4">
-                    <span className="text-white font-heading font-bold text-lg drop-shadow">{office.country}</span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <div className="flex items-start gap-3">
-                    <div className="h-9 w-9 rounded-lg bg-primary/5 flex items-center justify-center shrink-0 mt-0.5">
-                      <FaGlobe size={18} className="text-primary" />
+              <Link key={office.country} to={office.link}>
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  custom={i}
+                  className="bg-card rounded-2xl overflow-hidden card-elevated border border-border hover:shadow-2xl transition-all duration-300 cursor-pointer group h-full"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={office.image}
+                      alt={office.country}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+                      <div className="text-4xl mb-2">{office.flag}</div>
+                      <span className="text-white font-heading font-bold text-2xl drop-shadow-lg">{office.country}</span>
                     </div>
-                    <div>
-                      <p className="font-heading font-semibold text-foreground text-sm mb-1">{office.label}</p>
+                  </div>
+                  <div className="p-6 space-y-3">
+                    <div className="flex items-start gap-3">
+                      <div className="h-8 w-8 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <FaGlobe size={16} className="text-secondary" />
+                      </div>
                       <p className="text-muted-foreground text-sm leading-relaxed">{office.address}</p>
                     </div>
+                    <div className="pt-3 border-t border-border space-y-1">
+                      <p className="text-sm text-muted-foreground">
+                        <span className="font-semibold text-foreground">Phone:</span> {office.phone}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        <span className="font-semibold text-foreground">Email:</span> {office.email}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>
@@ -417,15 +454,15 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <motion.h2 variants={fadeUp} custom={0} className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground mb-4">
-              Ready to Start Your Immigration Journey?
+              Ready to Expand Your Business Globally?
             </motion.h2>
             <motion.p variants={fadeUp} custom={1} className="text-primary-foreground/80 max-w-xl mx-auto mb-8 text-lg">
-              Book a free consultation today and let our experts guide you to your dream destination.
+              Partner with us today and let our experts guide you through immigration, investment, and business expansion opportunities.
             </motion.p>
             <motion.div variants={fadeUp} custom={2}>
-              <Link to="/contact">
+              <Link to="/sign-up">
                 <Button size="lg" className="bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 font-semibold text-base xl:text-lg px-10 xl:px-12 shadow-xl hover:shadow-2xl transition-all duration-200 h-12 xl:h-14">
-                  Book Free Consultation <ArrowRight size={20} className="ml-2" />
+                  Get Started <ArrowRight size={20} className="ml-2" />
                 </Button>
               </Link>
             </motion.div>

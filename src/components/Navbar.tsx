@@ -1,20 +1,101 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Services", to: "/services" },
-  { label: "Countries", to: "/countries" },
+  { 
+    label: "Services", 
+    to: "/services",
+    dropdown: [
+      {
+        category: "Immigration",
+        items: [
+          { label: "Visa Services", to: "/services/immigration/visa" },
+          { label: "PR Services", to: "/services/immigration/pr" },
+          { label: "Work Permits", to: "/services/immigration/work-permits" },
+          { label: "Study Abroad", to: "/services/immigration/study-abroad" }
+        ]
+      },
+      {
+        category: "Investments",
+        items: [
+          { label: "Real Estate Investments", to: "/services/investments/real-estate" },
+          { label: "Stock Investments", to: "/services/investments/stocks" },
+          { label: "Tax Planning", to: "/services/investments/tax-planning" },
+          { label: "NRI Investments", to: "/services/investments/nri" },
+          { label: "Business Investments", to: "/services/investments/business" }
+        ]
+      },
+      {
+        category: "Consultation",
+        items: [
+          { label: "Global Market Guidance", to: "/services/consultation/global-market" },
+          { label: "Expansion and Optimization Support", to: "/services/consultation/expansion" },
+          { label: "Strategic Growth Planning", to: "/services/consultation/strategic-growth" }
+        ]
+      },
+      {
+        category: "Legal Services",
+        items: [
+          { label: "Legal Documentation and Verification", to: "/services/legal/documentation" },
+          { label: "Risk Management", to: "/services/legal/risk-management" },
+          { label: "Dispute Prevention", to: "/services/legal/dispute-prevention" }
+        ]
+      }
+    ]
+  },
+  { 
+    label: "Locations", 
+    to: "/locations",
+    dropdown: [
+      { label: "UK", to: "/locations/uk" },
+      { label: "India", to: "/locations/india" },
+      { label: "Hong Kong", to: "/locations/hong-kong" }
+    ]
+  },
   { label: "Contact", to: "/contact" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const location = useLocation();
+  
+  // Add timeout refs for delayed closing
+  const menuTimeoutRef = useState<NodeJS.Timeout | null>(null)[0];
+  const categoryTimeoutRef = useState<NodeJS.Timeout | null>(null)[0];
+
+  const handleMenuEnter = (label: string) => {
+    if (menuTimeoutRef) clearTimeout(menuTimeoutRef);
+    setHoveredMenu(label);
+  };
+
+  const handleMenuLeave = () => {
+    const timeout = setTimeout(() => {
+      setHoveredMenu(null);
+      setHoveredCategory(null);
+    }, 200); // 200ms delay before closing
+    if (menuTimeoutRef) clearTimeout(menuTimeoutRef);
+    Object.assign(menuTimeoutRef, timeout);
+  };
+
+  const handleCategoryEnter = (category: string) => {
+    if (categoryTimeoutRef) clearTimeout(categoryTimeoutRef);
+    setHoveredCategory(category);
+  };
+
+  const handleCategoryLeave = () => {
+    const timeout = setTimeout(() => {
+      setHoveredCategory(null);
+    }, 200); // 200ms delay before closing
+    if (categoryTimeoutRef) clearTimeout(categoryTimeoutRef);
+    Object.assign(categoryTimeoutRef, timeout);
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-border/50 shadow-sm">
@@ -30,22 +111,83 @@ const Navbar = () => {
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-10 xl:gap-12">
           {navLinks.map((link) => (
-            <Link
+            <div 
               key={link.to}
-              to={link.to}
-              className={`text-[15px] xl:text-base font-medium transition-all duration-200 hover:text-secondary relative group ${
-                location.pathname === link.to ? "text-secondary" : "text-muted-foreground"
-              }`}
+              className="relative"
+              onMouseEnter={() => link.dropdown && handleMenuEnter(link.label)}
+              onMouseLeave={handleMenuLeave}
             >
-              {link.label}
-              <span className={`absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all duration-200 ${
-                location.pathname === link.to ? "w-full" : "w-0 group-hover:w-full"
-              }`}></span>
-            </Link>
+              <Link
+                to={link.to}
+                className={`text-[15px] xl:text-base font-medium transition-all duration-200 hover:text-secondary relative group flex items-center gap-1 ${
+                  location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "text-secondary" : "text-muted-foreground"
+                }`}
+              >
+                {link.label}
+                {link.dropdown && <ChevronDown size={16} className="transition-transform duration-200" style={{ transform: hoveredMenu === link.label ? 'rotate(180deg)' : 'rotate(0deg)' }} />}
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all duration-200 ${
+                  location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "w-full" : "w-0 group-hover:w-full"
+                }`}></span>
+              </Link>
+
+              {/* Dropdown Menu */}
+              {link.dropdown && hoveredMenu === link.label && (
+                <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-border/50 py-2 min-w-[240px] animate-fade-in-up">
+                  {link.label === "Services" ? (
+                    // Services nested menu - show categories first
+                    <div className="space-y-1 px-2">
+                      {link.dropdown.map((category: any) => (
+                        <div 
+                          key={category.category}
+                          className="relative"
+                          onMouseEnter={() => handleCategoryEnter(category.category)}
+                          onMouseLeave={handleCategoryLeave}
+                        >
+                          <div className="px-3 py-2 text-sm font-semibold text-foreground hover:text-secondary hover:bg-secondary/5 rounded-md transition-colors cursor-pointer flex items-center justify-between">
+                            {category.category}
+                            <ChevronDown size={14} className="-rotate-90" />
+                          </div>
+                          
+                          {/* Sub-menu for category items */}
+                          {hoveredCategory === category.category && (
+                            <div className="absolute left-full top-0 ml-1 bg-white rounded-lg shadow-xl border border-border/50 py-2 min-w-[280px] animate-fade-in-up">
+                              <div className="space-y-1 px-2">
+                                {category.items.map((item: any) => (
+                                  <Link
+                                    key={item.to}
+                                    to={item.to}
+                                    className="block px-3 py-2 text-sm text-muted-foreground hover:text-secondary hover:bg-secondary/5 rounded-md transition-colors"
+                                  >
+                                    {item.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    // Simple dropdown for Locations
+                    <div className="space-y-1 px-2">
+                      {link.dropdown.map((item: any) => (
+                        <Link
+                          key={item.to}
+                          to={item.to}
+                          className="block px-3 py-2 text-sm text-muted-foreground hover:text-secondary hover:bg-secondary/5 rounded-md transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
           ))}
-          <Link to="/contact">
+          <Link to="/sign-up">
             <Button className="bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 font-semibold shadow-md hover:shadow-lg transition-all duration-200 text-[15px] xl:text-base px-6 xl:px-8 h-11">
-              Book Free Consultation
+              Sign Up
             </Button>
           </Link>
         </div>
@@ -60,20 +202,55 @@ const Navbar = () => {
       {open && (
         <div className="lg:hidden bg-white border-b border-border px-6 py-6 space-y-4 animate-fade-in-up shadow-lg">
           {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              onClick={() => setOpen(false)}
-              className={`block py-3 text-base font-medium transition-colors hover:text-secondary ${
-                location.pathname === link.to ? "text-secondary" : "text-muted-foreground"
-              }`}
-            >
-              {link.label}
-            </Link>
+            <div key={link.to}>
+              <Link
+                to={link.to}
+                onClick={() => !link.dropdown && setOpen(false)}
+                className={`block py-3 text-base font-medium transition-colors hover:text-secondary ${
+                  location.pathname === link.to ? "text-secondary" : "text-muted-foreground"
+                }`}
+              >
+                {link.label}
+              </Link>
+              {link.dropdown && (
+                <div className="ml-4 mt-2 space-y-2">
+                  {link.label === "Services" ? (
+                    link.dropdown.map((category: any) => (
+                      <div key={category.category} className="mb-3">
+                        <h4 className="font-semibold text-sm text-foreground mb-1">
+                          {category.category}
+                        </h4>
+                        {category.items.map((item: any) => (
+                          <Link
+                            key={item.to}
+                            to={item.to}
+                            onClick={() => setOpen(false)}
+                            className="block py-2 text-sm text-muted-foreground hover:text-secondary"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ))
+                  ) : (
+                    link.dropdown.map((item: any) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        onClick={() => setOpen(false)}
+                        className="block py-2 text-sm text-muted-foreground hover:text-secondary"
+                      >
+                        {item.label}
+                      </Link>
+                    ))
+                  )}
+                </div>
+              )}
+            </div>
           ))}
-          <Link to="/contact" onClick={() => setOpen(false)}>
+          <Link to="/sign-up" onClick={() => setOpen(false)}>
             <Button className="w-full bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 font-semibold h-12 text-base">
-              Book Free Consultation
+              Sign Up
             </Button>
           </Link>
         </div>
