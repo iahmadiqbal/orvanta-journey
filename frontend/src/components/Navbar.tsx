@@ -216,58 +216,57 @@ const Navbar = () => {
       {open && (
         <div className="lg:hidden bg-white border-b border-border px-6 py-6 space-y-4 animate-fade-in-up shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto">
           {navLinks.map((link) => (
-              <div key={link.to}>
-                <Link
-                  to={link.to}
-                  onClick={() => !link.dropdown && setOpen(false)}
-                  className={`block py-3 text-base font-medium transition-colors hover:text-secondary ${
-                    location.pathname === link.to ? "text-secondary" : "text-muted-foreground"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-                {link.dropdown && (
-                  <div className="ml-4 mt-2 space-y-2">
-                    {link.label === "Services" ? (
-                      link.dropdown.map((category: any) => (
-                        <div key={category.category} className="mb-3">
-                          <h4 className="font-semibold text-sm text-foreground mb-1">
-                            {category.category}
-                          </h4>
-                          {category.items.map((item: any) => (
-                            <Link
-                              key={item.to}
-                              to={item.to}
-                              onClick={() => setOpen(false)}
-                              className="block py-2 text-sm text-muted-foreground hover:text-secondary"
-                            >
-                              {item.label}
-                            </Link>
-                          ))}
-                        </div>
-                      ))
-                    ) : (
-                      link.dropdown.map((item: any) => (
-                        <Link
-                          key={item.to}
-                          to={item.to}
-                          onClick={() => setOpen(false)}
-                          className="block py-2 text-sm text-muted-foreground hover:text-secondary"
-                        >
-                          {item.label}
-                        </Link>
-                      ))
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
-            <Link to="/sign-up" onClick={() => setOpen(false)}>
-              <Button className="w-full bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 font-semibold h-12 text-base">
-                Sign Up
-              </Button>
-            </Link>
-          </div>
+            <div key={link.to}>
+              <Link
+                to={link.to}
+                onClick={() => !link.dropdown && setOpen(false)}
+                className={`block py-3 text-base font-medium transition-colors hover:text-secondary ${
+                  location.pathname === link.to ? "text-secondary" : "text-muted-foreground"
+                }`}
+              >
+                {link.label}
+              </Link>
+              {link.dropdown && (
+                <div className="ml-4 mt-2 space-y-2">
+                  {link.label === "Services" ? (
+                    link.dropdown.map((category: any) => (
+                      <div key={category.category} className="mb-3">
+                        <h4 className="font-semibold text-sm text-foreground mb-1">
+                          {category.category}
+                        </h4>
+                        {category.items.map((item: any) => (
+                          <Link
+                            key={item.to}
+                            to={item.to}
+                            onClick={() => setOpen(false)}
+                            className="block py-2 text-sm text-muted-foreground hover:text-secondary"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ))
+                  ) : (
+                    link.dropdown.map((item: any) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        onClick={() => setOpen(false)}
+                        className="block py-2 text-sm text-muted-foreground hover:text-secondary"
+                      >
+                        {item.label}
+                      </Link>
+                    ))
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
+          <Link to="/sign-up" onClick={() => setOpen(false)}>
+            <Button className="w-full bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 font-semibold h-12 text-base">
+              Sign Up
+            </Button>
+          </Link>
         </div>
       )}
     </nav>
