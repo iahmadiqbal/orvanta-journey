@@ -214,13 +214,13 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-white border-b border-border px-6 py-4 space-y-1 animate-fade-in-up shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto">
+        <div className="lg:hidden bg-white border-b border-border px-6 py-3 space-y-0 animate-fade-in-up shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto">
           {navLinks.map((link) => (
             <div key={link.to}>
               <Link
                 to={link.to}
                 onClick={() => !link.dropdown && setOpen(false)}
-                className={`block py-2 text-base font-medium transition-colors hover:text-secondary ${
+                className={`block py-1.5 text-base font-medium transition-colors hover:text-secondary ${
                   location.pathname === link.to ? "text-secondary" : "text-muted-foreground"
                 }`}
               >
