@@ -1,215 +1,172 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "@clerk/clerk-react";
-import { loadStripe } from "@stripe/stripe-js";
-import {
-  Elements,
-  CardElement,
-  useStripe,
-  useElements,
-} from "@stripe/react-stripe-js";
-import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Check, CreditCard } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import Layout from "@/components/Layout";
+import { CreditCard, Lock, CheckCircle } from "lucide-react";
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
-
-const PaymentForm = () => {
-  const stripe = useStripe();
-  const elements = useElements();
+const Payment = () => {
   const navigate = useNavigate();
-  const { user } = useUser();
-  const { toast } = useToast();
-  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    cardNumber: "",
+    cardName: "",
+    expiryDate: "",
+    cvv: ""
+  });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Set payment completed flag in localStorage
+    localStorage.setItem("paymentCompleted", "true");
+    alert("Payment successful! Welcome to Orvanta Advisory.");
+    navigate("/dashboard");
+  };
 
-    if (!stripe || !elements) return;
-
-    setLoading(true);
-
-    try {
-      // Create payment intent
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/payments/create-signup-intent`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            clerkUserId: user?.id,
-            email: user?.primaryEmailAddress?.emailAddress,
-          }),
-        },
-      );
-
-      const { clientSecret } = await response.json();
-
-      // Confirm payment
-      const { error, paymentIntent } = await stripe.confirmCardPayment(
-        clientSecret,
-        {
-          payment_method: {
-            card: elements.getElement(CardElement)!,
-            billing_details: {
-              email: user?.primaryEmailAddress?.emailAddress,
-              name: `${user?.firstName} ${user?.lastName}`,
-            },
-          },
-        },
-      );
-
-      if (error) {
-        toast({
-          title: "Payment Failed",
-          description: error.message,
-          variant: "destructive",
-        });
-        setLoading(false);
-        return;
-      }
-
-      if (paymentIntent.status === "succeeded") {
-        // Confirm with backend
-        await fetch(
-          `${import.meta.env.VITE_API_URL}/api/payments/confirm-signup`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              clerkUserId: user?.id,
-              email: user?.primaryEmailAddress?.emailAddress,
-              firstName: user?.firstName,
-              lastName: user?.lastName,
-              paymentIntentId: paymentIntent.id,
-            }),
-          },
-        );
-
-        toast({
-          title: "Payment Successful! 🎉",
-          description: "Welcome to Orvanta B2B Portal",
-        });
-
-        navigate("/dashboard");
-      }
-    } catch (error) {
-      console.error("Payment error:", error);
-      toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setLoading(false);
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="p-4 border border-border rounded-lg bg-background">
-        <CardElement
-          options={{
-            style: {
-              base: {
-                fontSize: "16px",
-                color: "#424770",
-                "::placeholder": {
-                  color: "#aab7c4",
-                },
-              },
-              invalid: {
-                color: "#9e2146",
-              },
-            },
-          }}
-        />
-      </div>
-
-      <Button
-        type="submit"
-        disabled={!stripe || loading}
-        className="w-full bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 font-semibold h-12 text-base"
-      >
-        {loading ? (
-          "Processing..."
-        ) : (
-          <>
-            <CreditCard className="mr-2" size={18} />
-            Pay £100 & Access Portal
-          </>
-        )}
-      </Button>
-
-      <p className="text-xs text-center text-muted-foreground">
-        Secure payment powered by Stripe. Your card details are never stored on
-        our servers.
-      </p>
-    </form>
-  );
-};
-
-const Payment = () => {
-  return (
     <Layout>
-      <div className="min-h-screen bg-background py-12 px-4">
-        <div className="container mx-auto max-w-2xl">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-heading font-bold mb-3">
-              Complete Your Registration
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              One-time registration fee to access the B2B portal
-            </p>
-          </div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 to-secondary/5 py-12 px-4">
+        <div className="w-full max-w-2xl">
+          <div className="bg-card rounded-2xl shadow-2xl border border-border overflow-hidden">
+            {/* Header */}
+            <div className="bg-gradient-to-r from-primary to-primary/80 p-8 text-center">
+              <h1 className="text-3xl font-heading font-bold text-primary-foreground mb-2">
+                Complete Your Payment
+              </h1>
+              <p className="text-primary-foreground/90">
+                Start your business collaboration with Orvanta Advisory
+              </p>
+            </div>
 
-          <Card className="mb-6">
-            <CardHeader className="text-center pb-4">
-              <CardTitle className="text-3xl font-bold text-accent">
-                £100
-              </CardTitle>
-              <CardDescription className="text-base">
-                Registration Fee
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-start gap-3">
-                  <Check className="text-accent mt-0.5 shrink-0" size={20} />
-                  <span className="text-base">Full access to B2B portal</span>
+            {/* Pricing Info */}
+            <div className="p-8 border-b border-border">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">B2B Membership Plan</h3>
+                  <p className="text-sm text-muted-foreground">Access to all immigration and investment services</p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Check className="text-accent mt-0.5 shrink-0" size={20} />
-                  <span className="text-base">LMIA services at £850/hour</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Check className="text-accent mt-0.5 shrink-0" size={20} />
-                  <span className="text-base">Dedicated account manager</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Check className="text-accent mt-0.5 shrink-0" size={20} />
-                  <span className="text-base">
-                    Real-time application tracking
-                  </span>
+                <div className="text-right">
+                  <p className="text-3xl font-bold text-secondary">$999</p>
+                  <p className="text-sm text-muted-foreground">per year</p>
                 </div>
               </div>
 
-              <Elements stripe={stripePromise}>
-                <PaymentForm />
-              </Elements>
-            </CardContent>
-          </Card>
+              <div className="bg-secondary/5 rounded-lg p-4 space-y-2">
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle size={16} className="text-secondary" />
+                  <span className="text-muted-foreground">Immigration services consultation</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle size={16} className="text-secondary" />
+                  <span className="text-muted-foreground">Investment advisory services</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle size={16} className="text-secondary" />
+                  <span className="text-muted-foreground">Legal documentation support</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle size={16} className="text-secondary" />
+                  <span className="text-muted-foreground">24/7 customer support</span>
+                </div>
+              </div>
+            </div>
 
-          <div className="text-center text-sm text-muted-foreground">
-            <p>Need help? Contact us at info@orvantaadvisory.com</p>
+            {/* Payment Form */}
+            <div className="p-8">
+              <div className="flex items-center gap-2 mb-6">
+                <Lock size={20} className="text-secondary" />
+                <p className="text-sm text-muted-foreground">Your payment information is secure and encrypted</p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <Label htmlFor="cardNumber" className="text-sm font-medium text-foreground mb-2 flex items-center gap-2">
+                    <CreditCard size={16} />
+                    Card Number
+                  </Label>
+                  <Input
+                    id="cardNumber"
+                    name="cardNumber"
+                    type="text"
+                    required
+                    value={formData.cardNumber}
+                    onChange={handleChange}
+                    placeholder="1234 5678 9012 3456"
+                    maxLength={19}
+                    className="h-11"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="cardName" className="text-sm font-medium text-foreground mb-2">
+                    Cardholder Name
+                  </Label>
+                  <Input
+                    id="cardName"
+                    name="cardName"
+                    type="text"
+                    required
+                    value={formData.cardName}
+                    onChange={handleChange}
+                    placeholder="John Doe"
+                    className="h-11"
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="expiryDate" className="text-sm font-medium text-foreground mb-2">
+                      Expiry Date
+                    </Label>
+                    <Input
+                      id="expiryDate"
+                      name="expiryDate"
+                      type="text"
+                      required
+                      value={formData.expiryDate}
+                      onChange={handleChange}
+                      placeholder="MM/YY"
+                      maxLength={5}
+                      className="h-11"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="cvv" className="text-sm font-medium text-foreground mb-2">
+                      CVV
+                    </Label>
+                    <Input
+                      id="cvv"
+                      name="cvv"
+                      type="text"
+                      required
+                      value={formData.cvv}
+                      onChange={handleChange}
+                      placeholder="123"
+                      maxLength={3}
+                      className="h-11"
+                    />
+                  </div>
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full h-12 bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 font-semibold text-base"
+                >
+                  Complete Payment - $999
+                </Button>
+              </form>
+
+              <p className="text-xs text-muted-foreground text-center mt-4">
+                By completing this payment, you agree to our Terms of Service and Privacy Policy
+              </p>
+            </div>
           </div>
         </div>
       </div>

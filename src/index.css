@@ -165,4 +165,42 @@
     box-shadow: var(--card-shadow-hover);
     transform: translateY(-4px);
   }
+
+  /* Container responsive widths */
+  .container {
+    @apply mx-auto px-4;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      @apply px-6;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      @apply px-8;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1240px;
+      @apply px-10;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1400px;
+      @apply px-12;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .container {
+      max-width: 1600px;
+      @apply px-16;
+    }
+  }
 }
