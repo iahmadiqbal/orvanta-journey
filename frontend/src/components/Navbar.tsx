@@ -93,7 +93,7 @@ const Navbar = () => {
     const timeout = setTimeout(() => {
       setHoveredMenu(null);
       setHoveredCategory(null);
-    }, 200); // 200ms delay before closing
+    }, 10000); // 10 seconds - plenty of time to read and click
     if (menuTimeoutRef) clearTimeout(menuTimeoutRef);
     Object.assign(menuTimeoutRef, timeout);
   };
@@ -106,7 +106,7 @@ const Navbar = () => {
   const handleCategoryLeave = () => {
     const timeout = setTimeout(() => {
       setHoveredCategory(null);
-    }, 200); // 200ms delay before closing
+    }, 10000); // 10 seconds - plenty of time to read and click
     if (categoryTimeoutRef) clearTimeout(categoryTimeoutRef);
     Object.assign(categoryTimeoutRef, timeout);
   };
@@ -164,7 +164,7 @@ const Navbar = () => {
                           
                           {/* Sub-menu for category items */}
                           {hoveredCategory === category.category && (
-                            <div className="absolute left-full top-0 ml-1 bg-white rounded-lg shadow-xl border border-border/50 py-2 min-w-[280px] animate-fade-in-up">
+                            <div className="absolute left-full top-0 ml-0.5 bg-white rounded-lg shadow-xl border border-border/50 py-2 min-w-[280px] animate-fade-in-up">
                               <div className="space-y-1 px-2">
                                 {category.items.map((item: any) => (
                                   <Link
