@@ -50,7 +50,7 @@ const navLinks = [
   },
   { 
     label: "Locations", 
-    to: "/locations",
+    to: "#",
     dropdown: [
       { label: "UK", to: "/locations/uk" },
       { label: "India", to: "/locations/india" },
