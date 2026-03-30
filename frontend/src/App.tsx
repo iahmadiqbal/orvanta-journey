@@ -29,6 +29,11 @@ import Stocks from "./pages/services/investments/Stocks";
 // Consultation Services
 import GlobalMarket from "./pages/services/consultation/GlobalMarket";
 
+// Legal Services
+import LegalDocumentation from "./pages/services/legal/LegalDocumentation";
+import RiskManagement from "./pages/services/legal/RiskManagement";
+import DisputePrevention from "./pages/services/legal/DisputePrevention";
+
 // Locations
 import UK from "./pages/locations/UK";
 import India from "./pages/locations/India";
@@ -67,9 +72,9 @@ const App = () => (
         <Route path="/services/consultation/strategic-growth" element={<Services />} />
         
         {/* Legal Services */}
-        <Route path="/services/legal/documentation" element={<Services />} />
-        <Route path="/services/legal/risk-management" element={<Services />} />
-        <Route path="/services/legal/dispute-prevention" element={<Services />} />
+        <Route path="/services/legal/documentation" element={<LegalDocumentation />} />
+        <Route path="/services/legal/risk-management" element={<RiskManagement />} />
+        <Route path="/services/legal/dispute-prevention" element={<DisputePrevention />} />
         
         {/* Locations */}
         <Route path="/locations/uk" element={<UK />} />
