@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
@@ -62,13 +62,11 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const location = useLocation();
-  
-  // Add timeout refs for delayed closing
-  const menuTimeoutRef = useState<NodeJS.Timeout | null>(null)[0];
-  const categoryTimeoutRef = useState<NodeJS.Timeout | null>(null)[0];
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -84,31 +82,27 @@ const Navbar = () => {
     };
   }, [open]);
 
-  const handleMenuEnter = (label: string) => {
-    if (menuTimeoutRef) clearTimeout(menuTimeoutRef);
-    setHoveredMenu(label);
-  };
+  // Close dropdown when clicking outside (only for Locations)
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setOpenMenu(null);
+      }
+    };
 
-  const handleMenuLeave = () => {
-    const timeout = setTimeout(() => {
-      setHoveredMenu(null);
-      setHoveredCategory(null);
-    }, 10000); // 10 seconds - plenty of time to read and click
-    if (menuTimeoutRef) clearTimeout(menuTimeoutRef);
-    Object.assign(menuTimeoutRef, timeout);
-  };
+    if (openMenu) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
 
-  const handleCategoryEnter = (category: string) => {
-    if (categoryTimeoutRef) clearTimeout(categoryTimeoutRef);
-    setHoveredCategory(category);
-  };
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [openMenu]);
 
-  const handleCategoryLeave = () => {
-    const timeout = setTimeout(() => {
-      setHoveredCategory(null);
-    }, 10000); // 10 seconds - plenty of time to read and click
-    if (categoryTimeoutRef) clearTimeout(categoryTimeoutRef);
-    Object.assign(categoryTimeoutRef, timeout);
+  const toggleMenu = (label: string, event: React.MouseEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setOpenMenu(openMenu === label ? null : label);
   };
 
   return (
@@ -128,25 +122,59 @@ const Navbar = () => {
             <div 
               key={link.to}
               className="relative"
-              onMouseEnter={() => link.dropdown && handleMenuEnter(link.label)}
-              onMouseLeave={handleMenuLeave}
+              ref={link.dropdown && link.label !== "Services" ? dropdownRef : null}
+              onMouseEnter={() => link.label === "Services" && link.dropdown && setHoveredMenu(link.label)}
+              onMouseLeave={() => link.label === "Services" && setHoveredMenu(null)}
             >
-              <Link
-                to={link.to}
-                className={`text-[15px] xl:text-base font-medium transition-all duration-200 hover:text-secondary relative group flex items-center gap-1 ${
-                  location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "text-secondary" : "text-muted-foreground"
-                }`}
-              >
-                {link.label}
-                {link.dropdown && <ChevronDown size={16} className="transition-transform duration-200" style={{ transform: hoveredMenu === link.label ? 'rotate(180deg)' : 'rotate(0deg)' }} />}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all duration-200 ${
-                  location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "w-full" : "w-0 group-hover:w-full"
-                }`}></span>
-              </Link>
+              {link.dropdown ? (
+                link.label === "Services" ? (
+                  <Link
+                    to={link.to}
+                    className={`text-[15px] xl:text-base font-medium transition-all duration-200 hover:text-secondary relative group flex items-center gap-1 ${
+                      location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "text-secondary" : "text-muted-foreground"
+                    }`}
+                  >
+                    {link.label}
+                    <ChevronDown size={16} className="transition-transform duration-200" style={{ transform: hoveredMenu === link.label ? 'rotate(180deg)' : 'rotate(0deg)' }} />
+                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all duration-200 ${
+                      location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "w-full" : "w-0 group-hover:w-full"
+                    }`}></span>
+                  </Link>
+                ) : (
+                  <button
+                    onClick={(e) => toggleMenu(link.label, e)}
+                    className={`text-[15px] xl:text-base font-medium transition-all duration-200 hover:text-secondary relative group flex items-center gap-1 ${
+                      location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "text-secondary" : "text-muted-foreground"
+                    }`}
+                  >
+                    {link.label}
+                    <ChevronDown size={16} className="transition-transform duration-200" style={{ transform: openMenu === link.label ? 'rotate(180deg)' : 'rotate(0deg)' }} />
+                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all duration-200 ${
+                      location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "w-full" : "w-0 group-hover:w-full"
+                    }`}></span>
+                  </button>
+                )
+              ) : (
+                <Link
+                  to={link.to}
+                  className={`text-[15px] xl:text-base font-medium transition-all duration-200 hover:text-secondary relative group flex items-center gap-1 ${
+                    location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "text-secondary" : "text-muted-foreground"
+                  }`}
+                >
+                  {link.label}
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all duration-200 ${
+                    location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "w-full" : "w-0 group-hover:w-full"
+                  }`}></span>
+                </Link>
+              )}
 
               {/* Dropdown Menu */}
-              {link.dropdown && hoveredMenu === link.label && (
-                <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-border/50 py-2 min-w-[240px] animate-fade-in-up">
+              {link.dropdown && (link.label === "Services" ? hoveredMenu === link.label : openMenu === link.label) && (
+                <div 
+                  className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-border/50 py-2 min-w-[240px] animate-fade-in-up"
+                  onMouseEnter={() => link.label === "Services" && setHoveredMenu(link.label)}
+                  onMouseLeave={() => link.label === "Services" && setHoveredMenu(null)}
+                >
                   {link.label === "Services" ? (
                     // Services nested menu - show categories first
                     <div className="space-y-1 px-2">
@@ -154,8 +182,8 @@ const Navbar = () => {
                         <div 
                           key={category.category}
                           className="relative"
-                          onMouseEnter={() => handleCategoryEnter(category.category)}
-                          onMouseLeave={handleCategoryLeave}
+                          onMouseEnter={() => setHoveredCategory(category.category)}
+                          onMouseLeave={() => setHoveredCategory(null)}
                         >
                           <div className="px-3 py-2 text-sm font-semibold text-foreground hover:text-secondary hover:bg-secondary/5 rounded-md transition-colors cursor-pointer flex items-center justify-between">
                             {category.category}
@@ -164,12 +192,20 @@ const Navbar = () => {
                           
                           {/* Sub-menu for category items */}
                           {hoveredCategory === category.category && (
-                            <div className="absolute left-full top-0 ml-0.5 bg-white rounded-lg shadow-xl border border-border/50 py-2 min-w-[280px] animate-fade-in-up">
+                            <div 
+                              className="absolute left-full top-0 ml-0.5 bg-white rounded-lg shadow-xl border border-border/50 py-2 min-w-[280px] animate-fade-in-up"
+                              onMouseEnter={() => setHoveredCategory(category.category)}
+                              onMouseLeave={() => setHoveredCategory(null)}
+                            >
                               <div className="space-y-1 px-2">
                                 {category.items.map((item: any) => (
                                   <Link
                                     key={item.to}
                                     to={item.to}
+                                    onClick={() => {
+                                      setHoveredMenu(null);
+                                      setHoveredCategory(null);
+                                    }}
                                     className="block px-3 py-2 text-sm text-muted-foreground hover:text-secondary hover:bg-secondary/5 rounded-md transition-colors"
                                   >
                                     {item.label}
@@ -188,6 +224,7 @@ const Navbar = () => {
                         <Link
                           key={item.to}
                           to={item.to}
+                          onClick={() => setOpenMenu(null)}
                           className="block px-3 py-2 text-sm text-muted-foreground hover:text-secondary hover:bg-secondary/5 rounded-md transition-colors"
                         >
                           {item.label}
