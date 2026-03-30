@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
@@ -62,11 +62,9 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const location = useLocation();
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -81,29 +79,6 @@ const Navbar = () => {
       document.body.style.overflow = 'unset';
     };
   }, [open]);
-
-  // Close dropdown when clicking outside (only for Locations)
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setOpenMenu(null);
-      }
-    };
-
-    if (openMenu) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [openMenu]);
-
-  const toggleMenu = (label: string, event: React.MouseEvent) => {
-    event.preventDefault();
-    event.stopPropagation();
-    setOpenMenu(openMenu === label ? null : label);
-  };
 
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-border/50 shadow-sm">
@@ -122,38 +97,22 @@ const Navbar = () => {
             <div 
               key={link.to}
               className="relative"
-              ref={link.dropdown && link.label !== "Services" ? dropdownRef : null}
-              onMouseEnter={() => link.label === "Services" && link.dropdown && setHoveredMenu(link.label)}
-              onMouseLeave={() => link.label === "Services" && setHoveredMenu(null)}
+              onMouseEnter={() => link.dropdown && setHoveredMenu(link.label)}
+              onMouseLeave={() => setHoveredMenu(null)}
             >
               {link.dropdown ? (
-                link.label === "Services" ? (
-                  <Link
-                    to={link.to}
-                    className={`text-[15px] xl:text-base font-medium transition-all duration-200 hover:text-secondary relative group flex items-center gap-1 ${
-                      location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "text-secondary" : "text-muted-foreground"
-                    }`}
-                  >
-                    {link.label}
-                    <ChevronDown size={16} className="transition-transform duration-200" style={{ transform: hoveredMenu === link.label ? 'rotate(180deg)' : 'rotate(0deg)' }} />
-                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all duration-200 ${
-                      location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "w-full" : "w-0 group-hover:w-full"
-                    }`}></span>
-                  </Link>
-                ) : (
-                  <button
-                    onClick={(e) => toggleMenu(link.label, e)}
-                    className={`text-[15px] xl:text-base font-medium transition-all duration-200 hover:text-secondary relative group flex items-center gap-1 ${
-                      location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "text-secondary" : "text-muted-foreground"
-                    }`}
-                  >
-                    {link.label}
-                    <ChevronDown size={16} className="transition-transform duration-200" style={{ transform: openMenu === link.label ? 'rotate(180deg)' : 'rotate(0deg)' }} />
-                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all duration-200 ${
-                      location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "w-full" : "w-0 group-hover:w-full"
-                    }`}></span>
-                  </button>
-                )
+                <Link
+                  to={link.to}
+                  className={`text-[15px] xl:text-base font-medium transition-all duration-200 hover:text-secondary relative group flex items-center gap-1 ${
+                    location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "text-secondary" : "text-muted-foreground"
+                  }`}
+                >
+                  {link.label}
+                  <ChevronDown size={16} className="transition-transform duration-200" style={{ transform: hoveredMenu === link.label ? 'rotate(180deg)' : 'rotate(0deg)' }} />
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all duration-200 ${
+                    location.pathname === link.to || location.pathname.startsWith(link.to + '/') ? "w-full" : "w-0 group-hover:w-full"
+                  }`}></span>
+                </Link>
               ) : (
                 <Link
                   to={link.to}
@@ -169,12 +128,12 @@ const Navbar = () => {
               )}
 
               {/* Dropdown Menu */}
-              {link.dropdown && (link.label === "Services" ? hoveredMenu === link.label : openMenu === link.label) && (
+              {link.dropdown && hoveredMenu === link.label && (
                 <div 
                   className="absolute top-full left-0 bg-white rounded-lg shadow-xl border border-border/50 py-2 min-w-[240px] animate-fade-in-up"
                   style={{ marginTop: '0.5rem' }}
-                  onMouseEnter={() => link.label === "Services" && setHoveredMenu(link.label)}
-                  onMouseLeave={() => link.label === "Services" && setHoveredMenu(null)}
+                  onMouseEnter={() => setHoveredMenu(link.label)}
+                  onMouseLeave={() => setHoveredMenu(null)}
                 >
                   {/* Invisible bridge to prevent gap */}
                   <div className="absolute bottom-full left-0 right-0 h-2"></div>
@@ -229,7 +188,7 @@ const Navbar = () => {
                         <Link
                           key={item.to}
                           to={item.to}
-                          onClick={() => setOpenMenu(null)}
+                          onClick={() => setHoveredMenu(null)}
                           className="block px-3 py-2 text-sm text-muted-foreground hover:text-secondary hover:bg-secondary/5 rounded-md transition-colors"
                         >
                           {item.label}
