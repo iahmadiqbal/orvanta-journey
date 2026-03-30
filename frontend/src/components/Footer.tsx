@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-6 lg:px-12 py-10 lg:py-12 max-w-[1920px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block mb-3">
@@ -137,55 +137,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Locations */}
-          <div>
-            <h4 className="font-heading font-semibold mb-3 text-lg">
-              Locations
-            </h4>
-            <ul className="space-y-2 text-[15px] text-primary-foreground/80">
-              <li>
-                <Link
-                  to="/locations/india"
-                  className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
-                >
-                  India
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/locations/uk"
-                  className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
-                >
-                  UK
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/locations/hong-kong"
-                  className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
-                >
-                  Hongkong
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/locations/canada"
-                  className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
-                >
-                  Canada
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/locations/belize"
-                  className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
-                >
-                  Belize
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           {/* Contact */}
           <div>
             <h4 className="font-heading font-semibold mb-3 text-lg">
@@ -193,13 +144,43 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3 text-[15px] text-primary-foreground/80">
               <li className="flex items-start gap-3">
-                <MapPin
-                  size={18}
-                  className="mt-0.5 shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200"
-                />
-                <span className="leading-relaxed hover:text-accent transition-colors cursor-pointer">
-                  India | UK | Hongkong | Canada | Belize
-                </span>
+                <MapPin size={18} className="mt-0.5 shrink-0 text-white" />
+                <div className="leading-relaxed flex flex-wrap gap-1">
+                  <Link
+                    to="/locations/india"
+                    className="hover:text-accent transition-colors hover:underline"
+                  >
+                    India
+                  </Link>
+                  <span>|</span>
+                  <Link
+                    to="/locations/uk"
+                    className="hover:text-accent transition-colors hover:underline"
+                  >
+                    UK
+                  </Link>
+                  <span>|</span>
+                  <Link
+                    to="/locations/hong-kong"
+                    className="hover:text-accent transition-colors hover:underline"
+                  >
+                    Hongkong
+                  </Link>
+                  <span>|</span>
+                  <Link
+                    to="/locations/canada"
+                    className="hover:text-accent transition-colors hover:underline"
+                  >
+                    Canada
+                  </Link>
+                  <span>|</span>
+                  <Link
+                    to="/locations/belize"
+                    className="hover:text-accent transition-colors hover:underline"
+                  >
+                    Belize
+                  </Link>
+                </div>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail
