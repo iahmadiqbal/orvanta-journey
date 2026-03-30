@@ -171,10 +171,13 @@ const Navbar = () => {
               {/* Dropdown Menu */}
               {link.dropdown && (link.label === "Services" ? hoveredMenu === link.label : openMenu === link.label) && (
                 <div 
-                  className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-border/50 py-2 min-w-[240px] animate-fade-in-up"
+                  className="absolute top-full left-0 bg-white rounded-lg shadow-xl border border-border/50 py-2 min-w-[240px] animate-fade-in-up"
+                  style={{ marginTop: '0.5rem' }}
                   onMouseEnter={() => link.label === "Services" && setHoveredMenu(link.label)}
                   onMouseLeave={() => link.label === "Services" && setHoveredMenu(null)}
                 >
+                  {/* Invisible bridge to prevent gap */}
+                  <div className="absolute bottom-full left-0 right-0 h-2"></div>
                   {link.label === "Services" ? (
                     // Services nested menu - show categories first
                     <div className="space-y-1 px-2">
@@ -197,6 +200,8 @@ const Navbar = () => {
                               onMouseEnter={() => setHoveredCategory(category.category)}
                               onMouseLeave={() => setHoveredCategory(null)}
                             >
+                              {/* Invisible bridge to prevent gap */}
+                              <div className="absolute right-full top-0 bottom-0 w-2"></div>
                               <div className="space-y-1 px-2">
                                 {category.items.map((item: any) => (
                                   <Link
