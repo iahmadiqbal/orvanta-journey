@@ -12,7 +12,16 @@ import { Button } from "@/components/ui/button";
 const navLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Services", to: "/services" },
+  {
+    label: "Services",
+    to: "/services",
+    dropdown: [
+      { label: "Immigration", to: "/services/immigration" },
+      { label: "Business", to: "/services/business" },
+      { label: "IT Services", to: "/services/it-services" },
+      { label: "Legal Services", to: "/services/legal" },
+    ],
+  },
   {
     label: "Locations",
     to: "/locations",
