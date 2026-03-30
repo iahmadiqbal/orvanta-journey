@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { CheckCircle, Building2, TrendingUp, Shield, MapPin, DollarSign, Award, ArrowRight, Phone, Mail, Home, Briefcase } from "lucide-react";
+import { CheckCircle, Building2, TrendingUp, Shield, MapPin, DollarSign, Award, ArrowRight, Phone, Mail, Home, Briefcase, HelpCircle, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
+import { useState } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -143,6 +144,52 @@ const faqs = [
     answer: "Yes, we offer comprehensive property management including tenant sourcing, rent collection, maintenance, and legal compliance for all your investment properties."
   }
 ];
+
+const FAQItem = ({ faq, index }: { faq: { question: string; answer: string }; index: number }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeUp}
+      custom={index}
+      className="bg-card rounded-xl card-elevated border border-border overflow-hidden"
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full p-6 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
+      >
+        <div className="flex items-start gap-3 flex-1">
+          <HelpCircle size={20} className="text-secondary shrink-0 mt-1" />
+          <h3 className="font-heading font-bold text-lg text-foreground pr-4">
+            {faq.question}
+          </h3>
+        </div>
+        <ChevronDown
+          size={20}
+          className={`text-secondary shrink-0 transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      {isOpen && (
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="px-6 pb-6"
+        >
+          <p className="text-muted-foreground pl-8">
+            {faq.answer}
+          </p>
+        </motion.div>
+      )}
+    </motion.div>
+  );
+};
 
 const RealEstate = () => {
   return (
@@ -522,22 +569,7 @@ const RealEstate = () => {
 
             <div className="space-y-6">
               {faqs.map((faq, i) => (
-                <motion.div
-                  key={faq.question}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeUp}
-                  custom={i}
-                  className="bg-card rounded-xl p-6 card-elevated border border-border"
-                >
-                  <h3 className="font-heading font-bold text-lg text-foreground mb-3">
-                    {faq.question}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {faq.answer}
-                  </p>
-                </motion.div>
+                <FAQItem key={faq.question} faq={faq} index={i} />
               ))}
             </div>
           </div>

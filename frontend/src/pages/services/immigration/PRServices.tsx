@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { CheckCircle, Home, Shield, Award, Users, Globe2, TrendingUp, ArrowRight, Phone, Mail, FileCheck, Clock } from "lucide-react";
+import { CheckCircle, Home, Shield, Award, Users, Globe2, TrendingUp, ArrowRight, Phone, Mail, FileCheck, Clock, ChevronDown, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
+import { useState } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -187,6 +188,52 @@ const faqs = [
     answer: "It depends on the program. Some pathways require job offers (employer-sponsored), while others don't (points-based systems like Express Entry or Australian Skilled Migration). We identify the best pathway for your situation."
   }
 ];
+
+const FAQItem = ({ faq, index }: { faq: { question: string; answer: string }; index: number }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeUp}
+      custom={index}
+      className="bg-card rounded-xl card-elevated border border-border overflow-hidden"
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full p-6 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
+      >
+        <div className="flex items-start gap-3 flex-1">
+          <HelpCircle size={20} className="text-secondary shrink-0 mt-1" />
+          <h3 className="font-heading font-bold text-lg text-foreground pr-4">
+            {faq.question}
+          </h3>
+        </div>
+        <ChevronDown
+          size={20}
+          className={`text-secondary shrink-0 transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      {isOpen && (
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="px-6 pb-6"
+        >
+          <p className="text-muted-foreground pl-8">
+            {faq.answer}
+          </p>
+        </motion.div>
+      )}
+    </motion.div>
+  );
+};
 
 const PRServices = () => {
   return (
@@ -498,22 +545,7 @@ const PRServices = () => {
 
             <div className="space-y-6">
               {faqs.map((faq, i) => (
-                <motion.div
-                  key={faq.question}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeUp}
-                  custom={i}
-                  className="bg-card rounded-xl p-6 card-elevated border border-border"
-                >
-                  <h3 className="font-heading font-bold text-lg text-foreground mb-3">
-                    {faq.question}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {faq.answer}
-                  </p>
-                </motion.div>
+                <FAQItem key={faq.question} faq={faq} index={i} />
               ))}
             </div>
           </div>

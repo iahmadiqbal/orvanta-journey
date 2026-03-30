@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle, Calculator, TrendingDown, Shield, ArrowRight, Phone, Mail, HelpCircle, ChevronDown, PiggyBank } from "lucide-react";
+import { CheckCircle, Globe, Landmark, TrendingUp, Shield, ArrowRight, Phone, Mail, HelpCircle, ChevronDown, Plane } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
@@ -20,102 +20,102 @@ const fadeRight = {
   visible: (i: number) => ({ opacity: 1, x: 0, transition: { delay: i * 0.1, duration: 0.6 } }),
 };
 
-const regions = [
+const nriCategories = [
   {
-    title: "United Kingdom",
-    description: "UK tax planning focuses on maximizing allowances and reliefs under HMRC regulations. Key strategies include utilizing ISA allowances (£20,000 annually), pension contributions with tax relief up to 45%, capital gains tax planning with £6,000 annual exemption, and inheritance tax mitigation through trusts and gifts. UK residents benefit from various tax-efficient investment vehicles and careful timing of income and gains to optimize tax positions across multiple tax years.",
+    title: "NRIs in United Kingdom",
+    description: "Non-Resident Indians in the UK can invest in India through NRE and NRO accounts, maintaining strong financial ties with India while enjoying UK residency benefits. UK-based NRIs benefit from DTAA provisions between UK and India, allowing tax optimization on Indian income. Investment options include Indian stocks, mutual funds, real estate, and fixed deposits with full repatriation rights through NRE accounts. UK NRIs can leverage both markets for diversified wealth creation.",
     image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=600&fit=crop",
-    highlights: ["ISA allowances", "Pension tax relief", "CGT planning", "IHT mitigation"]
+    highlights: ["DTAA benefits", "NRE/NRO accounts", "Full repatriation", "Dual market access"]
   },
   {
-    title: "Hong Kong",
-    description: "Hong Kong offers one of the world's most favorable tax regimes with no capital gains tax, no dividend tax, and territorial taxation system. Tax planning focuses on optimizing salaries tax (progressive rates up to 17%), utilizing MPF contributions, structuring business income efficiently, and leveraging Hong Kong's extensive double taxation agreements. The simple tax system with low rates makes Hong Kong attractive for wealth accumulation and international tax planning.",
+    title: "NRIs in Hong Kong",
+    description: "Hong Kong-based NRIs enjoy unique advantages with no capital gains tax in Hong Kong while investing in India. The DTAA between Hong Kong and India provides favorable tax treatment on dividends and interest income. NRIs can maintain NRE accounts for full repatriation, invest in Indian markets through Portfolio Investment Scheme (PIS), and benefit from Hong Kong's financial infrastructure for seamless transactions. Hong Kong's position as Asian financial hub facilitates efficient India investments.",
     image: "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&h=600&fit=crop",
-    highlights: ["No CGT", "Low tax rates", "Territorial system", "MPF benefits"]
+    highlights: ["Zero CGT in HK", "DTAA advantages", "PIS access", "Easy remittances"]
   },
   {
-    title: "India",
-    description: "Indian tax planning involves navigating complex tax laws with opportunities for significant savings. Strategies include Section 80C deductions (₹1.5 lakh), home loan benefits, health insurance deductions under 80D, capital gains exemptions through reinvestment, and tax-efficient investment in ELSS, PPF, and NPS. NRIs benefit from special provisions including DTAA benefits, repatriation rules, and exemptions on foreign income. Proper planning can substantially reduce tax liability.",
+    title: "Indians Investing Abroad",
+    description: "Indian residents can invest abroad under RBI's Liberalized Remittance Scheme (LRS) allowing up to $250,000 annually per person. Investment options include foreign stocks, real estate, and businesses in UK and Hong Kong. Benefits include portfolio diversification, currency hedging, and access to developed markets. Proper tax planning ensures compliance with Indian tax laws on foreign income while utilizing DTAA benefits to avoid double taxation.",
     image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&h=600&fit=crop",
-    highlights: ["Section 80C benefits", "LTCG exemptions", "NRI provisions", "DTAA advantages"]
+    highlights: ["LRS facility", "Global diversification", "Currency benefits", "DTAA protection"]
   }
 ];
 
-const taxServices = [
+const investmentOptions = [
   {
-    title: "Personal Tax Planning",
-    description: "Comprehensive tax optimization for individuals and families",
-    features: ["Income tax planning", "Investment structuring", "Retirement planning", "Estate planning"],
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=400&fit=crop"
+    title: "Indian Equity Markets",
+    description: "Invest in BSE and NSE through NRE/NRO accounts with PIS approval",
+    features: ["Direct stock trading", "Mutual funds", "ETFs", "Portfolio management"],
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop"
   },
   {
-    title: "Business Tax Planning",
-    description: "Strategic tax planning for businesses and entrepreneurs",
-    features: ["Corporate structure", "Expense optimization", "Tax credits", "International tax"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+    title: "Indian Real Estate",
+    description: "Property investments in India with repatriation benefits",
+    features: ["Residential properties", "Commercial real estate", "REITs", "Property management"],
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop"
   },
   {
-    title: "Investment Tax Planning",
-    description: "Tax-efficient investment strategies and portfolio management",
-    features: ["Capital gains planning", "Dividend optimization", "Tax-loss harvesting", "Asset location"],
+    title: "Fixed Income Investments",
+    description: "Secure returns through NRE/NRO fixed deposits and bonds",
+    features: ["NRE fixed deposits", "NRO deposits", "Government bonds", "Corporate bonds"],
     image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&h=400&fit=crop"
   },
   {
-    title: "Cross-Border Tax Planning",
-    description: "International tax planning for global citizens and businesses",
-    features: ["DTAA utilization", "Residency planning", "Transfer pricing", "Repatriation strategies"],
-    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&h=400&fit=crop"
+    title: "Foreign Investments",
+    description: "Diversify globally through LRS for Indian residents",
+    features: ["Foreign stocks", "International real estate", "Global funds", "Overseas businesses"],
+    image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&h=400&fit=crop"
   }
 ];
 
 const benefits = [
   {
-    icon: TrendingDown,
-    title: "Reduce Tax Liability",
-    description: "Minimize taxes through legal deductions and exemptions"
-  },
-  {
-    icon: PiggyBank,
-    title: "Maximize Savings",
-    description: "Increase wealth through tax-efficient investing"
+    icon: Globe,
+    title: "Global Diversification",
+    description: "Spread investments across multiple countries and currencies"
   },
   {
     icon: Shield,
-    title: "Compliance Assurance",
-    description: "Stay compliant with all tax regulations"
+    title: "Tax Optimization",
+    description: "Leverage DTAA and tax-efficient structures"
   },
   {
-    icon: Calculator,
-    title: "Strategic Planning",
-    description: "Long-term tax optimization strategies"
+    icon: TrendingUp,
+    title: "Wealth Growth",
+    description: "Access high-growth markets and opportunities"
+  },
+  {
+    icon: Landmark,
+    title: "Repatriation Rights",
+    description: "Full or partial repatriation based on account type"
   }
 ];
 
 const processSteps = [
-  { step: "01", title: "Tax Assessment", description: "Comprehensive review of your current tax situation and obligations" },
-  { step: "02", title: "Opportunity Analysis", description: "Identify tax-saving opportunities and optimization strategies" },
-  { step: "03", title: "Strategy Development", description: "Create customized tax planning strategy for your situation" },
-  { step: "04", title: "Implementation", description: "Execute tax-saving strategies and restructure investments" },
-  { step: "05", title: "Compliance Management", description: "Ensure all filings and documentation are completed correctly" },
-  { step: "06", title: "Ongoing Review", description: "Regular monitoring and adjustments based on law changes" }
+  { step: "01", title: "Status Verification", description: "Confirm NRI status and residency documentation" },
+  { step: "02", title: "Account Setup", description: "Open NRE/NRO accounts and obtain PIS approval if needed" },
+  { step: "03", title: "Investment Planning", description: "Design portfolio based on goals and tax implications" },
+  { step: "04", title: "Compliance Check", description: "Ensure FEMA and tax compliance for all investments" },
+  { step: "05", title: "Investment Execution", description: "Execute investments through proper channels" },
+  { step: "06", title: "Ongoing Management", description: "Portfolio monitoring and tax reporting support" }
 ];
 
 const faqs = [
   {
-    question: "How much can I save through proper tax planning?",
-    answer: "Savings vary based on income and situation, but typically range from 15-40% of tax liability. UK residents can save thousands through ISA and pension planning, Hong Kong residents benefit from no CGT, and Indian taxpayers can save ₹50,000-2 lakhs annually through various deductions."
+    question: "What is the difference between NRE and NRO accounts?",
+    answer: "NRE accounts hold foreign earnings with full repatriation rights and tax-free interest in India. NRO accounts hold Indian income with restricted repatriation (up to $1 million annually) and taxable interest. NRE is better for parking foreign income, NRO for managing Indian income."
   },
   {
-    question: "When should I start tax planning?",
-    answer: "Tax planning should be done year-round, not just before filing deadlines. Early planning allows maximum flexibility to implement strategies. Ideally, start at the beginning of the tax year to maximize benefits throughout the year."
+    question: "Can NRIs invest in Indian stock market?",
+    answer: "Yes, NRIs can invest in Indian stocks through NRE/NRO accounts with PIS (Portfolio Investment Scheme) approval from their bank. You can trade on BSE and NSE, invest in mutual funds, and hold shares in Indian companies subject to certain limits."
   },
   {
-    question: "Is tax planning legal?",
-    answer: "Yes, tax planning is completely legal and encouraged. It involves using legitimate deductions, exemptions, and strategies provided by tax laws. This is different from tax evasion, which is illegal. We ensure all strategies comply with regulations."
+    question: "How does DTAA benefit NRI investments?",
+    answer: "Double Taxation Avoidance Agreements prevent paying tax twice on the same income. If you pay tax in your country of residence, you can claim credit in India or vice versa. This significantly reduces overall tax burden on investment income."
   },
   {
-    question: "Do you handle tax planning for multiple countries?",
-    answer: "Yes, we specialize in cross-border tax planning for UK, Hong Kong, and India. We help optimize taxes across jurisdictions, utilize double taxation agreements, and ensure compliance in all relevant countries."
+    question: "Can Indian residents invest in UK or Hong Kong markets?",
+    answer: "Yes, through RBI's Liberalized Remittance Scheme (LRS), Indian residents can remit up to $250,000 per year for foreign investments including stocks, real estate, and businesses in UK and Hong Kong. Proper documentation and tax compliance required."
   }
 ];
 
@@ -165,15 +165,15 @@ const FAQItem = ({ faq, index }: { faq: { question: string; answer: string }; in
   );
 };
 
-const TaxPlanning = () => {
+const NRIInvestments = () => {
   return (
     <Layout>
       {/* Hero Section with Background Image */}
       <section className="relative py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1920&h=1080&fit=crop" 
-            alt="Tax Planning" 
+            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&h=1080&fit=crop" 
+            alt="NRI Investments" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/75" />
@@ -185,19 +185,19 @@ const TaxPlanning = () => {
               custom={0} 
               className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-primary-foreground mb-6"
             >
-              Tax <span className="text-accent">Planning</span>
+              NRI <span className="text-accent">Investments</span>
             </motion.h1>
             <motion.p 
               variants={fadeUp} 
               custom={1} 
               className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed mb-8"
             >
-              Optimize your taxes legally and maximize wealth through strategic tax planning for UK, Hong Kong, and India. Expert guidance for individuals and businesses.
+              Specialized investment solutions for Non-Resident Indians and Indian residents investing abroad. Navigate cross-border investments with expert guidance.
             </motion.p>
             <motion.div variants={fadeUp} custom={2}>
               <Link to="/contact">
                 <Button size="lg" className="bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90">
-                  Get Tax Advice <ArrowRight className="ml-2" size={20} />
+                  Start Investing <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>
             </motion.div>
@@ -205,7 +205,7 @@ const TaxPlanning = () => {
         </div>
       </section>
 
-      {/* Section 1: Regional Tax Planning */}
+      {/* Section 1: NRI Categories */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
@@ -217,7 +217,7 @@ const TaxPlanning = () => {
               custom={0}
               className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4"
             >
-              Regional Tax Planning Strategies
+              Investment Solutions by Location
             </motion.h2>
             <motion.p 
               initial="hidden"
@@ -227,14 +227,14 @@ const TaxPlanning = () => {
               custom={1}
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
             >
-              Tailored tax optimization for each jurisdiction
+              Tailored strategies for NRIs and Indian residents
             </motion.p>
           </div>
 
           <div className="space-y-12">
-            {regions.map((region, i) => (
+            {nriCategories.map((category, i) => (
               <motion.div
-                key={region.title}
+                key={category.title}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -245,25 +245,25 @@ const TaxPlanning = () => {
                 <div className={`grid md:grid-cols-2 gap-0 ${i % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
                   <div className={`relative h-80 md:h-auto overflow-hidden ${i % 2 === 1 ? 'md:col-start-2' : ''}`}>
                     <img 
-                      src={region.image} 
-                      alt={region.title}
+                      src={category.image} 
+                      alt={category.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
                     <div className="absolute bottom-6 left-6">
                       <h3 className="font-heading font-bold text-3xl text-white">
-                        {region.title}
+                        {category.title}
                       </h3>
                     </div>
                   </div>
                   <div className="p-8">
                     <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
-                      {region.description}
+                      {category.description}
                     </p>
                     <div className="pt-6 border-t border-border">
-                      <h4 className="font-semibold text-foreground mb-3">Key Strategies:</h4>
+                      <h4 className="font-semibold text-foreground mb-3">Key Benefits:</h4>
                       <div className="flex flex-wrap gap-2">
-                        {region.highlights.map((highlight, idx) => (
+                        {category.highlights.map((highlight, idx) => (
                           <span key={idx} className="px-3 py-1 bg-secondary/10 text-secondary text-sm rounded-full">
                             {highlight}
                           </span>
@@ -278,7 +278,7 @@ const TaxPlanning = () => {
         </div>
       </section>
 
-      {/* Section 2: Tax Services */}
+      {/* Section 2: Investment Options */}
       <section className="py-20 lg:py-28 bg-muted">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
@@ -290,7 +290,7 @@ const TaxPlanning = () => {
               custom={0}
               className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4"
             >
-              Our Tax Planning Services
+              NRI Investment Options
             </motion.h2>
             <motion.p 
               initial="hidden"
@@ -300,14 +300,14 @@ const TaxPlanning = () => {
               custom={1}
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
             >
-              Comprehensive tax solutions for every need
+              Diverse investment opportunities for NRIs
             </motion.p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {taxServices.map((service, i) => (
+            {investmentOptions.map((option, i) => (
               <motion.div
-                key={service.title}
+                key={option.title}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -317,21 +317,21 @@ const TaxPlanning = () => {
               >
                 <div className="relative h-56 overflow-hidden">
                   <img 
-                    src={service.image} 
-                    alt={service.title}
+                    src={option.image} 
+                    alt={option.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                   <h3 className="absolute bottom-4 left-4 font-heading font-bold text-2xl text-white">
-                    {service.title}
+                    {option.title}
                   </h3>
                 </div>
                 <div className="p-6">
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {service.description}
+                    {option.description}
                   </p>
                   <ul className="space-y-2">
-                    {service.features.map((feature, idx) => (
+                    {option.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2">
                         <CheckCircle size={16} className="text-secondary shrink-0 mt-0.5" />
                         <span className="text-sm text-muted-foreground">{feature}</span>
@@ -357,7 +357,7 @@ const TaxPlanning = () => {
               custom={0}
               className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4"
             >
-              Benefits of Tax Planning
+              Why Choose NRI Investments
             </motion.h2>
             <motion.p 
               initial="hidden"
@@ -367,7 +367,7 @@ const TaxPlanning = () => {
               custom={1}
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
             >
-              Why strategic tax planning matters
+              Key advantages of cross-border investing
             </motion.p>
           </div>
 
@@ -409,7 +409,7 @@ const TaxPlanning = () => {
               custom={0}
               className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4"
             >
-              Our Tax Planning Process
+              NRI Investment Process
             </motion.h2>
             <motion.p 
               initial="hidden"
@@ -419,7 +419,7 @@ const TaxPlanning = () => {
               custom={1}
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
             >
-              Six-step approach to tax optimization
+              Six-step approach to cross-border investing
             </motion.p>
           </div>
 
@@ -477,7 +477,7 @@ const TaxPlanning = () => {
                 custom={1}
                 className="text-muted-foreground text-lg"
               >
-                Common questions about tax planning
+                Common questions about NRI investments
               </motion.p>
             </div>
 
@@ -499,14 +499,14 @@ const TaxPlanning = () => {
               custom={0} 
               className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground mb-6"
             >
-              Ready to Optimize Your Taxes?
+              Ready to Invest Across Borders?
             </motion.h2>
             <motion.p 
               variants={fadeUp} 
               custom={1} 
               className="text-primary-foreground/90 max-w-2xl mx-auto mb-8 text-lg"
             >
-              Start saving on taxes with expert planning strategies. Contact our tax advisors today for a consultation.
+              Start your NRI investment journey with expert guidance. Contact our advisors for personalized solutions.
             </motion.p>
             <motion.div variants={fadeUp} custom={2} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
@@ -529,4 +529,4 @@ const TaxPlanning = () => {
   );
 };
 
-export default TaxPlanning;
+export default NRIInvestments;

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle, Calculator, TrendingDown, Shield, ArrowRight, Phone, Mail, HelpCircle, ChevronDown, PiggyBank } from "lucide-react";
+import { CheckCircle, Briefcase, TrendingUp, Users, Target, ArrowRight, Phone, Mail, HelpCircle, ChevronDown, Building } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
@@ -23,99 +23,99 @@ const fadeRight = {
 const regions = [
   {
     title: "United Kingdom",
-    description: "UK tax planning focuses on maximizing allowances and reliefs under HMRC regulations. Key strategies include utilizing ISA allowances (£20,000 annually), pension contributions with tax relief up to 45%, capital gains tax planning with £6,000 annual exemption, and inheritance tax mitigation through trusts and gifts. UK residents benefit from various tax-efficient investment vehicles and careful timing of income and gains to optimize tax positions across multiple tax years.",
+    description: "The UK offers a robust business investment ecosystem with access to European markets, strong legal framework, and diverse opportunities. Investment options include startups through SEIS/EIS schemes with tax relief up to 50%, established SMEs, franchise opportunities, and commercial property. The UK's business-friendly environment, skilled workforce, and innovation hubs in London, Manchester, and Edinburgh make it attractive for business investments. Investors benefit from transparent regulations, strong IP protection, and access to venture capital.",
     image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=600&fit=crop",
-    highlights: ["ISA allowances", "Pension tax relief", "CGT planning", "IHT mitigation"]
+    highlights: ["SEIS/EIS tax relief", "European market access", "Strong legal system", "Innovation hubs"]
   },
   {
     title: "Hong Kong",
-    description: "Hong Kong offers one of the world's most favorable tax regimes with no capital gains tax, no dividend tax, and territorial taxation system. Tax planning focuses on optimizing salaries tax (progressive rates up to 17%), utilizing MPF contributions, structuring business income efficiently, and leveraging Hong Kong's extensive double taxation agreements. The simple tax system with low rates makes Hong Kong attractive for wealth accumulation and international tax planning.",
+    description: "Hong Kong serves as the premier gateway for business investments in Asia and mainland China. The city offers simple tax structure (16.5% corporate tax), no capital gains tax, free port status, and strategic location. Investment opportunities include trading companies, fintech startups, logistics businesses, and China-focused ventures. Hong Kong's business registration takes just one day, with minimal bureaucracy and strong rule of law. The city's position as international financial center provides access to capital and Asian markets.",
     image: "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&h=600&fit=crop",
-    highlights: ["No CGT", "Low tax rates", "Territorial system", "MPF benefits"]
+    highlights: ["Low tax rates", "China gateway", "Fast setup", "Financial hub"]
   },
   {
     title: "India",
-    description: "Indian tax planning involves navigating complex tax laws with opportunities for significant savings. Strategies include Section 80C deductions (₹1.5 lakh), home loan benefits, health insurance deductions under 80D, capital gains exemptions through reinvestment, and tax-efficient investment in ELSS, PPF, and NPS. NRIs benefit from special provisions including DTAA benefits, repatriation rules, and exemptions on foreign income. Proper planning can substantially reduce tax liability.",
+    description: "India's rapidly growing economy offers exceptional business investment opportunities with a large domestic market of 1.4 billion consumers. Key sectors include technology, manufacturing, healthcare, and e-commerce. Government initiatives like Make in India, Startup India, and PLI schemes provide incentives and support. Investment options range from startups and SMEs to established companies and joint ventures. India's young workforce, digital infrastructure, and growing middle class create favorable conditions for business growth and returns.",
     image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&h=600&fit=crop",
-    highlights: ["Section 80C benefits", "LTCG exemptions", "NRI provisions", "DTAA advantages"]
+    highlights: ["Large market", "Government incentives", "Tech ecosystem", "High growth"]
   }
 ];
 
-const taxServices = [
+const investmentTypes = [
   {
-    title: "Personal Tax Planning",
-    description: "Comprehensive tax optimization for individuals and families",
-    features: ["Income tax planning", "Investment structuring", "Retirement planning", "Estate planning"],
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=400&fit=crop"
+    title: "Startup Investments",
+    description: "Early-stage investments in high-growth potential startups",
+    features: ["Seed funding", "Series A/B rounds", "Angel investing", "Venture capital"],
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=400&fit=crop"
   },
   {
-    title: "Business Tax Planning",
-    description: "Strategic tax planning for businesses and entrepreneurs",
-    features: ["Corporate structure", "Expense optimization", "Tax credits", "International tax"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+    title: "SME Acquisitions",
+    description: "Acquire established small and medium enterprises",
+    features: ["Business valuation", "Due diligence", "Deal structuring", "Integration support"],
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop"
   },
   {
-    title: "Investment Tax Planning",
-    description: "Tax-efficient investment strategies and portfolio management",
-    features: ["Capital gains planning", "Dividend optimization", "Tax-loss harvesting", "Asset location"],
-    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&h=400&fit=crop"
+    title: "Franchise Opportunities",
+    description: "Invest in proven franchise business models",
+    features: ["Franchise selection", "Territory rights", "Training support", "Brand leverage"],
+    image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=600&h=400&fit=crop"
   },
   {
-    title: "Cross-Border Tax Planning",
-    description: "International tax planning for global citizens and businesses",
-    features: ["DTAA utilization", "Residency planning", "Transfer pricing", "Repatriation strategies"],
-    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&h=400&fit=crop"
+    title: "Joint Ventures",
+    description: "Strategic partnerships and collaborative investments",
+    features: ["Partner matching", "Agreement structuring", "Risk sharing", "Market entry"],
+    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
   }
 ];
 
 const benefits = [
   {
-    icon: TrendingDown,
-    title: "Reduce Tax Liability",
-    description: "Minimize taxes through legal deductions and exemptions"
+    icon: TrendingUp,
+    title: "High Returns",
+    description: "Potential for significant capital appreciation"
   },
   {
-    icon: PiggyBank,
-    title: "Maximize Savings",
-    description: "Increase wealth through tax-efficient investing"
+    icon: Building,
+    title: "Asset Building",
+    description: "Create tangible business assets and equity"
   },
   {
-    icon: Shield,
-    title: "Compliance Assurance",
-    description: "Stay compliant with all tax regulations"
+    icon: Users,
+    title: "Active Involvement",
+    description: "Opportunity to guide business direction"
   },
   {
-    icon: Calculator,
-    title: "Strategic Planning",
-    description: "Long-term tax optimization strategies"
+    icon: Target,
+    title: "Strategic Growth",
+    description: "Scale businesses across markets"
   }
 ];
 
 const processSteps = [
-  { step: "01", title: "Tax Assessment", description: "Comprehensive review of your current tax situation and obligations" },
-  { step: "02", title: "Opportunity Analysis", description: "Identify tax-saving opportunities and optimization strategies" },
-  { step: "03", title: "Strategy Development", description: "Create customized tax planning strategy for your situation" },
-  { step: "04", title: "Implementation", description: "Execute tax-saving strategies and restructure investments" },
-  { step: "05", title: "Compliance Management", description: "Ensure all filings and documentation are completed correctly" },
-  { step: "06", title: "Ongoing Review", description: "Regular monitoring and adjustments based on law changes" }
+  { step: "01", title: "Investment Goals", description: "Define objectives, risk appetite, and investment criteria" },
+  { step: "02", title: "Opportunity Sourcing", description: "Identify and evaluate potential business investments" },
+  { step: "03", title: "Due Diligence", description: "Comprehensive analysis of business, financials, and market" },
+  { step: "04", title: "Valuation & Negotiation", description: "Determine fair value and negotiate terms" },
+  { step: "05", title: "Deal Structuring", description: "Structure investment for optimal returns and protection" },
+  { step: "06", title: "Post-Investment Support", description: "Ongoing monitoring and strategic guidance" }
 ];
 
 const faqs = [
   {
-    question: "How much can I save through proper tax planning?",
-    answer: "Savings vary based on income and situation, but typically range from 15-40% of tax liability. UK residents can save thousands through ISA and pension planning, Hong Kong residents benefit from no CGT, and Indian taxpayers can save ₹50,000-2 lakhs annually through various deductions."
+    question: "What is the minimum investment for business investments?",
+    answer: "Minimum varies by opportunity type: UK startups through SEIS start from £10,000, Hong Kong businesses from HK$500,000, Indian startups from ₹10 lakhs. SME acquisitions typically require £100,000-500,000 depending on business size and market."
   },
   {
-    question: "When should I start tax planning?",
-    answer: "Tax planning should be done year-round, not just before filing deadlines. Early planning allows maximum flexibility to implement strategies. Ideally, start at the beginning of the tax year to maximize benefits throughout the year."
+    question: "What returns can I expect from business investments?",
+    answer: "Returns vary significantly based on business type and stage. Startups can offer 10-50x returns but with higher risk. Established SMEs typically provide 15-25% annual returns. Franchises offer 12-20% returns with lower risk. We help match investments to your risk-return profile."
   },
   {
-    question: "Is tax planning legal?",
-    answer: "Yes, tax planning is completely legal and encouraged. It involves using legitimate deductions, exemptions, and strategies provided by tax laws. This is different from tax evasion, which is illegal. We ensure all strategies comply with regulations."
+    question: "How involved do I need to be in the business?",
+    answer: "Involvement level depends on investment type. Passive investors can invest through funds or as silent partners. Active investors can take board positions or management roles. We help structure investments based on your desired involvement level."
   },
   {
-    question: "Do you handle tax planning for multiple countries?",
-    answer: "Yes, we specialize in cross-border tax planning for UK, Hong Kong, and India. We help optimize taxes across jurisdictions, utilize double taxation agreements, and ensure compliance in all relevant countries."
+    question: "What are the tax implications of business investments?",
+    answer: "UK offers SEIS/EIS tax relief (30-50% income tax relief). Hong Kong has low corporate tax (16.5%) and no capital gains tax. India provides startup tax exemptions and capital gains benefits. We provide tax-efficient structuring for all investments."
   }
 ];
 
@@ -165,15 +165,15 @@ const FAQItem = ({ faq, index }: { faq: { question: string; answer: string }; in
   );
 };
 
-const TaxPlanning = () => {
+const BusinessInvestments = () => {
   return (
     <Layout>
       {/* Hero Section with Background Image */}
       <section className="relative py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1920&h=1080&fit=crop" 
-            alt="Tax Planning" 
+            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&h=1080&fit=crop" 
+            alt="Business Investments" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/75" />
@@ -185,19 +185,19 @@ const TaxPlanning = () => {
               custom={0} 
               className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-primary-foreground mb-6"
             >
-              Tax <span className="text-accent">Planning</span>
+              Business <span className="text-accent">Investments</span>
             </motion.h1>
             <motion.p 
               variants={fadeUp} 
               custom={1} 
               className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed mb-8"
             >
-              Optimize your taxes legally and maximize wealth through strategic tax planning for UK, Hong Kong, and India. Expert guidance for individuals and businesses.
+              Invest in high-growth businesses across UK, Hong Kong, and India. From startups to established enterprises, find opportunities that match your goals.
             </motion.p>
             <motion.div variants={fadeUp} custom={2}>
               <Link to="/contact">
                 <Button size="lg" className="bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90">
-                  Get Tax Advice <ArrowRight className="ml-2" size={20} />
+                  Explore Opportunities <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>
             </motion.div>
@@ -205,7 +205,7 @@ const TaxPlanning = () => {
         </div>
       </section>
 
-      {/* Section 1: Regional Tax Planning */}
+      {/* Section 1: Regional Opportunities */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
@@ -217,7 +217,7 @@ const TaxPlanning = () => {
               custom={0}
               className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4"
             >
-              Regional Tax Planning Strategies
+              Business Investment Markets
             </motion.h2>
             <motion.p 
               initial="hidden"
@@ -227,7 +227,7 @@ const TaxPlanning = () => {
               custom={1}
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
             >
-              Tailored tax optimization for each jurisdiction
+              Strategic business opportunities across three dynamic markets
             </motion.p>
           </div>
 
@@ -261,7 +261,7 @@ const TaxPlanning = () => {
                       {region.description}
                     </p>
                     <div className="pt-6 border-t border-border">
-                      <h4 className="font-semibold text-foreground mb-3">Key Strategies:</h4>
+                      <h4 className="font-semibold text-foreground mb-3">Key Advantages:</h4>
                       <div className="flex flex-wrap gap-2">
                         {region.highlights.map((highlight, idx) => (
                           <span key={idx} className="px-3 py-1 bg-secondary/10 text-secondary text-sm rounded-full">
@@ -278,7 +278,7 @@ const TaxPlanning = () => {
         </div>
       </section>
 
-      {/* Section 2: Tax Services */}
+      {/* Section 2: Investment Types */}
       <section className="py-20 lg:py-28 bg-muted">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
@@ -290,7 +290,7 @@ const TaxPlanning = () => {
               custom={0}
               className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4"
             >
-              Our Tax Planning Services
+              Types of Business Investments
             </motion.h2>
             <motion.p 
               initial="hidden"
@@ -300,14 +300,14 @@ const TaxPlanning = () => {
               custom={1}
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
             >
-              Comprehensive tax solutions for every need
+              Diverse investment options for every strategy
             </motion.p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {taxServices.map((service, i) => (
+            {investmentTypes.map((type, i) => (
               <motion.div
-                key={service.title}
+                key={type.title}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -317,21 +317,21 @@ const TaxPlanning = () => {
               >
                 <div className="relative h-56 overflow-hidden">
                   <img 
-                    src={service.image} 
-                    alt={service.title}
+                    src={type.image} 
+                    alt={type.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                   <h3 className="absolute bottom-4 left-4 font-heading font-bold text-2xl text-white">
-                    {service.title}
+                    {type.title}
                   </h3>
                 </div>
                 <div className="p-6">
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {service.description}
+                    {type.description}
                   </p>
                   <ul className="space-y-2">
-                    {service.features.map((feature, idx) => (
+                    {type.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2">
                         <CheckCircle size={16} className="text-secondary shrink-0 mt-0.5" />
                         <span className="text-sm text-muted-foreground">{feature}</span>
@@ -357,7 +357,7 @@ const TaxPlanning = () => {
               custom={0}
               className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4"
             >
-              Benefits of Tax Planning
+              Why Invest in Businesses
             </motion.h2>
             <motion.p 
               initial="hidden"
@@ -367,7 +367,7 @@ const TaxPlanning = () => {
               custom={1}
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
             >
-              Why strategic tax planning matters
+              Key benefits of business investments
             </motion.p>
           </div>
 
@@ -409,7 +409,7 @@ const TaxPlanning = () => {
               custom={0}
               className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4"
             >
-              Our Tax Planning Process
+              Our Investment Process
             </motion.h2>
             <motion.p 
               initial="hidden"
@@ -419,7 +419,7 @@ const TaxPlanning = () => {
               custom={1}
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
             >
-              Six-step approach to tax optimization
+              Six-step approach to business investing
             </motion.p>
           </div>
 
@@ -477,7 +477,7 @@ const TaxPlanning = () => {
                 custom={1}
                 className="text-muted-foreground text-lg"
               >
-                Common questions about tax planning
+                Common questions about business investments
               </motion.p>
             </div>
 
@@ -499,14 +499,14 @@ const TaxPlanning = () => {
               custom={0} 
               className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground mb-6"
             >
-              Ready to Optimize Your Taxes?
+              Ready to Invest in Businesses?
             </motion.h2>
             <motion.p 
               variants={fadeUp} 
               custom={1} 
               className="text-primary-foreground/90 max-w-2xl mx-auto mb-8 text-lg"
             >
-              Start saving on taxes with expert planning strategies. Contact our tax advisors today for a consultation.
+              Discover high-potential business investment opportunities. Contact our advisors to explore options.
             </motion.p>
             <motion.div variants={fadeUp} custom={2} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
@@ -529,4 +529,4 @@ const TaxPlanning = () => {
   );
 };
 
-export default TaxPlanning;
+export default BusinessInvestments;

@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { CheckCircle, Globe, FileText, Users, Shield, Clock, Award, ArrowRight, Phone, Mail } from "lucide-react";
+import { CheckCircle, Globe, FileText, Users, Shield, Clock, Award, ArrowRight, Phone, Mail, ChevronDown, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
+import { useState } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -78,21 +79,18 @@ const processSteps = [
 const countries = [
   { 
     name: "UK", 
-    flag: "🇬🇧", 
     processing: "15-20 days",
     image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=600&fit=crop",
     description: "Expert visa services for the United Kingdom including tourist, business, student, and work visas with comprehensive documentation support."
   },
   { 
     name: "Hong Kong", 
-    flag: "🇭🇰", 
     processing: "10-15 days",
     image: "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&h=600&fit=crop",
     description: "Fast-track visa processing for Hong Kong SAR with employment, investment, and dependent visa services for seamless relocation."
   },
   { 
     name: "India", 
-    flag: "🇮🇳", 
     processing: "10-15 days",
     image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&h=600&fit=crop",
     description: "Comprehensive visa assistance for India including e-visa, tourist visa, business visa, and OCI card services with quick processing."
@@ -140,6 +138,52 @@ const faqs = [
     answer: "Yes, we offer reapplication services and appeal assistance for rejected cases with detailed analysis of rejection reasons."
   }
 ];
+
+const FAQItem = ({ faq, index }: { faq: { question: string; answer: string }; index: number }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeUp}
+      custom={index}
+      className="bg-card rounded-xl card-elevated border border-border overflow-hidden"
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full p-6 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
+      >
+        <div className="flex items-start gap-3 flex-1">
+          <HelpCircle size={20} className="text-secondary shrink-0 mt-1" />
+          <h3 className="font-heading font-bold text-lg text-foreground pr-4">
+            {faq.question}
+          </h3>
+        </div>
+        <ChevronDown
+          size={20}
+          className={`text-secondary shrink-0 transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      {isOpen && (
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="px-6 pb-6"
+        >
+          <p className="text-muted-foreground pl-8">
+            {faq.answer}
+          </p>
+        </motion.div>
+      )}
+    </motion.div>
+  );
+};
 
 const VisaServices = () => {
   return (
@@ -309,7 +353,6 @@ const VisaServices = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   <div className="absolute bottom-4 left-4">
-                    <div className="text-5xl mb-2">{country.flag}</div>
                     <h3 className="font-heading font-bold text-2xl text-white">
                       {country.name}
                     </h3>
@@ -428,22 +471,7 @@ const VisaServices = () => {
 
             <div className="space-y-6">
               {faqs.map((faq, i) => (
-                <motion.div
-                  key={faq.question}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeUp}
-                  custom={i}
-                  className="bg-card rounded-xl p-6 card-elevated border border-border"
-                >
-                  <h3 className="font-heading font-bold text-lg text-foreground mb-3">
-                    {faq.question}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {faq.answer}
-                  </p>
-                </motion.div>
+                <FAQItem key={faq.question} faq={faq} index={i} />
               ))}
             </div>
           </div>

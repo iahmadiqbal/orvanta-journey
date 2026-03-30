@@ -8,6 +8,7 @@ import ScrollToHash from "./components/ScrollToHash";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import Investments from "./pages/Investments";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import SignInPage from "./pages/SignIn";
@@ -25,9 +26,14 @@ import StudyAbroad from "./pages/services/immigration/StudyAbroad";
 // Investment Services
 import RealEstate from "./pages/services/investments/RealEstate";
 import Stocks from "./pages/services/investments/Stocks";
+import TaxPlanning from "./pages/services/investments/TaxPlanning";
+import NRIInvestments from "./pages/services/investments/NRIInvestments";
+import BusinessInvestments from "./pages/services/investments/BusinessInvestments";
 
 // Consultation Services
 import GlobalMarket from "./pages/services/consultation/GlobalMarket";
+import ExpansionOptimization from "./pages/services/consultation/ExpansionOptimization";
+import StrategicGrowth from "./pages/services/consultation/StrategicGrowth";
 
 // Legal Services
 import LegalDocumentation from "./pages/services/legal/LegalDocumentation";
@@ -52,6 +58,7 @@ const App = () => (
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/investments" element={<Investments />} />
         
         {/* Immigration Services */}
         <Route path="/services/immigration/visa" element={<VisaServices />} />
@@ -62,14 +69,14 @@ const App = () => (
         {/* Investment Services */}
         <Route path="/services/investments/real-estate" element={<RealEstate />} />
         <Route path="/services/investments/stocks" element={<Stocks />} />
-        <Route path="/services/investments/tax-planning" element={<Services />} />
-        <Route path="/services/investments/nri" element={<Services />} />
-        <Route path="/services/investments/business" element={<Services />} />
+        <Route path="/services/investments/tax-planning" element={<TaxPlanning />} />
+        <Route path="/services/investments/nri" element={<NRIInvestments />} />
+        <Route path="/services/investments/business" element={<BusinessInvestments />} />
         
         {/* Consultation Services */}
         <Route path="/services/consultation/global-market" element={<GlobalMarket />} />
-        <Route path="/services/consultation/expansion" element={<Services />} />
-        <Route path="/services/consultation/strategic-growth" element={<Services />} />
+        <Route path="/services/consultation/expansion" element={<ExpansionOptimization />} />
+        <Route path="/services/consultation/strategic-growth" element={<StrategicGrowth />} />
         
         {/* Legal Services */}
         <Route path="/services/legal/documentation" element={<LegalDocumentation />} />
