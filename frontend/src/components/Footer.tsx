@@ -104,50 +104,83 @@ const Footer = () => {
             <ul className="space-y-2 text-[15px] text-primary-foreground/80">
               <li>
                 <Link
-                  to="/services#study-visa"
+                  to="/services/immigration"
                   className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
                 >
-                  Study Visa
+                  Immigration
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services#work-visa"
+                  to="/services/business"
                   className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
                 >
-                  Work Visa
+                  Business
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services#immigrant-visa"
+                  to="/services/it-services"
                   className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
                 >
-                  Immigrant Visa
+                  IT Services
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services#additional-services"
+                  to="/services/legal"
                   className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
                 >
-                  Business Consultation
+                  Legal Services
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Locations */}
+          <div>
+            <h4 className="font-heading font-semibold mb-3 text-lg">
+              Locations
+            </h4>
+            <ul className="space-y-2 text-[15px] text-primary-foreground/80">
+              <li>
+                <Link
+                  to="/locations/india"
+                  className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
+                >
+                  India
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services#additional-services"
+                  to="/locations/uk"
                   className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
                 >
-                  Financial Advisors
+                  UK
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services#additional-services"
+                  to="/locations/hong-kong"
                   className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
                 >
-                  Document Translation
+                  Hongkong
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/locations/canada"
+                  className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
+                >
+                  Canada
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/locations/belize"
+                  className="hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
+                >
+                  Belize
                 </Link>
               </li>
             </ul>
@@ -165,8 +198,7 @@ const Footer = () => {
                   className="mt-0.5 shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200"
                 />
                 <span className="leading-relaxed hover:text-accent transition-colors cursor-pointer">
-                  Mohali, India | London, United Kingdom | Dubai, United Arab
-                  Emirates
+                  India | UK | Hongkong | Canada | Belize
                 </span>
               </li>
               <li className="flex items-center gap-2.5">

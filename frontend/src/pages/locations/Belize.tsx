@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, Building2 } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Building2,
+  AlertCircle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
@@ -13,15 +20,15 @@ const fadeUp = {
   }),
 };
 
-const HongKong = () => {
+const Belize = () => {
   return (
     <Layout>
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=1920&h=1080&fit=crop"
-            alt="Hong Kong Office"
+            src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1920&h=1080&fit=crop"
+            alt="Belize Office"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/75" />
@@ -37,124 +44,49 @@ const HongKong = () => {
               custom={0}
               className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-primary-foreground mb-6"
             >
-              Hong Kong <span className="text-accent">Office</span>
+              Belize <span className="text-accent">Office</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}
               custom={1}
               className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed"
             >
-              Your trusted partner in Hong Kong
+              Your trusted partner in Belize
             </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* Section 1: Office Details */}
-      <section className="py-20 lg:py-28 bg-background">
+      {/* Important Notice */}
+      <section className="py-12 bg-amber-50 border-y border-amber-200">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              custom={0}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-                Office Details
-              </h2>
-              <p className="text-muted-foreground text-lg">
-                Visit our Hong Kong office for personalized consultation
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              custom={1}
-              className="bg-card rounded-2xl overflow-hidden card-elevated border border-border"
-            >
-              <div className="grid md:grid-cols-2 gap-0">
-                <div className="relative h-80 md:h-auto overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&h=600&fit=crop"
-                    alt="Hong Kong Office"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
-                  <div className="absolute bottom-6 left-6">
-                    <div className="text-5xl mb-2">🇭🇰</div>
-                    <h3 className="font-heading font-bold text-3xl text-white">
-                      Hong Kong
-                    </h3>
-                  </div>
-                </div>
-                <div className="p-8">
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 shrink-0">
-                        <Building2 className="text-secondary" size={24} />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-2">
-                          Office Address
-                        </h4>
-                        <p className="text-muted-foreground leading-relaxed">
-                          Unit 1603, 16/F, The L.Plaza
-                          <br />
-                          367-375 Queens Road Central
-                          <br />
-                          Sheung Wan, Hong Kong
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 shrink-0">
-                        <Clock className="text-secondary" size={24} />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-2">
-                          Business Hours
-                        </h4>
-                        <p className="text-muted-foreground">
-                          Monday - Friday: 9:00 AM - 6:00 PM
-                          <br />
-                          Saturday: 10:00 AM - 2:00 PM
-                          <br />
-                          Sunday: Closed
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 shrink-0">
-                        <MapPin className="text-secondary" size={24} />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-2">
-                          Location
-                        </h4>
-                        <p className="text-muted-foreground">
-                          Prime location in Central Hong Kong with excellent
-                          connectivity to MTR and business districts
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={0}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="flex items-start gap-4 bg-white rounded-xl p-6 shadow-md border border-amber-300">
+              <AlertCircle className="text-amber-600 shrink-0 mt-1" size={28} />
+              <div>
+                <h3 className="font-heading font-bold text-xl text-foreground mb-2">
+                  Important Notice
+                </h3>
+                <p className="text-muted-foreground text-base leading-relaxed">
+                  We don't provide Legal Services in Belize. However, we offer
+                  comprehensive Immigration, Business, and IT Services to
+                  support your needs.
+                </p>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Section 2: Services Available */}
-      <section className="py-20 lg:py-28 bg-muted">
+      {/* Services Available */}
+      <section className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <motion.div
@@ -166,14 +98,14 @@ const HongKong = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-                Services Available in Hongkong
+                Services Available in Belize
               </h2>
               <p className="text-muted-foreground text-lg">
-                Comprehensive business solutions for the Hong Kong market
+                Comprehensive business solutions for the Belize market
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
               {[
                 {
                   title: "Immigration",
@@ -193,12 +125,6 @@ const HongKong = () => {
                   icon: "💻",
                   link: "/services/it-services",
                 },
-                {
-                  title: "Legal Services",
-                  desc: "Legal documentation and risk management",
-                  icon: "⚖️",
-                  link: "/services/legal",
-                },
               ].map((service, i) => (
                 <Link key={service.title} to={service.link}>
                   <motion.div
@@ -207,10 +133,10 @@ const HongKong = () => {
                     viewport={{ once: true }}
                     variants={fadeUp}
                     custom={i + 1}
-                    className="bg-card rounded-xl p-6 card-elevated border border-border hover:shadow-2xl transition-all duration-300 cursor-pointer group text-center h-full"
+                    className="bg-card rounded-xl p-8 card-elevated border border-border hover:shadow-2xl transition-all duration-300 cursor-pointer group text-center h-full"
                   >
-                    <div className="text-5xl mb-4">{service.icon}</div>
-                    <h3 className="font-heading font-bold text-xl text-foreground mb-2 group-hover:text-secondary transition-colors">
+                    <div className="text-6xl mb-4">{service.icon}</div>
+                    <h3 className="font-heading font-bold text-xl text-foreground mb-3 group-hover:text-secondary transition-colors">
                       {service.title}
                     </h3>
                     <p className="text-muted-foreground text-sm">
@@ -224,8 +150,8 @@ const HongKong = () => {
         </div>
       </section>
 
-      {/* Section 3: Contact Information */}
-      <section className="py-20 lg:py-28 bg-background">
+      {/* Contact Information */}
+      <section className="py-20 lg:py-28 bg-muted">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -240,7 +166,7 @@ const HongKong = () => {
                 Contact Information
               </h2>
               <p className="text-muted-foreground text-lg">
-                Get in touch with our Hong Kong team
+                Get in touch with our Belize team
               </p>
             </motion.div>
 
@@ -263,10 +189,10 @@ const HongKong = () => {
                   Call us for immediate assistance
                 </p>
                 <a
-                  href="tel:+85212345678"
+                  href="tel:+5011234567"
                   className="text-secondary font-semibold hover:underline"
                 >
-                  +852 1234 5678
+                  +501 123 4567
                 </a>
               </motion.div>
 
@@ -288,10 +214,10 @@ const HongKong = () => {
                   Send us your queries anytime
                 </p>
                 <a
-                  href="mailto:hongkong@orvanta.com"
+                  href="mailto:info@orvantaadvisory.com"
                   className="text-secondary font-semibold hover:underline"
                 >
-                  hongkong@orvanta.com
+                  info@orvantaadvisory.com
                 </a>
               </motion.div>
             </div>
@@ -320,4 +246,4 @@ const HongKong = () => {
   );
 };
 
-export default HongKong;
+export default Belize;

@@ -1,11 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import {
-  FaPlane,
-  FaBriefcase,
-  FaLaptopCode,
-  FaBalanceScale,
-} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 
@@ -18,54 +12,63 @@ const fadeUp = {
   }),
 };
 
-const services = [
+const locations = [
   {
-    icon: FaPlane,
-    title: "Immigration",
-    desc: "Comprehensive immigration solutions including visa services, PR applications, work permits, and study abroad programs across multiple global markets.",
+    flag: "🇮🇳",
+    name: "India",
+    desc: "Our headquarters in Mohali, Punjab, serving clients across India with comprehensive business solutions.",
     image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop",
-    link: "/services/immigration",
-    gradient: "from-blue-500/40 to-cyan-500/40",
+      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&h=400&fit=crop",
+    link: "/locations/india",
+    gradient: "from-orange-500/40 to-green-500/40",
   },
   {
-    icon: FaBriefcase,
-    title: "Business",
-    desc: "Strategic business solutions including investment opportunities and business expansion strategies to help your company grow internationally.",
+    flag: "🇬🇧",
+    name: "UK",
+    desc: "Strategic presence in London providing expert services for European market expansion.",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    link: "/services/business",
-    gradient: "from-purple-500/40 to-pink-500/40",
+      "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=400&fit=crop",
+    link: "/locations/uk",
+    gradient: "from-blue-600/40 to-red-600/40",
   },
   {
-    icon: FaLaptopCode,
-    title: "IT Services",
-    desc: "Complete IT solutions including web development, digital marketing & SEO, mobile app development, and video editing & graphic designing.",
+    flag: "🇭🇰",
+    name: "Hongkong",
+    desc: "Asia-Pacific hub in Hong Kong for businesses looking to expand in Asian markets.",
     image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop",
-    link: "/services/it-services",
-    gradient: "from-orange-500/40 to-red-500/40",
+      "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=600&h=400&fit=crop",
+    link: "/locations/hong-kong",
+    gradient: "from-red-600/40 to-yellow-500/40",
   },
   {
-    icon: FaBalanceScale,
-    title: "Legal Services",
-    desc: "Professional legal support including legal documentation & verification, risk management, and dispute prevention for international business.",
+    flag: "🇨🇦",
+    name: "Canada",
+    desc: "North American operations supporting businesses with immigration and expansion services.",
     image:
-      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=600&fit=crop",
-    link: "/services/legal",
-    gradient: "from-emerald-500/40 to-teal-500/40",
+      "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=600&h=400&fit=crop",
+    link: "/locations/canada",
+    gradient: "from-red-600/40 to-red-700/40",
+  },
+  {
+    flag: "🇧🇿",
+    name: "Belize",
+    desc: "Central American presence offering specialized business and immigration advisory services.",
+    image:
+      "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&h=400&fit=crop",
+    link: "/locations/belize",
+    gradient: "from-blue-500/40 to-red-500/40",
   },
 ];
 
-const Services = () => {
+const Locations = () => {
   return (
     <Layout>
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&h=1080&fit=crop"
-            alt="Our Services"
+            src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&h=1080&fit=crop"
+            alt="Our Locations"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-primary/80" />
@@ -81,26 +84,26 @@ const Services = () => {
               custom={0}
               className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-primary-foreground mb-6"
             >
-              Our <span className="text-accent">Services</span>
+              Our Global <span className="text-accent">Locations</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}
               custom={1}
               className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed"
             >
-              Comprehensive B2B solutions for immigration, business growth, IT
-              development, and legal support across global markets.
+              We operate across multiple continents to serve your business needs
+              wherever you are.
             </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Locations Grid */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {services.map((service, i) => (
-              <Link key={service.title} to={service.link}>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {locations.map((location, i) => (
+              <Link key={location.name} to={location.link}>
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
@@ -109,31 +112,29 @@ const Services = () => {
                   custom={i}
                   className="bg-card rounded-2xl overflow-hidden card-elevated border border-border group hover:shadow-2xl transition-all duration-300 cursor-pointer h-full flex flex-col"
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-56 overflow-hidden">
                     <img
-                      src={service.image}
-                      alt={service.title}
+                      src={location.image}
+                      alt={location.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div
-                      className={`absolute inset-0 bg-gradient-to-br ${service.gradient}`}
+                      className={`absolute inset-0 bg-gradient-to-br ${location.gradient}`}
                     ></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                    <div className="absolute bottom-6 left-6 flex items-center gap-4">
-                      <div className="h-16 w-16 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center">
-                        <service.icon size={32} className="text-white" />
-                      </div>
-                      <h3 className="font-heading font-bold text-3xl text-white drop-shadow-lg">
-                        {service.title}
-                      </h3>
-                    </div>
+                    <span className="absolute top-4 right-4 text-5xl drop-shadow-2xl filter brightness-110">
+                      {location.flag}
+                    </span>
+                    <h3 className="absolute bottom-4 left-4 font-heading font-bold text-3xl text-white drop-shadow-lg">
+                      {location.name}
+                    </h3>
                   </div>
-                  <div className="p-8 flex flex-col flex-1">
+                  <div className="p-6 flex flex-col flex-1">
                     <p className="text-muted-foreground text-base leading-relaxed mb-6 flex-1">
-                      {service.desc}
+                      {location.desc}
                     </p>
                     <div className="flex items-center gap-2 text-secondary font-semibold group-hover:gap-3 transition-all">
-                      Learn More{" "}
+                      View Details{" "}
                       <ArrowRight
                         size={20}
                         className="group-hover:translate-x-1 transition-transform"
@@ -160,15 +161,15 @@ const Services = () => {
               custom={0}
               className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground mb-6"
             >
-              Ready to Get Started?
+              Ready to Connect?
             </motion.h2>
             <motion.p
               variants={fadeUp}
               custom={1}
               className="text-primary-foreground/90 max-w-2xl mx-auto mb-8 text-lg"
             >
-              Contact us today to discuss how we can help your business expand
-              globally with our expert services.
+              Contact us at any of our global offices for personalized
+              consultation and support.
             </motion.p>
             <motion.div variants={fadeUp} custom={2}>
               <Link to="/contact">
@@ -184,4 +185,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Locations;
