@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
+import { useEffect, useState } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -22,71 +23,81 @@ const services = [
   {
     icon: FaPlane,
     title: "Immigration",
-    desc: "Comprehensive immigration solutions including visa services, PR applications, work permits, and study abroad programs across multiple global markets.",
+    desc: "Visa services, PR applications, work permits, and study abroad programs across multiple global markets.",
     image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1200&h=800&fit=crop",
     link: "/services/immigration",
     gradient: "from-blue-500/40 to-cyan-500/40",
   },
   {
     icon: FaBriefcase,
     title: "Business",
-    desc: "Strategic business solutions including investment opportunities and business expansion strategies to help your company grow internationally.",
+    desc: "Investment opportunities and business expansion strategies to help your company grow internationally.",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop",
     link: "/services/business",
     gradient: "from-purple-500/40 to-pink-500/40",
   },
   {
     icon: FaLaptopCode,
     title: "IT Services",
-    desc: "Complete IT solutions including web development, digital marketing & SEO, mobile app development, and video editing & graphic designing.",
+    desc: "Web development, digital marketing, mobile apps, and graphic design solutions for modern businesses.",
     image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
     link: "/services/it-services",
     gradient: "from-orange-500/40 to-red-500/40",
   },
   {
     icon: FaBalanceScale,
     title: "Legal Services",
-    desc: "Professional legal support including legal documentation & verification, risk management, and dispute prevention for international business.",
+    desc: "Legal documentation, risk management, and dispute prevention for international business operations.",
     image:
-      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=800&fit=crop",
     link: "/services/legal",
     gradient: "from-emerald-500/40 to-teal-500/40",
   },
 ];
 
 const Services = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % services.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative py-20 lg:py-28 overflow-hidden">
+      {/* Hero Section with Business Background */}
+      <section className="relative py-24 lg:py-32 overflow-hidden">
+        {/* Business Background Image */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&h=1080&fit=crop"
-            alt="Our Services"
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop"
+            alt="Business Services"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-primary/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75" />
         </div>
+        
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <motion.div
             initial="hidden"
             animate="visible"
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-4xl mx-auto text-center"
           >
             <motion.h1
               variants={fadeUp}
               custom={0}
-              className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-primary-foreground mb-6"
+              className="text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-primary-foreground mb-8 drop-shadow-lg"
             >
               Our <span className="text-accent">Services</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}
               custom={1}
-              className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed"
+              className="text-xl md:text-2xl text-primary-foreground font-medium leading-relaxed drop-shadow-md"
             >
               Comprehensive B2B solutions for immigration, business growth, IT
               development, and legal support across global markets.
@@ -98,6 +109,14 @@ const Services = () => {
       {/* Services Grid */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
+              Our <span className="text-accent">Services</span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+              Comprehensive immigration solutions tailored to your needs.
+            </p>
+          </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {services.map((service, i) => (
               <Link key={service.title} to={service.link}>
@@ -116,19 +135,13 @@ const Services = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div
-                      className={`absolute inset-0 bg-gradient-to-br ${service.gradient}`}
+                      className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20`}
                     ></div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                    <div className="absolute bottom-6 left-6 flex items-center gap-4">
-                      <div className="h-16 w-16 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center">
-                        <service.icon size={32} className="text-white" />
-                      </div>
-                      <h3 className="font-heading font-bold text-3xl text-white drop-shadow-lg">
-                        {service.title}
-                      </h3>
-                    </div>
                   </div>
                   <div className="p-8 flex flex-col flex-1">
+                    <h3 className="font-heading font-bold text-2xl text-foreground mb-4">
+                      {service.title}
+                    </h3>
                     <p className="text-muted-foreground text-base leading-relaxed mb-6 flex-1">
                       {service.desc}
                     </p>
@@ -162,6 +175,30 @@ const Services = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
+                title: "Web Development",
+                desc: "Custom website development solutions tailored to your business needs. From responsive design to e-commerce platforms, we create modern, fast, and secure websites. Our expert developers use the latest technologies to build scalable web applications that drive growth and enhance user experience across all devices.",
+                image:
+                  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop",
+              },
+              {
+                title: "Digital Marketing & SEO",
+                desc: "Comprehensive digital marketing strategies to boost your online presence and drive targeted traffic. Our SEO experts optimize your website for search engines, manage social media campaigns, and create engaging content. We help you reach your target audience and convert visitors into customers with data-driven marketing solutions.",
+                image:
+                  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+              },
+              {
+                title: "App Development",
+                desc: "Professional mobile app development for iOS and Android platforms. We design and develop user-friendly, feature-rich mobile applications that engage users and drive business growth. From concept to deployment, our team delivers high-quality apps with seamless performance and intuitive interfaces.",
+                image:
+                  "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
+              },
+              {
+                title: "Graphic Design",
+                desc: "Creative graphic design services for branding, marketing materials, and digital content. Our talented designers create visually stunning logos, brochures, social media graphics, and promotional materials. We help you establish a strong brand identity and communicate your message effectively through compelling visual design.",
+                image:
+                  "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=600&fit=crop",
+              },
+              {
                 title: "Business Consultation",
                 desc: "Expert guidance for starting and growing your business internationally. We help you navigate market entry, business setup, and expansion strategies. Our consultants provide comprehensive support in business planning, market research, and operational optimization to ensure your success in global markets.",
                 image:
@@ -171,37 +208,13 @@ const Services = () => {
                 title: "Business Investment",
                 desc: "Explore lucrative investment opportunities in global markets with our expert guidance. Our team provides detailed market analysis, risk assessment, and investment planning services. We help you identify profitable ventures, structure investments, and maximize returns while ensuring compliance with international regulations.",
                 image:
-                  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+                  "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=600&fit=crop",
               },
               {
                 title: "Stock Investment",
                 desc: "Professional stock market advisory and portfolio management services tailored to your financial goals. Get expert insights on market trends, investment strategies, and risk management. Our financial analysts help you build a diversified portfolio and make informed decisions for better returns and long-term wealth creation.",
                 image:
                   "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop",
-              },
-              {
-                title: "Financial Advisors",
-                desc: "Comprehensive financial planning and wealth management solutions for individuals and businesses. From retirement planning to tax optimization and asset allocation, our experienced advisors help you achieve financial security. We provide personalized strategies to grow, protect, and preserve your wealth for future generations.",
-                image:
-                  "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop",
-              },
-              {
-                title: "Legal",
-                desc: "Professional legal consultation for immigration, business contracts, and documentation needs. Our legal team provides expert support for visa applications, business agreements, and compliance matters. We ensure all your legal requirements are met with accuracy and efficiency. Please note: Legal services are not available for Canada and Belize.",
-                image:
-                  "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=600&fit=crop",
-              },
-              {
-                title: "Education Career Online Course",
-                desc: "Access premium online courses and career development programs designed for global professionals. Enhance your skills with industry-recognized certifications, language training, and specialized courses. Our educational programs help you stay competitive in the international job market and advance your career with confidence.",
-                image:
-                  "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&h=600&fit=crop",
-              },
-              {
-                title: "Document Translation Services",
-                desc: "Professional translation and certification of documents for visa and immigration purposes. Our certified translators ensure accuracy and compliance with embassy requirements. We handle birth certificates, academic transcripts, employment letters, and all official documents needed for your application process.",
-                image:
-                  "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop",
               },
             ].map((service, i) => (
               <motion.div
