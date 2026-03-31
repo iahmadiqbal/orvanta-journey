@@ -163,28 +163,28 @@ const features = [
 
 const testimonials = [
   {
-    name: "John Anderson",
-    role: "CEO & Founder",
-    text: "15+ years in global immigration and business consulting, leading strategic expansion initiatives across multiple continents.",
-    image: "https://i.pravatar.cc/150?img=13",
+    name: "Michael Roberts",
+    role: "Business Owner, Toronto",
+    text: "Orvanta made our Canadian immigration process seamless. Their expert guidance and attention to detail helped us secure our permanent residency faster than expected. Highly recommended!",
+    image: "https://i.pravatar.cc/150?img=12",
   },
   {
-    name: "Sarah Chen",
-    role: "Head of Immigration Services",
-    text: "Certified immigration consultant specializing in UK, Hong Kong, and India visa processing with 500+ successful cases.",
-    image: "https://i.pravatar.cc/150?img=5",
+    name: "Priya Sharma",
+    role: "Software Engineer, Mumbai",
+    text: "The team at Orvanta provided exceptional support for my UK work visa. They handled everything professionally and kept me informed throughout the entire process. Thank you!",
+    image: "https://i.pravatar.cc/150?img=47",
   },
   {
-    name: "Rajesh Kumar",
-    role: "Investment Advisor",
-    text: "12+ years in financial advisory, specializing in real estate and stock market investments with proven ROI strategies.",
-    image: "https://i.pravatar.cc/150?img=33",
+    name: "David Chen",
+    role: "Entrepreneur, Hong Kong",
+    text: "Outstanding investment advisory services! Orvanta helped me diversify my portfolio and navigate international business opportunities with confidence. Their expertise is unmatched.",
+    image: "https://i.pravatar.cc/150?img=68",
   },
   {
-    name: "Emily Watson",
-    role: "Legal Consultant",
-    text: "International business law expert in compliance, contract drafting, and risk management across multiple jurisdictions.",
-    image: "https://i.pravatar.cc/150?img=9",
+    name: "Lisa Anderson",
+    role: "Retiree, Belize",
+    text: "Moving to Belize was a dream come true, thanks to Orvanta. They guided us through the QRP program and made our relocation stress-free. We couldn't be happier!",
+    image: "https://i.pravatar.cc/150?img=44",
   },
 ];
 
