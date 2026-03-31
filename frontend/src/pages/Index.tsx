@@ -207,13 +207,13 @@ const Index = () => {
       <section className="relative min-h-[70vh] xl:min-h-[65vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&q=80"
-            alt="Global business network"
+            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=1080&fit=crop&q=80"
+            alt="Business team collaboration"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/85 to-primary/75" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
         </div>
-        <div className="container mx-auto px-4 lg:px-8 relative z-10 py-16">
+        <div className="container mx-auto px-4 lg:px-8 relative z-10 py-20">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -222,39 +222,30 @@ const Index = () => {
             <motion.h1
               variants={fadeUp}
               custom={0}
-              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-primary-foreground leading-tight mb-5"
+              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-extrabold text-white leading-tight mb-6 drop-shadow-2xl"
             >
-              Your Global Partner for Immigration, Business and IT Solutions
+              Your Global Partner for <span className="text-accent">Immigration</span>, <span className="text-accent">Business</span> and <span className="text-accent">IT Solutions</span>
             </motion.h1>
-            <motion.h3
+            <motion.p
               variants={fadeUp}
               custom={1}
-              className="text-lg md:text-xl lg:text-2xl font-heading font-medium text-primary-foreground/95 mb-5 leading-relaxed"
+              className="text-base md:text-lg lg:text-xl font-heading font-semibold text-white mb-6 leading-relaxed drop-shadow-2xl"
             >
               Expert B2B services in immigration, business, and IT solutions
               across multiple global markets. We help businesses expand with
               personalized, strategic guidance.
-            </motion.h3>
-            <motion.h5
+            </motion.p>
+            <motion.p
               variants={fadeUp}
               custom={2}
-              className="text-sm md:text-base text-primary-foreground/85 mb-3 leading-relaxed max-w-3xl mx-auto font-normal"
+              className="text-sm md:text-base text-white/95 mb-8 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-xl"
             >
               We provide strategic guidance and advisory services only; we do
               not facilitate company setup, registration, or office acquisition.
-            </motion.h5>
-            <motion.h6
-              variants={fadeUp}
-              custom={3}
-              className="text-xs md:text-sm text-primary-foreground/75 mb-8 leading-relaxed max-w-3xl mx-auto italic font-light"
-            >
-              Orvanta Advisory operates strictly as an independent consulting
-              firm and does not provide regulated incorporation or fiduciary
-              services.
-            </motion.h6>
+            </motion.p>
             <motion.div
               variants={fadeUp}
-              custom={2}
+              custom={3}
               className="flex flex-wrap gap-4 justify-center"
             >
               <Link to="/sign-up">
@@ -269,7 +260,7 @@ const Index = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white/60 bg-white/10 text-white hover:bg-white hover:text-primary hover:border-white font-semibold text-base xl:text-lg px-8 xl:px-10 backdrop-blur-md transition-all duration-200 h-12 xl:h-14 shadow-lg hover:shadow-xl"
+                  className="border-2 border-white bg-white/20 text-white hover:bg-white hover:text-primary hover:border-white font-semibold text-base xl:text-lg px-8 xl:px-10 backdrop-blur-sm transition-all duration-200 h-12 xl:h-14 shadow-lg hover:shadow-xl"
                 >
                   Contact Us
                 </Button>
@@ -280,39 +271,85 @@ const Index = () => {
       </section>
 
       {/* Services */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              Our Services
+              Our <span className="text-accent">Services</span>
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Comprehensive immigration solutions tailored to your needs.
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Comprehensive B2B solutions for immigration, business growth, IT development, and legal support across global markets.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((s, i) => (
-              <Link key={s.title} to={s.link} className="h-full">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                title: "Immigration",
+                desc: "Visa services, PR applications, work permits, and study abroad programs across multiple global markets.",
+                link: "/services/immigration",
+                image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop",
+                gradient: "from-blue-600/20 to-cyan-600/20",
+                icon: FaPlane,
+              },
+              {
+                title: "Business",
+                desc: "Investment opportunities and business expansion strategies to help your company grow internationally.",
+                link: "/services/business",
+                image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&h=400&fit=crop",
+                gradient: "from-purple-600/20 to-pink-600/20",
+                icon: FaBriefcase,
+              },
+              {
+                title: "IT Services",
+                desc: "Web development, digital marketing, mobile apps, and graphic design solutions for modern businesses.",
+                link: "/services/it-services",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+                gradient: "from-orange-600/20 to-red-600/20",
+                icon: FaUserTie,
+              },
+              {
+                title: "Legal Services",
+                desc: "Legal documentation, risk management, and dispute prevention for international business operations.",
+                link: "/services/legal",
+                image: "https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=600&h=400&fit=crop",
+                gradient: "from-emerald-600/20 to-teal-600/20",
+                icon: FaGraduationCap,
+              },
+            ].map((service, i) => (
+              <Link key={service.title} to={service.link}>
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeUp}
                   custom={i}
-                  className="bg-card rounded-xl p-8 card-elevated border border-border text-center cursor-pointer group h-full min-h-[280px] flex flex-col items-center justify-start hover:shadow-2xl transition-all duration-300"
+                  className="group relative bg-card rounded-3xl overflow-hidden card-elevated border border-border hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 cursor-pointer h-full"
                 >
-                  <div className="h-14 w-14 rounded-xl bg-secondary/10 group-hover:bg-secondary/20 flex items-center justify-center mb-5 transition-all duration-200">
-                    <s.icon
-                      size={28}
-                      className="text-secondary group-hover:scale-110 transition-transform duration-200"
+                  <div className="relative h-56 overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} group-hover:opacity-30 transition-opacity duration-500`}></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                    
+                    {/* Icon and Title */}
+                    <div className="absolute bottom-6 left-6 right-6 flex items-center gap-4">
+                      <div className="h-14 w-14 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0 group-hover:bg-white/30 transition-all duration-300">
+                        <service.icon size={28} className="text-white" />
+                      </div>
+                      <h3 className="font-heading font-bold text-3xl text-white drop-shadow-2xl group-hover:translate-x-2 transition-transform duration-500">
+                        {service.title}
+                      </h3>
+                    </div>
                   </div>
-                  <h3 className="font-heading font-bold text-xl mb-3 text-foreground group-hover:text-secondary transition-colors">
-                    {s.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {s.desc}
-                  </p>
+                  
+                  <div className="p-6 bg-gradient-to-br from-card to-card/80">
+                    <p className="text-muted-foreground text-base leading-relaxed">
+                      {service.desc}
+                    </p>
+                  </div>
                 </motion.div>
               </Link>
             ))}

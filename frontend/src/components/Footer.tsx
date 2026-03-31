@@ -7,16 +7,15 @@ import {
   FaWhatsapp,
   FaTwitter,
 } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-6 lg:px-12 py-10 lg:py-12 max-w-[1920px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+      <div className="container mx-auto px-6 lg:px-12 py-8 lg:py-10 max-w-[1920px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
           {/* Brand */}
           <div>
-            <Link to="/" className="inline-block mb-3">
+            <Link to="/" className="inline-block mb-4">
               <img
                 src="/logo.png"
                 alt="Orvanta Advisory Logo"
@@ -24,49 +23,48 @@ const Footer = () => {
               />
             </Link>
             <p className="text-primary-foreground/80 text-[15px] leading-relaxed mb-4">
-              Your trusted partner for study, work, and tourist visa
-              applications worldwide.
+              Orvanta Advisory operates strictly as an independent consulting firm and does not provide regulated incorporation or fiduciary services.
             </p>
-            <div className="flex gap-2.5">
+            <div className="flex gap-2">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
+                className="h-9 w-9 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
               >
-                <FaFacebookF className="text-primary-foreground text-lg" />
+                <FaFacebookF className="text-primary-foreground" />
               </a>
               <a
                 href="https://www.instagram.com/orvanta_advisory?igsh=bTZ2aHFoNGEyZmZ4"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
+                className="h-9 w-9 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
               >
-                <FaInstagram className="text-primary-foreground text-lg" />
+                <FaInstagram className="text-primary-foreground" />
               </a>
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
+                className="h-9 w-9 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
               >
-                <FaLinkedinIn className="text-primary-foreground text-lg" />
+                <FaLinkedinIn className="text-primary-foreground" />
               </a>
               <a
                 href="https://wa.me/447411962102"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
+                className="h-9 w-9 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
               >
-                <FaWhatsapp className="text-primary-foreground text-lg" />
+                <FaWhatsapp className="text-primary-foreground" />
               </a>
               <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
+                className="h-9 w-9 rounded-lg bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110"
               >
-                <FaTwitter className="text-primary-foreground text-lg" />
+                <FaTwitter className="text-primary-foreground" />
               </a>
             </div>
           </div>
@@ -142,10 +140,10 @@ const Footer = () => {
             <h4 className="font-heading font-semibold mb-3 text-lg">
               Contact Us
             </h4>
-            <ul className="space-y-3 text-[15px] text-primary-foreground/80">
-              <li className="flex items-start gap-3">
-                <MapPin size={18} className="mt-0.5 shrink-0 text-white" />
-                <div className="leading-relaxed flex flex-wrap gap-1">
+            <div className="space-y-3 text-[15px] text-primary-foreground/80">
+              <div className="flex items-start gap-2 leading-relaxed">
+                <MapPin size={16} className="mt-0.5 shrink-0 text-white" />
+                <div className="flex flex-wrap gap-1">
                   <Link
                     to="/locations/india"
                     className="hover:text-accent transition-colors hover:underline"
@@ -164,7 +162,7 @@ const Footer = () => {
                     to="/locations/hong-kong"
                     className="hover:text-accent transition-colors hover:underline"
                   >
-                    Hongkong
+                    Hong Kong
                   </Link>
                   <span>|</span>
                   <Link
@@ -181,53 +179,42 @@ const Footer = () => {
                     Belize
                   </Link>
                 </div>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Mail
-                  size={18}
-                  className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200"
-                />
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail size={16} className="shrink-0 text-white" />
                 <a
                   href="mailto:info@orvantaadvisory.com"
-                  className="hover:text-accent transition-colors cursor-pointer"
+                  className="hover:text-accent transition-colors"
                 >
                   info@orvantaadvisory.com
                 </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone
-                  size={18}
-                  className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200"
-                />
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <Phone size={16} className="shrink-0 text-white" />
                 <a
                   href="tel:+918196982305"
-                  className="hover:text-accent transition-colors cursor-pointer"
+                  className="hover:text-accent transition-colors"
                 >
-                  India: +91 81969 82305
+                  +91 81969 82305 (India)
                 </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone
-                  size={18}
-                  className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200"
-                />
+                <span>|</span>
                 <a
                   href="tel:+447411962102"
-                  className="hover:text-accent transition-colors cursor-pointer"
+                  className="hover:text-accent transition-colors"
                 >
-                  UK: +44 7411 962102
+                  +44 7411 962102 (UK)
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 mt-8 lg:mt-10 pt-5 flex flex-col md:flex-row items-center justify-between gap-3 text-[15px] text-primary-foreground/60">
+        <div className="border-t border-primary-foreground/10 mt-6 pt-4 flex flex-col md:flex-row items-center justify-between gap-2 text-[15px] text-primary-foreground/60">
           <p>
             &copy; {new Date().getFullYear()} Orvanta Advisory. All rights
             reserved.
           </p>
-          <div className="flex gap-6">
+          <div className="flex gap-4">
             <Link to="/contact" className="hover:text-accent transition-colors">
               Privacy Policy
             </Link>

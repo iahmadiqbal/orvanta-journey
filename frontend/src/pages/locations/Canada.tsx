@@ -58,7 +58,7 @@ const Canada = () => {
       </section>
 
       {/* Important Notice */}
-      <section className="py-12 bg-amber-50 border-y border-amber-200">
+      <section className="py-16 bg-gradient-to-r from-amber-50 to-orange-50 border-y border-amber-200">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             initial="hidden"
@@ -66,92 +66,45 @@ const Canada = () => {
             viewport={{ once: true }}
             variants={fadeUp}
             custom={0}
-            className="max-w-4xl mx-auto"
+            className="max-w-5xl mx-auto"
           >
-            <div className="flex items-start gap-4 bg-white rounded-xl p-6 shadow-md border border-amber-300">
-              <AlertCircle className="text-amber-600 shrink-0 mt-1" size={28} />
-              <div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-2">
-                  Important Notice
-                </h3>
-                <p className="text-muted-foreground text-base leading-relaxed">
-                  We don't provide Legal Services in Canada. However, we offer
-                  comprehensive Immigration, Business, and IT Services to
-                  support your needs.
-                </p>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-amber-300">
+              <div className="flex items-start gap-6">
+                <div className="shrink-0">
+                  <div className="h-16 w-16 rounded-xl bg-amber-100 flex items-center justify-center">
+                    <AlertCircle className="text-amber-600" size={36} />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-heading font-bold text-2xl text-foreground mb-3 flex items-center gap-2">
+                    Important <span className="text-amber-600">Notice</span>
+                  </h3>
+                  <p className="text-muted-foreground text-base leading-relaxed mb-4">
+                    Please note that we <span className="font-semibold text-foreground">do not provide Legal Services</span> in Canada. Our focus is on delivering exceptional Immigration, Business, and IT Services tailored to your specific needs.
+                  </p>
+                  <div className="grid md:grid-cols-3 gap-4 mt-6">
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                      <span className="font-medium text-foreground">Immigration Services</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                      <span className="font-medium text-foreground">Business Consulting</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                      <span className="font-medium text-foreground">IT Solutions</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Available */}
+      {/* Office Details */}
       <section className="py-20 lg:py-28 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              custom={0}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-                Services Available in Canada
-              </h2>
-              <p className="text-muted-foreground text-lg">
-                Comprehensive business solutions for the Canadian market
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              {[
-                {
-                  title: "Immigration",
-                  desc: "Visa services, PR applications, and work permits",
-                  icon: "✈️",
-                  link: "/services/immigration",
-                },
-                {
-                  title: "Business",
-                  desc: "Investment and business expansion strategies",
-                  icon: "💼",
-                  link: "/services/business",
-                },
-                {
-                  title: "IT Services",
-                  desc: "Web development, digital marketing, and more",
-                  icon: "💻",
-                  link: "/services/it-services",
-                },
-              ].map((service, i) => (
-                <Link key={service.title} to={service.link}>
-                  <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={fadeUp}
-                    custom={i + 1}
-                    className="bg-card rounded-xl p-8 card-elevated border border-border hover:shadow-2xl transition-all duration-300 cursor-pointer group text-center h-full"
-                  >
-                    <div className="text-6xl mb-4">{service.icon}</div>
-                    <h3 className="font-heading font-bold text-xl text-foreground mb-3 group-hover:text-secondary transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {service.desc}
-                    </p>
-                  </motion.div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Information */}
-      <section className="py-20 lg:py-28 bg-muted">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -163,37 +116,218 @@ const Canada = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-                Contact Information
+                Office Details
               </h2>
               <p className="text-muted-foreground text-lg">
-                Get in touch with our Canada team
+                Visit our Canada office for personalized consultation
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={1}
+              className="bg-card rounded-2xl overflow-hidden card-elevated border border-border"
+            >
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="relative h-80 md:h-auto overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&h=600&fit=crop"
+                    alt="Canada Office"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-8">
+                  <div className="space-y-6">
+                    <div className="flex items-start gap-4">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 shrink-0">
+                        <Building2 className="text-secondary" size={24} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2">
+                          Office Address
+                        </h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          123 Business Street
+                          <br />
+                          Toronto, ON M5H 2N2
+                          <br />
+                          Canada
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 shrink-0">
+                        <Clock className="text-secondary" size={24} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2">
+                          Business Hours
+                        </h4>
+                        <p className="text-muted-foreground">
+                          Monday - Friday: 9:00 AM - 6:00 PM
+                          <br />
+                          Saturday: 10:00 AM - 2:00 PM
+                          <br />
+                          Sunday: Closed
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 shrink-0">
+                        <MapPin className="text-secondary" size={24} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2">
+                          Location
+                        </h4>
+                        <p className="text-muted-foreground">
+                          Located in downtown Toronto with easy access to public transit and major business districts
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Available */}
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-muted/50 to-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={0}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+                Services Available in <span className="text-accent">Canada</span>
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Comprehensive business solutions tailored for the Canadian market
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {[
+                {
+                  title: "Immigration",
+                  desc: "Expert Canadian immigration services including Express Entry, Provincial Nominee Programs, and study permits. Our team provides comprehensive support for permanent residency applications, work permits, and family sponsorship. We guide you through Canada's immigration pathways with personalized consultation and document preparation to help you achieve your Canadian dream.",
+                  link: "/services/immigration",
+                  image: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=600&h=400&fit=crop",
+                  gradient: "from-blue-600/20 to-cyan-600/20"
+                },
+                {
+                  title: "Business",
+                  desc: "Strategic business consulting for Canadian market entry and expansion. We assist with business immigration programs, investment opportunities, and company setup in Canada. Our experts help you navigate regulatory requirements, identify growth opportunities, and establish successful operations in this immigration-friendly country with strong economic fundamentals.",
+                  link: "/services/business",
+                  image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&h=400&fit=crop",
+                  gradient: "from-purple-600/20 to-pink-600/20"
+                },
+                {
+                  title: "IT Services",
+                  desc: "Modern technology solutions including web development, mobile applications, and digital marketing for Canadian businesses. We create innovative digital solutions, implement effective online strategies, and help you establish a strong digital presence in the Canadian market. Our IT team delivers scalable solutions that drive business growth and enhance customer engagement.",
+                  link: "/services/it-services",
+                  image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=400&fit=crop",
+                  gradient: "from-orange-600/20 to-red-600/20"
+                },
+              ].map((service, i) => (
+                <Link key={service.title} to={service.link}>
+                  <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeUp}
+                    custom={i + 1}
+                    className="group relative bg-card rounded-3xl overflow-hidden card-elevated border border-border hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 cursor-pointer h-full"
+                  >
+                    <div className="relative h-56 overflow-hidden">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} group-hover:opacity-30 transition-opacity duration-500`}></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                      
+                      <div className="absolute bottom-6 left-6 right-6">
+                        <h3 className="font-heading font-bold text-3xl text-white drop-shadow-2xl group-hover:translate-x-2 transition-transform duration-500">
+                          {service.title}
+                        </h3>
+                      </div>
+                    </div>
+                    
+                    <div className="p-6 bg-gradient-to-br from-card to-card/80">
+                      <p className="text-muted-foreground text-base leading-relaxed">
+                        {service.desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information */}
+      <section className="py-16 lg:py-20 bg-muted/30">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={0}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
+                Contact <span className="text-accent">Information</span>
+              </h2>
+              <p className="text-muted-foreground text-base">
+                Get in touch with our Canada team for personalized assistance
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
               <motion.div
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={1}
-                className="bg-card rounded-xl p-8 card-elevated border border-border"
+                className="bg-card rounded-2xl p-6 card-elevated border border-border hover:shadow-xl transition-all duration-300 group"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary/10 mb-6">
-                  <Phone className="text-secondary" size={32} />
+                <div className="flex items-start gap-4">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-secondary/10 group-hover:bg-secondary/20 transition-colors shrink-0">
+                    <Phone className="text-secondary" size={28} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-heading font-bold text-lg text-foreground mb-2">
+                      Phone
+                    </h3>
+                    <p className="text-muted-foreground text-sm mb-3">
+                      Call us for immediate assistance
+                    </p>
+                    <a
+                      href="tel:+11234567890"
+                      className="text-secondary font-semibold hover:underline text-base"
+                    >
+                      +1 123 456 7890
+                    </a>
+                  </div>
                 </div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3">
-                  Phone
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Call us for immediate assistance
-                </p>
-                <a
-                  href="tel:+11234567890"
-                  className="text-secondary font-semibold hover:underline"
-                >
-                  +1 123 456 7890
-                </a>
               </motion.div>
 
               <motion.div
@@ -202,23 +336,27 @@ const Canada = () => {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={2}
-                className="bg-card rounded-xl p-8 card-elevated border border-border"
+                className="bg-card rounded-2xl p-6 card-elevated border border-border hover:shadow-xl transition-all duration-300 group"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary/10 mb-6">
-                  <Mail className="text-secondary" size={32} />
+                <div className="flex items-start gap-4">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-secondary/10 group-hover:bg-secondary/20 transition-colors shrink-0">
+                    <Mail className="text-secondary" size={28} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-heading font-bold text-lg text-foreground mb-2">
+                      Email
+                    </h3>
+                    <p className="text-muted-foreground text-sm mb-3">
+                      Send us your queries anytime
+                    </p>
+                    <a
+                      href="mailto:canada@orvanta.com"
+                      className="text-secondary font-semibold hover:underline text-base"
+                    >
+                      canada@orvanta.com
+                    </a>
+                  </div>
                 </div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3">
-                  Email
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Send us your queries anytime
-                </p>
-                <a
-                  href="mailto:info@orvantaadvisory.com"
-                  className="text-secondary font-semibold hover:underline"
-                >
-                  info@orvantaadvisory.com
-                </a>
               </motion.div>
             </div>
 
@@ -228,12 +366,12 @@ const Canada = () => {
               viewport={{ once: true }}
               variants={fadeUp}
               custom={3}
-              className="mt-12 text-center"
+              className="text-center"
             >
               <Link to="/contact">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90"
+                  className="bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 shadow-lg hover:shadow-xl transition-all"
                 >
                   Schedule a Consultation
                 </Button>

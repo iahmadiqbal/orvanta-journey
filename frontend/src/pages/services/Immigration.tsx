@@ -76,7 +76,7 @@ const immigrationServices = [
       "Pre-departure orientation",
     ],
     image:
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&h=400&fit=crop",
     gradient: "from-emerald-500/40 to-teal-500/40",
   },
 ];
@@ -88,11 +88,11 @@ const Immigration = () => {
       <section className="relative py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&h=1080&fit=crop"
+            src="https://images.unsplash.com/photo-1569098644584-210bcd375b59?w=1920&h=1080&fit=crop"
             alt="Immigration Services"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-primary/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
         </div>
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <motion.div
@@ -103,14 +103,14 @@ const Immigration = () => {
             <motion.h1
               variants={fadeUp}
               custom={0}
-              className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-primary-foreground mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-white mb-6 drop-shadow-2xl"
             >
               Immigration <span className="text-accent">Services</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}
               custom={1}
-              className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed"
+              className="text-lg md:text-xl text-white font-semibold leading-relaxed drop-shadow-2xl"
             >
               Expert immigration solutions for visas, permanent residency, work
               permits, and study abroad programs.
@@ -122,12 +122,15 @@ const Immigration = () => {
       {/* Services Grid */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
               Our Immigration Services
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg mb-6">
               Comprehensive support for all your immigration needs
+            </p>
+            <p className="text-muted-foreground text-base leading-relaxed text-left">
+              We specialize in providing end-to-end immigration solutions for individuals and businesses across multiple global markets. Our experienced immigration consultants guide you through complex visa processes, permanent residency applications, and work permit requirements with personalized attention. From initial consultation to successful visa approval, we handle documentation, application submissions, and follow-ups to ensure a smooth immigration journey. With expertise in UK, Canada, Australia, and other major destinations, we help you navigate immigration regulations confidently and achieve your relocation goals efficiently.
             </p>
           </div>
 
