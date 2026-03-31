@@ -207,11 +207,11 @@ const Index = () => {
       <section className="relative min-h-[70vh] xl:min-h-[65vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=1080&fit=crop&q=80"
             alt="Business team collaboration"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-primary/94" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
         </div>
         <div className="container mx-auto px-4 lg:px-8 relative z-10 py-20">
           <motion.div
@@ -222,39 +222,30 @@ const Index = () => {
             <motion.h1
               variants={fadeUp}
               custom={0}
-              className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-primary-foreground leading-tight mb-4 drop-shadow-lg"
+              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-extrabold text-white leading-tight mb-6 drop-shadow-2xl"
             >
               Your Global Partner for Immigration, Business and IT Solutions
             </motion.h1>
-            <motion.h3
+            <motion.p
               variants={fadeUp}
               custom={1}
-              className="text-base md:text-lg lg:text-xl font-heading font-medium text-primary-foreground mb-4 leading-relaxed drop-shadow-md"
+              className="text-base md:text-lg lg:text-xl xl:text-2xl font-heading font-semibold text-white mb-6 leading-relaxed drop-shadow-2xl"
             >
               Expert B2B services in immigration, business, and IT solutions
               across multiple global markets. We help businesses expand with
               personalized, strategic guidance.
-            </motion.h3>
-            <motion.h5
+            </motion.p>
+            <motion.p
               variants={fadeUp}
               custom={2}
-              className="text-xs md:text-sm lg:text-base text-primary-foreground/95 mb-3 leading-relaxed max-w-3xl mx-auto font-normal drop-shadow"
+              className="text-sm md:text-base lg:text-lg text-white/95 mb-8 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-xl"
             >
               We provide strategic guidance and advisory services only; we do
               not facilitate company setup, registration, or office acquisition.
-            </motion.h5>
-            <motion.h6
-              variants={fadeUp}
-              custom={3}
-              className="text-xs md:text-sm text-primary-foreground/90 mb-8 leading-relaxed max-w-3xl mx-auto italic font-light drop-shadow"
-            >
-              Orvanta Advisory operates strictly as an independent consulting
-              firm and does not provide regulated incorporation or fiduciary
-              services.
-            </motion.h6>
+            </motion.p>
             <motion.div
               variants={fadeUp}
-              custom={2}
+              custom={3}
               className="flex flex-wrap gap-4 justify-center"
             >
               <Link to="/sign-up">
@@ -269,7 +260,7 @@ const Index = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white/60 bg-white/10 text-white hover:bg-white hover:text-primary hover:border-white font-semibold text-base xl:text-lg px-8 xl:px-10 backdrop-blur-md transition-all duration-200 h-12 xl:h-14 shadow-lg hover:shadow-xl"
+                  className="border-2 border-white bg-white/20 text-white hover:bg-white hover:text-primary hover:border-white font-semibold text-base xl:text-lg px-8 xl:px-10 backdrop-blur-sm transition-all duration-200 h-12 xl:h-14 shadow-lg hover:shadow-xl"
                 >
                   Contact Us
                 </Button>
