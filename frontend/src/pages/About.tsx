@@ -85,40 +85,51 @@ const About = () => {
       </section>
 
       {/* Intro */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <motion.h2 variants={fadeUp} custom={0} className="text-3xl font-heading font-bold text-foreground mb-6">
-                Who We Are
+          <div className="max-w-6xl mx-auto">
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <motion.h2 variants={fadeUp} custom={0} className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
+                Who We <span className="text-accent">Are</span>
               </motion.h2>
-              <motion.p variants={fadeUp} custom={1} className="text-muted-foreground leading-relaxed mb-4">
-                Orvanta Advisory is a leading immigration and visa consultancy firm dedicated to helping individuals and families navigate the complex world of international migration. With over a decade of experience, we've successfully guided thousands of clients to their dream destinations.
+              <motion.p variants={fadeUp} custom={1} className="text-muted-foreground text-lg leading-relaxed max-w-4xl mx-auto mb-4">
+                Orvanta Advisory is a leading global consultancy firm specializing in immigration, business expansion, IT solutions, and legal services. With over a decade of experience, we've successfully guided thousands of clients and businesses to achieve their international goals across multiple continents.
               </motion.p>
-              <motion.p variants={fadeUp} custom={2} className="text-muted-foreground leading-relaxed">
-                Our team of certified consultants specializes in study visas, work permits, immigrant visas, and permanent residency applications for countries across the globe. We pride ourselves on our personalized approach, ensuring every client receives tailored guidance.
+              <motion.p variants={fadeUp} custom={2} className="text-muted-foreground text-base leading-relaxed max-w-4xl mx-auto">
+                Our team of certified consultants and industry experts delivers personalized, strategic guidance tailored to your unique needs. From visa applications and permanent residency to business investments and digital transformation, we provide comprehensive solutions that drive success in today's global marketplace.
               </motion.p>
             </motion.div>
+
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-6"
+              className="grid grid-cols-2 lg:grid-cols-4 gap-6"
             >
               {[
-                { num: "10+", label: "Years Experience" },
-                { num: "5000+", label: "Successful Cases" },
-                { num: "98%", label: "Success Rate" },
-                { num: "25+", label: "Countries Covered" },
+                { num: "10+", label: "Years Experience", icon: Award, gradient: "from-blue-500/20 to-cyan-500/20" },
+                { num: "5000+", label: "Successful Cases", icon: CheckCircle, gradient: "from-purple-500/20 to-pink-500/20" },
+                { num: "98%", label: "Success Rate", icon: Target, gradient: "from-emerald-500/20 to-teal-500/20" },
+                { num: "25+", label: "Countries Covered", icon: MapPin, gradient: "from-orange-500/20 to-red-500/20" },
               ].map((stat, i) => (
                 <motion.div
                   key={stat.label}
                   variants={fadeUp}
-                  custom={i}
-                  className="bg-card rounded-xl p-6 card-elevated border border-border text-center"
+                  custom={i + 3}
+                  className={`bg-gradient-to-br ${stat.gradient} backdrop-blur-sm rounded-2xl p-6 card-elevated border border-border text-center hover:shadow-xl transition-all duration-300 group`}
                 >
-                  <p className="text-3xl font-heading font-bold text-secondary mb-1">{stat.num}</p>
-                  <p className="text-muted-foreground text-sm">{stat.label}</p>
+                  <div className="flex justify-center mb-4">
+                    <div className="h-12 w-12 rounded-xl bg-white shadow-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <stat.icon size={24} className="text-secondary" />
+                    </div>
+                  </div>
+                  <p className="text-4xl font-heading font-bold text-foreground mb-2">{stat.num}</p>
+                  <p className="text-muted-foreground text-sm font-medium">{stat.label}</p>
                 </motion.div>
               ))}
             </motion.div>
