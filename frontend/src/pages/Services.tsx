@@ -8,7 +8,14 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
-import { useEffect, useState } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -25,7 +32,7 @@ const services = [
     title: "Immigration",
     desc: "Visa services, PR applications, work permits, and study abroad programs across multiple global markets.",
     image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&h=800&fit=crop",
     link: "/services/immigration",
     gradient: "from-blue-600/20 to-cyan-600/20",
   },
@@ -34,7 +41,7 @@ const services = [
     title: "Business",
     desc: "Investment opportunities and business expansion strategies to help your company grow internationally.",
     image:
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&h=800&fit=crop",
     link: "/services/business",
     gradient: "from-purple-600/20 to-pink-600/20",
   },
@@ -43,7 +50,7 @@ const services = [
     title: "IT Services",
     desc: "Web development, digital marketing, mobile apps, and graphic design solutions for modern businesses.",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=800&fit=crop",
     link: "/services/it-services",
     gradient: "from-orange-600/20 to-red-600/20",
   },
@@ -52,46 +59,47 @@ const services = [
     title: "Legal Services",
     desc: "Legal documentation, risk management, and dispute prevention for international business operations.",
     image:
-      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=800&fit=crop",
     link: "/services/legal",
     gradient: "from-emerald-600/20 to-teal-600/20",
   },
 ];
 
 const Services = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % services.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
   return (
     <Layout>
-      {/* Hero Section with Image Slider */}
+      {/* Hero Section with Carousel */}
       <section className="relative py-24 lg:py-32 overflow-hidden">
-        {/* Image Slider Background */}
         <div className="absolute inset-0">
-          {services.map((service, index) => (
-            <div
-              key={service.title}
-              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                index === currentSlide 
-                  ? "opacity-100 translate-x-0" 
-                  : index < currentSlide 
-                  ? "opacity-0 -translate-x-full" 
-                  : "opacity-0 translate-x-full"
-              }`}
-            >
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75" />
-            </div>
-          ))}
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 4000,
+              }),
+            ]}
+            className="w-full h-full"
+          >
+            <CarouselContent className="h-full">
+              {services.map((service) => (
+                <CarouselItem key={service.title} className="h-full">
+                  <div className="relative w-full h-full">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75" />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-4 lg:left-8 h-12 w-12 border-2 border-white/60 bg-white/10 text-white hover:bg-white hover:text-primary hover:border-white backdrop-blur-md" />
+            <CarouselNext className="right-4 lg:right-8 h-12 w-12 border-2 border-white/60 bg-white/10 text-white hover:bg-white hover:text-primary hover:border-white backdrop-blur-md" />
+          </Carousel>
         </div>
         
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
