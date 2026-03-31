@@ -37,25 +37,25 @@ const teamMembers = [
     name: "John Anderson",
     role: "CEO & Founder",
     image: "https://i.pravatar.cc/300?img=12",
-    description: "With over 15 years of experience in global immigration and business consulting, John leads our team with a vision to simplify international expansion. He has successfully guided hundreds of businesses through complex immigration processes and market entry strategies across multiple continents."
+    description: "15+ years in global immigration and business consulting, leading strategic expansion initiatives across multiple continents."
   },
   {
     name: "Sarah Chen",
     role: "Head of Immigration Services",
     image: "https://i.pravatar.cc/300?img=5",
-    description: "Sarah is a certified immigration consultant with expertise in visa processing and immigration law across UK, Hong Kong, and India. She has helped over 500 clients secure visas, work permits, and permanent residency. Her deep understanding of international immigration regulations ensures smooth application processes."
+    description: "Certified immigration consultant specializing in UK, Hong Kong, and India visa processing with 500+ successful cases."
   },
   {
     name: "Rajesh Kumar",
     role: "Investment Advisor",
     image: "https://i.pravatar.cc/300?img=33",
-    description: "Rajesh specializes in real estate and stock market investments with a proven track record of maximizing returns for clients. With 12+ years in financial advisory, he provides strategic investment planning, portfolio management, and risk assessment services tailored to individual business goals and market conditions."
+    description: "12+ years in financial advisory, specializing in real estate and stock market investments with proven ROI strategies."
   },
   {
     name: "Emily Watson",
     role: "Legal Consultant",
     image: "https://i.pravatar.cc/300?img=9",
-    description: "Emily is an international business law expert specializing in compliance, contract drafting, and risk management. With experience across multiple jurisdictions, she ensures businesses operate within legal frameworks while protecting their interests. Her expertise covers corporate law, employment regulations, and dispute prevention."
+    description: "International business law expert in compliance, contract drafting, and risk management across multiple jurisdictions."
   },
 ];
 
@@ -244,10 +244,10 @@ const About = () => {
               Meet Our <span className="text-accent">Expert Team</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Dedicated professionals with decades of combined experience committed to your success
+              Dedicated professionals committed to your success
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {teamMembers.map((member, i) => (
               <motion.div
                 key={member.name}
@@ -258,7 +258,7 @@ const About = () => {
                 custom={i}
                 className="bg-card rounded-2xl overflow-hidden card-elevated border border-border group cursor-pointer hover:shadow-2xl transition-all duration-300"
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
                   <img 
                     src={member.image} 
                     alt={member.name}
@@ -266,9 +266,9 @@ const About = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 </div>
-                <div className="p-6">
-                  <h3 className="font-heading font-bold text-xl text-foreground mb-1">{member.name}</h3>
-                  <p className="text-accent font-semibold text-sm mb-4">{member.role}</p>
+                <div className="p-5">
+                  <h3 className="font-heading font-bold text-lg text-foreground mb-1">{member.name}</h3>
+                  <p className="text-accent font-semibold text-sm mb-3">{member.role}</p>
                   <p className="text-muted-foreground text-sm leading-relaxed">{member.description}</p>
                 </div>
               </motion.div>
