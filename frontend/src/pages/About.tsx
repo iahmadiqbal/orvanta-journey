@@ -138,41 +138,63 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 lg:py-28 bg-muted">
+      <section className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-10">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              custom={0}
-              className="bg-card rounded-xl p-10 card-elevated border border-border"
-            >
-              <div className="h-14 w-14 rounded-xl bg-secondary/10 flex items-center justify-center mb-5">
-                <Target size={28} className="text-secondary" />
-              </div>
-              <h3 className="font-heading font-bold text-2xl mb-4 text-foreground">Our Mission</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                To simplify immigration by providing expert, transparent, and personalized consultancy services that empower individuals to achieve their international goals with confidence and ease.
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+                Our Mission & <span className="text-accent">Vision</span>
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Guiding principles that drive our commitment to excellence and client success
               </p>
-            </motion.div>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              custom={1}
-              className="bg-card rounded-xl p-10 card-elevated border border-border"
-            >
-              <div className="h-14 w-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                <Eye size={28} className="text-accent" />
-              </div>
-              <h3 className="font-heading font-bold text-2xl mb-4 text-foreground">Our Vision</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                To be the most trusted immigration consultancy globally, known for excellence, integrity, and a genuine commitment to every client's success and well-being.
-              </p>
-            </motion.div>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={0}
+                className="relative bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-3xl p-10 card-elevated border border-border group hover:shadow-2xl transition-all duration-300 overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/20 to-transparent rounded-bl-full"></div>
+                <div className="relative z-10">
+                  <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-secondary to-secondary/80 shadow-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Target size={32} className="text-white" />
+                  </div>
+                  <h3 className="font-heading font-bold text-3xl mb-6 text-foreground group-hover:text-secondary transition-colors">
+                    Our Mission
+                  </h3>
+                  <p className="text-muted-foreground text-base leading-relaxed">
+                    To simplify global expansion by providing expert, transparent, and personalized consultancy services across immigration, business, IT, and legal domains. We empower individuals and businesses to achieve their international goals with confidence, strategic guidance, and comprehensive support at every step.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={1}
+                className="relative bg-gradient-to-br from-amber-500/10 to-orange-500/10 backdrop-blur-sm rounded-3xl p-10 card-elevated border border-border group hover:shadow-2xl transition-all duration-300 overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/20 to-transparent rounded-bl-full"></div>
+                <div className="relative z-10">
+                  <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-accent to-amber-500 shadow-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Eye size={32} className="text-white" />
+                  </div>
+                  <h3 className="font-heading font-bold text-3xl mb-6 text-foreground group-hover:text-accent transition-colors">
+                    Our Vision
+                  </h3>
+                  <p className="text-muted-foreground text-base leading-relaxed">
+                    To be the most trusted global consultancy firm, recognized for excellence, integrity, and innovation across immigration, business, technology, and legal services. We aspire to create lasting partnerships built on genuine commitment to every client's success, growth, and long-term prosperity in international markets.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
