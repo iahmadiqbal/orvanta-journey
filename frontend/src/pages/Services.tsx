@@ -25,18 +25,18 @@ const services = [
     title: "Immigration",
     desc: "Visa services, PR applications, work permits, and study abroad programs across multiple global markets.",
     image:
-      "https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=800&fit=crop",
     link: "/services/immigration",
-    gradient: "from-blue-500/40 to-cyan-500/40",
+    gradient: "from-blue-600/20 to-cyan-600/20",
   },
   {
     icon: FaBriefcase,
     title: "Business",
     desc: "Investment opportunities and business expansion strategies to help your company grow internationally.",
     image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1200&h=800&fit=crop",
     link: "/services/business",
-    gradient: "from-purple-500/40 to-pink-500/40",
+    gradient: "from-purple-600/20 to-pink-600/20",
   },
   {
     icon: FaLaptopCode,
@@ -45,7 +45,7 @@ const services = [
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
     link: "/services/it-services",
-    gradient: "from-orange-500/40 to-red-500/40",
+    gradient: "from-orange-600/20 to-red-600/20",
   },
   {
     icon: FaBalanceScale,
@@ -54,7 +54,7 @@ const services = [
     image:
       "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=800&fit=crop",
     link: "/services/legal",
-    gradient: "from-emerald-500/40 to-teal-500/40",
+    gradient: "from-emerald-600/20 to-teal-600/20",
   },
 ];
 
@@ -69,16 +69,29 @@ const Services = () => {
   }, []);
   return (
     <Layout>
-      {/* Hero Section with Business Background */}
+      {/* Hero Section with Image Slider */}
       <section className="relative py-24 lg:py-32 overflow-hidden">
-        {/* Business Background Image */}
+        {/* Image Slider Background */}
         <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop"
-            alt="Business Services"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75" />
+          {services.map((service, index) => (
+            <div
+              key={service.title}
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                index === currentSlide 
+                  ? "opacity-100 translate-x-0" 
+                  : index < currentSlide 
+                  ? "opacity-0 -translate-x-full" 
+                  : "opacity-0 translate-x-full"
+              }`}
+            >
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75" />
+            </div>
+          ))}
         </div>
         
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
@@ -107,7 +120,7 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
@@ -126,30 +139,43 @@ const Services = () => {
                   viewport={{ once: true }}
                   variants={fadeUp}
                   custom={i}
-                  className="bg-card rounded-2xl overflow-hidden card-elevated border border-border group hover:shadow-2xl transition-all duration-300 cursor-pointer h-full flex flex-col"
+                  className="group relative bg-card rounded-3xl overflow-hidden card-elevated border border-border hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 cursor-pointer h-full"
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-72 overflow-hidden">
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div
-                      className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20`}
+                      className={`absolute inset-0 bg-gradient-to-br ${service.gradient} group-hover:opacity-30 transition-opacity duration-500`}
                     ></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                    
+                    {/* Floating Icon */}
+                    <div className="absolute top-6 right-6">
+                      <div className="h-16 w-16 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl">
+                        <service.icon size={32} className="text-white" />
+                      </div>
+                    </div>
+                    
+                    {/* Title at Bottom */}
+                    <div className="absolute bottom-6 left-6 right-6">
+                      <h3 className="font-heading font-bold text-3xl text-white drop-shadow-2xl group-hover:translate-x-2 transition-transform duration-500">
+                        {service.title}
+                      </h3>
+                    </div>
                   </div>
-                  <div className="p-8 flex flex-col flex-1">
-                    <h3 className="font-heading font-bold text-2xl text-foreground mb-4">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground text-base leading-relaxed mb-6 flex-1">
+                  
+                  <div className="p-8 bg-gradient-to-br from-card to-card/80">
+                    <p className="text-muted-foreground text-base leading-relaxed mb-4">
                       {service.desc}
                     </p>
-                    <div className="flex items-center gap-2 text-secondary font-semibold group-hover:gap-3 transition-all">
-                      Learn More{" "}
+                    <div className="flex items-center gap-2 text-accent font-semibold group-hover:gap-4 transition-all duration-300">
+                      Explore Service
                       <ArrowRight
                         size={20}
-                        className="group-hover:translate-x-1 transition-transform"
+                        className="group-hover:translate-x-2 transition-transform duration-300"
                       />
                     </div>
                   </div>
@@ -176,43 +202,43 @@ const Services = () => {
             {[
               {
                 title: "Web Development",
-                desc: "Custom website development solutions tailored to your business needs. From responsive design to e-commerce platforms, we create modern, fast, and secure websites. Our expert developers use the latest technologies to build scalable web applications that drive growth and enhance user experience across all devices.",
+                desc: "Custom website development solutions tailored to your business needs. From responsive design to e-commerce platforms, we create modern, fast, and secure websites.",
                 image:
                   "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop",
               },
               {
                 title: "Digital Marketing & SEO",
-                desc: "Comprehensive digital marketing strategies to boost your online presence and drive targeted traffic. Our SEO experts optimize your website for search engines, manage social media campaigns, and create engaging content. We help you reach your target audience and convert visitors into customers with data-driven marketing solutions.",
+                desc: "Comprehensive digital marketing strategies to boost your online presence and drive targeted traffic. Our SEO experts optimize your website for search engines.",
                 image:
                   "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
               },
               {
                 title: "App Development",
-                desc: "Professional mobile app development for iOS and Android platforms. We design and develop user-friendly, feature-rich mobile applications that engage users and drive business growth. From concept to deployment, our team delivers high-quality apps with seamless performance and intuitive interfaces.",
+                desc: "Professional mobile app development for iOS and Android platforms. We design and develop user-friendly, feature-rich mobile applications.",
                 image:
                   "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
               },
               {
                 title: "Graphic Design",
-                desc: "Creative graphic design services for branding, marketing materials, and digital content. Our talented designers create visually stunning logos, brochures, social media graphics, and promotional materials. We help you establish a strong brand identity and communicate your message effectively through compelling visual design.",
+                desc: "Creative graphic design services for branding, marketing materials, and digital content. Our talented designers create visually stunning logos and graphics.",
                 image:
                   "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=600&fit=crop",
               },
               {
                 title: "Business Consultation",
-                desc: "Expert guidance for starting and growing your business internationally. We help you navigate market entry, business setup, and expansion strategies. Our consultants provide comprehensive support in business planning, market research, and operational optimization to ensure your success in global markets.",
+                desc: "Expert guidance for starting and growing your business internationally. We help you navigate market entry, business setup, and expansion strategies.",
                 image:
                   "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop",
               },
               {
                 title: "Business Investment",
-                desc: "Explore lucrative investment opportunities in global markets with our expert guidance. Our team provides detailed market analysis, risk assessment, and investment planning services. We help you identify profitable ventures, structure investments, and maximize returns while ensuring compliance with international regulations.",
+                desc: "Explore lucrative investment opportunities in global markets with our expert guidance. Our team provides detailed market analysis and risk assessment.",
                 image:
                   "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=600&fit=crop",
               },
               {
                 title: "Stock Investment",
-                desc: "Professional stock market advisory and portfolio management services tailored to your financial goals. Get expert insights on market trends, investment strategies, and risk management. Our financial analysts help you build a diversified portfolio and make informed decisions for better returns and long-term wealth creation.",
+                desc: "Professional stock market advisory and portfolio management services tailored to your financial goals. Get expert insights on market trends.",
                 image:
                   "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop",
               },
@@ -226,7 +252,7 @@ const Services = () => {
                 custom={i}
                 className="bg-card rounded-2xl overflow-hidden card-elevated border border-border group hover:shadow-2xl transition-all duration-300"
               >
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-44 overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -234,8 +260,8 @@ const Services = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 </div>
-                <div className="p-6">
-                  <h3 className="font-heading font-bold text-xl mb-3 text-foreground">
+                <div className="p-5">
+                  <h3 className="font-heading font-bold text-lg mb-2 text-foreground">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
