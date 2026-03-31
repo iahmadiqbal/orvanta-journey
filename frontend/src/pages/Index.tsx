@@ -211,7 +211,7 @@ const Index = () => {
             alt="Business team collaboration"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-primary/92" />
+          <div className="absolute inset-0 bg-primary/94" />
         </div>
         <div className="container mx-auto px-4 lg:px-8 relative z-10 py-20">
           <motion.div
