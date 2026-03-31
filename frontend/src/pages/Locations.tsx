@@ -14,7 +14,6 @@ const fadeUp = {
 
 const locations = [
   {
-    flag: "🇮🇳",
     name: "India",
     desc: "Our headquarters in Mohali, Punjab, providing comprehensive business, immigration, IT, and legal services across India with dedicated local expertise.",
     image:
@@ -23,7 +22,6 @@ const locations = [
     gradient: "from-orange-500/40 to-green-500/40",
   },
   {
-    flag: "🇬🇧",
     name: "United Kingdom",
     desc: "Strategic presence in London delivering expert immigration, business expansion, IT solutions, and legal services for the European market.",
     image:
@@ -32,7 +30,6 @@ const locations = [
     gradient: "from-blue-600/40 to-red-600/40",
   },
   {
-    flag: "🇭🇰",
     name: "Hong Kong",
     desc: "Asia-Pacific hub offering comprehensive immigration, business consulting, IT development, and legal advisory services for Asian market expansion.",
     image:
@@ -41,7 +38,6 @@ const locations = [
     gradient: "from-red-600/40 to-yellow-500/40",
   },
   {
-    flag: "🇨🇦",
     name: "Canada",
     desc: "North American operations specializing in immigration pathways, business investment strategies, and IT services for Canadian market entry.",
     image:
@@ -50,7 +46,6 @@ const locations = [
     gradient: "from-red-600/40 to-red-700/40",
   },
   {
-    flag: "🇧🇿",
     name: "Belize",
     desc: "Central American presence providing specialized immigration solutions, business consulting, and IT services for Belize and regional markets.",
     image:
@@ -122,9 +117,6 @@ const Locations = () => {
                       className={`absolute inset-0 bg-gradient-to-br ${location.gradient}`}
                     ></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                    <span className="absolute top-4 right-4 text-5xl drop-shadow-2xl filter brightness-110">
-                      {location.flag}
-                    </span>
                     <h3 className="absolute bottom-4 left-4 font-heading font-bold text-3xl text-white drop-shadow-lg">
                       {location.name}
                     </h3>

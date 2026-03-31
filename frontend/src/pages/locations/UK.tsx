@@ -85,13 +85,6 @@ const UK = () => {
                     alt="UK Office"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
-                  <div className="absolute bottom-6 left-6">
-                    <div className="text-5xl mb-2">🇬🇧</div>
-                    <h3 className="font-heading font-bold text-3xl text-white">
-                      United Kingdom
-                    </h3>
-                  </div>
                 </div>
                 <div className="p-8">
                   <div className="space-y-6">
