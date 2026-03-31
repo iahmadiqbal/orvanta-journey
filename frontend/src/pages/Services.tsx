@@ -231,7 +231,7 @@ const Services = () => {
                 title: "Digital Marketing & SEO",
                 desc: "Comprehensive digital marketing strategies to boost your online presence and drive targeted traffic. Our SEO experts optimize your website for search engines.",
                 image:
-                  "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=800&h=600&fit=crop",
+                  "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=800&h=600&fit=crop",
               },
               {
                 title: "App Development",
