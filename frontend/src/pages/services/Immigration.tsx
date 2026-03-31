@@ -126,8 +126,11 @@ const Immigration = () => {
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
               Our Immigration Services
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-6">
               Comprehensive support for all your immigration needs
+            </p>
+            <p className="text-muted-foreground text-base max-w-3xl mx-auto leading-relaxed">
+              We specialize in providing end-to-end immigration solutions for individuals and businesses across multiple global markets. Our experienced immigration consultants guide you through complex visa processes, permanent residency applications, and work permit requirements with personalized attention. From initial consultation to successful visa approval, we handle documentation, application submissions, and follow-ups to ensure a smooth immigration journey. With expertise in UK, Canada, Australia, and other major destinations, we help you navigate immigration regulations confidently and achieve your relocation goals efficiently.
             </p>
           </div>
 

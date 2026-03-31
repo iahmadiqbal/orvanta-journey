@@ -121,8 +121,11 @@ const ITServices = () => {
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
               Our IT Services
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-6">
               Modern technology solutions to power your digital transformation
+            </p>
+            <p className="text-muted-foreground text-base max-w-3xl mx-auto leading-relaxed">
+              We deliver cutting-edge IT solutions that help businesses thrive in the digital age. Our comprehensive services include custom web development, mobile application design, digital marketing strategies, and creative graphic design tailored to your brand identity. From building responsive websites and e-commerce platforms to implementing effective SEO campaigns and social media marketing, we provide end-to-end technology solutions. Our expert team combines technical expertise with creative innovation to develop scalable, user-friendly digital products that enhance your online presence, engage your target audience, and drive measurable business growth in competitive markets.
             </p>
           </div>
 

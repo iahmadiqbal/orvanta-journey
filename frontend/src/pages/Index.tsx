@@ -280,39 +280,85 @@ const Index = () => {
       </section>
 
       {/* Services */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              Our Services
+              Our <span className="text-accent">Services</span>
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Comprehensive immigration solutions tailored to your needs.
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Comprehensive B2B solutions for immigration, business growth, IT development, and legal support across global markets.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((s, i) => (
-              <Link key={s.title} to={s.link} className="h-full">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                title: "Immigration",
+                desc: "Visa services, PR applications, work permits, and study abroad programs across multiple global markets.",
+                link: "/services/immigration",
+                image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop",
+                gradient: "from-blue-600/20 to-cyan-600/20",
+                icon: FaPlane,
+              },
+              {
+                title: "Business",
+                desc: "Investment opportunities and business expansion strategies to help your company grow internationally.",
+                link: "/services/business",
+                image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&h=400&fit=crop",
+                gradient: "from-purple-600/20 to-pink-600/20",
+                icon: FaBriefcase,
+              },
+              {
+                title: "IT Services",
+                desc: "Web development, digital marketing, mobile apps, and graphic design solutions for modern businesses.",
+                link: "/services/it-services",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+                gradient: "from-orange-600/20 to-red-600/20",
+                icon: FaUserTie,
+              },
+              {
+                title: "Legal Services",
+                desc: "Legal documentation, risk management, and dispute prevention for international business operations.",
+                link: "/services/legal",
+                image: "https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=600&h=400&fit=crop",
+                gradient: "from-emerald-600/20 to-teal-600/20",
+                icon: FaGraduationCap,
+              },
+            ].map((service, i) => (
+              <Link key={service.title} to={service.link}>
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeUp}
                   custom={i}
-                  className="bg-card rounded-xl p-8 card-elevated border border-border text-center cursor-pointer group h-full min-h-[280px] flex flex-col items-center justify-start hover:shadow-2xl transition-all duration-300"
+                  className="group relative bg-card rounded-3xl overflow-hidden card-elevated border border-border hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 cursor-pointer h-full"
                 >
-                  <div className="h-14 w-14 rounded-xl bg-secondary/10 group-hover:bg-secondary/20 flex items-center justify-center mb-5 transition-all duration-200">
-                    <s.icon
-                      size={28}
-                      className="text-secondary group-hover:scale-110 transition-transform duration-200"
+                  <div className="relative h-56 overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} group-hover:opacity-30 transition-opacity duration-500`}></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                    
+                    {/* Icon and Title */}
+                    <div className="absolute bottom-6 left-6 right-6 flex items-center gap-4">
+                      <div className="h-14 w-14 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0 group-hover:bg-white/30 transition-all duration-300">
+                        <service.icon size={28} className="text-white" />
+                      </div>
+                      <h3 className="font-heading font-bold text-3xl text-white drop-shadow-2xl group-hover:translate-x-2 transition-transform duration-500">
+                        {service.title}
+                      </h3>
+                    </div>
                   </div>
-                  <h3 className="font-heading font-bold text-xl mb-3 text-foreground group-hover:text-secondary transition-colors">
-                    {s.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {s.desc}
-                  </p>
+                  
+                  <div className="p-6 bg-gradient-to-br from-card to-card/80">
+                    <p className="text-muted-foreground text-base leading-relaxed">
+                      {service.desc}
+                    </p>
+                  </div>
                 </motion.div>
               </Link>
             ))}
