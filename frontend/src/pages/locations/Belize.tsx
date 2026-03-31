@@ -102,27 +102,6 @@ const Belize = () => {
                   image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
                   gradient: "from-orange-600/20 to-red-600/20"
                 },
-                {
-                  title: "Digital Marketing & SEO",
-                  desc: "Comprehensive digital marketing strategies to boost your online presence and drive targeted traffic. Our SEO experts optimize your website for search engines.",
-                  link: "/services/it-services",
-                  image: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=600&h=400&fit=crop",
-                  gradient: "from-teal-600/20 to-emerald-600/20"
-                },
-                {
-                  title: "Additional Services",
-                  desc: "Complete immigration support beyond visa applications including document translation, notarization, and apostille services. We assist with background checks, medical examinations coordination, and travel arrangements.",
-                  link: "/services/immigration",
-                  image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop",
-                  gradient: "from-green-600/20 to-emerald-600/20"
-                },
-                {
-                  title: "Video Editing",
-                  desc: "Professional video editing services for businesses, content creators, and marketing campaigns. We create engaging promotional videos, social media content, and corporate presentations.",
-                  link: "/services/it-services",
-                  image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=400&fit=crop",
-                  gradient: "from-indigo-600/20 to-violet-600/20"
-                },
               ].map((service, i) => (
                 <Link key={service.title} to={service.link}>
                   <motion.div
