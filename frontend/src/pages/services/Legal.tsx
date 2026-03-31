@@ -102,14 +102,14 @@ const Legal = () => {
       {/* Services Grid */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
               Our Legal Services
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-6">
+            <p className="text-muted-foreground text-lg mb-6">
               Expert legal guidance for international business operations
             </p>
-            <p className="text-muted-foreground text-base max-w-3xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground text-base leading-relaxed text-left">
               We provide comprehensive legal consulting services to support your international business ventures and ensure regulatory compliance across global markets. Our experienced legal advisors specialize in contract drafting, business documentation, risk management, and dispute prevention for cross-border operations. From legal documentation and compliance advisory to risk assessment and business agreements, we help you navigate complex legal frameworks with confidence. Whether you're expanding into new markets, establishing partnerships, or managing international transactions, our legal expertise protects your business interests and ensures smooth operations in accordance with local and international regulations.
             </p>
           </div>

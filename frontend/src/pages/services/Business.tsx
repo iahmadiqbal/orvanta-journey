@@ -87,14 +87,14 @@ const Business = () => {
       {/* Services Grid */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
               Our Business Services
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-6">
+            <p className="text-muted-foreground text-lg mb-6">
               Expert guidance for business growth and investment opportunities
             </p>
-            <p className="text-muted-foreground text-base max-w-3xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground text-base leading-relaxed text-left">
               We provide comprehensive business consulting services to help companies expand globally and maximize their investment potential. Our expert team offers strategic guidance on market entry, business formation, and investment planning across multiple international markets. Whether you're looking to establish a new venture, expand existing operations, or explore lucrative investment opportunities, we deliver tailored solutions that align with your business objectives. With deep market knowledge and extensive experience in international business development, we help you navigate complex regulatory environments and identify growth opportunities that drive sustainable success.
             </p>
           </div>
