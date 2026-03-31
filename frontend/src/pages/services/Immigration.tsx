@@ -76,7 +76,7 @@ const immigrationServices = [
       "Pre-departure orientation",
     ],
     image:
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&h=400&fit=crop",
     gradient: "from-emerald-500/40 to-teal-500/40",
   },
 ];
