@@ -50,103 +50,7 @@ const UK = () => {
         </div>
       </section>
 
-      {/* Section 1: Office Details */}
-      <section className="py-20 lg:py-28 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              custom={0}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-                Office Details
-              </h2>
-              <p className="text-muted-foreground text-lg">
-                Visit our UK office for personalized consultation
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              custom={1}
-              className="bg-card rounded-2xl overflow-hidden card-elevated border border-border"
-            >
-              <div className="grid md:grid-cols-2 gap-0">
-                <div className="relative h-80 md:h-auto overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=600&fit=crop"
-                    alt="UK Office"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-8">
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 shrink-0">
-                        <Building2 className="text-secondary" size={24} />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-2">
-                          Office Address
-                        </h4>
-                        <p className="text-muted-foreground leading-relaxed">
-                          Unit 1603, 16/F, The L.Plaza
-                          <br />
-                          367-375 Queens Road Central
-                          <br />
-                          Sheung Wan, Hong Kong
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 shrink-0">
-                        <Clock className="text-secondary" size={24} />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-2">
-                          Business Hours
-                        </h4>
-                        <p className="text-muted-foreground">
-                          Monday - Friday: 9:00 AM - 6:00 PM
-                          <br />
-                          Saturday: 10:00 AM - 2:00 PM
-                          <br />
-                          Sunday: Closed
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 shrink-0">
-                        <MapPin className="text-secondary" size={24} />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-2">
-                          Location
-                        </h4>
-                        <p className="text-muted-foreground">
-                          Centrally located in London's business district with
-                          easy access to public transport
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2: Services Available */}
+      {/* Section 1: Services Available */}
       <section className="py-20 lg:py-28 bg-gradient-to-b from-muted/50 to-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-6xl mx-auto">
@@ -231,6 +135,102 @@ const UK = () => {
                 </Link>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Office Details */}
+      <section className="py-20 lg:py-28 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={0}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+                Office Details
+              </h2>
+              <p className="text-muted-foreground text-lg">
+                Visit our UK office for personalized consultation
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={1}
+              className="bg-card rounded-2xl overflow-hidden card-elevated border border-border"
+            >
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="relative h-80 md:h-auto overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=600&fit=crop"
+                    alt="UK Office"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-8">
+                  <div className="space-y-6">
+                    <div className="flex items-start gap-4">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 shrink-0">
+                        <Building2 className="text-secondary" size={24} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2">
+                          Office Address
+                        </h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          123 Business Street
+                          <br />
+                          London, EC1A 1BB
+                          <br />
+                          United Kingdom
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 shrink-0">
+                        <Clock className="text-secondary" size={24} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2">
+                          Business Hours
+                        </h4>
+                        <p className="text-muted-foreground">
+                          Monday - Friday: 9:00 AM - 6:00 PM
+                          <br />
+                          Saturday: 10:00 AM - 2:00 PM
+                          <br />
+                          Sunday: Closed
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 shrink-0">
+                        <MapPin className="text-secondary" size={24} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2">
+                          Location
+                        </h4>
+                        <p className="text-muted-foreground">
+                          Centrally located in London's business district with
+                          easy access to public transport
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

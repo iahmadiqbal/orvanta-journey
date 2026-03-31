@@ -163,40 +163,28 @@ const features = [
 
 const testimonials = [
   {
-    name: "Sarah Mitchell",
-    role: "Study Visa – UK",
-    text: "Orvanta made my dream of studying in London a reality. Their team was incredibly supportive throughout.",
-    image: "https://i.pravatar.cc/150?img=5",
-  },
-  {
-    name: "Ahmed Hassan",
-    role: "Work Visa – Canada",
-    text: "Professional, efficient, and genuinely caring. Got my work permit approved in record time!",
+    name: "Michael Roberts",
+    role: "Business Owner, Toronto",
+    text: "Orvanta made our Canadian immigration process seamless. Their expert guidance and attention to detail helped us secure our permanent residency faster than expected. Highly recommended!",
     image: "https://i.pravatar.cc/150?img=12",
   },
   {
     name: "Priya Sharma",
-    role: "Immigrant Visa – Australia",
-    text: "Seamless process from start to finish. I highly recommend Orvanta Advisory to anyone.",
-    image: "https://i.pravatar.cc/150?img=9",
+    role: "Software Engineer, Mumbai",
+    text: "The team at Orvanta provided exceptional support for my UK work visa. They handled everything professionally and kept me informed throughout the entire process. Thank you!",
+    image: "https://i.pravatar.cc/150?img=47",
   },
   {
-    name: "Michael Chen",
-    role: "Study Visa – Germany",
-    text: "The team guided me through every step. Their expertise made the complex process so simple and stress-free.",
-    image: "https://i.pravatar.cc/150?img=33",
+    name: "David Chen",
+    role: "Entrepreneur, Hong Kong",
+    text: "Outstanding investment advisory services! Orvanta helped me diversify my portfolio and navigate international business opportunities with confidence. Their expertise is unmatched.",
+    image: "https://i.pravatar.cc/150?img=68",
   },
   {
-    name: "Fatima Al-Rashid",
-    role: "Work Visa – UAE",
-    text: "Outstanding service! They handled everything professionally and kept me informed throughout the entire process.",
-    image: "https://i.pravatar.cc/150?img=20",
-  },
-  {
-    name: "David Thompson",
-    role: "PR Application – Canada",
-    text: "Thanks to Orvanta, my family and I are now permanent residents. Forever grateful for their dedication!",
-    image: "https://i.pravatar.cc/150?img=15",
+    name: "Lisa Anderson",
+    role: "Retiree, Belize",
+    text: "Moving to Belize was a dream come true, thanks to Orvanta. They guided us through the QRP program and made our relocation stress-free. We couldn't be happier!",
+    image: "https://i.pravatar.cc/150?img=44",
   },
 ];
 
@@ -238,10 +226,9 @@ const Index = () => {
             <motion.p
               variants={fadeUp}
               custom={2}
-              className="text-sm md:text-base text-white/95 mb-8 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-xl"
+              className="text-[10px] md:text-xs text-white/70 mb-8 mx-auto font-normal drop-shadow-lg backdrop-blur-[2px] text-center px-4"
             >
-              We provide strategic guidance and advisory services only; we do
-              not facilitate company setup, registration, or office acquisition.
+              We provide strategic guidance and advisory services only; we do not facilitate company setup, registration, or office acquisition.
             </motion.p>
             <motion.div
               variants={fadeUp}
@@ -514,10 +501,10 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              What Our Clients Say
+              Meet Our Expert Team
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Real stories from our satisfied clients
+              Experienced professionals dedicated to your success
             </p>
           </div>
           <div className="max-w-6xl mx-auto">
@@ -551,8 +538,8 @@ const Index = () => {
                           />
                         ))}
                       </div>
-                      <p className="text-muted-foreground text-base leading-relaxed mb-6 italic flex-grow">
-                        "{t.text}"
+                      <p className="text-muted-foreground text-base leading-relaxed mb-6 flex-grow">
+                        {t.text}
                       </p>
                       <div className="flex items-center gap-4 mt-auto">
                         <img
@@ -603,17 +590,29 @@ const Index = () => {
                 image:
                   "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=300&fit=crop",
                 link: "/locations/uk",
+                hours: {
+                  weekday: "Monday - Friday: 9:00 AM - 6:00 PM",
+                  saturday: "Saturday: 10:00 AM - 2:00 PM",
+                  sunday: "Sunday: Closed",
+                },
+                locationDesc: "Centrally located in London with excellent transport links and easy access from all major areas.",
               },
               {
                 country: "India",
                 flag: "🇮🇳",
                 address:
-                  "SCO 29, First Floor, New Sunny Enclave, Sector 125, Mohali - 140301, Punjab",
+                  "SCO 29, First Floor, New Sunny Enclave, Sector 125, Mohali - 140301, Punjab, India",
                 phone: "+91 123 456 7890",
                 email: "india@orvanta.com",
                 image:
                   "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&h=300&fit=crop",
                 link: "/locations/india",
+                hours: {
+                  weekday: "Monday - Friday: 9:00 AM - 6:00 PM",
+                  saturday: "Saturday: 10:00 AM - 2:00 PM",
+                  sunday: "Sunday: Closed",
+                },
+                locationDesc: "Conveniently located in Mohali with easy access from Chandigarh and surrounding areas.",
               },
               {
                 country: "Hong Kong",
@@ -625,6 +624,12 @@ const Index = () => {
                 image:
                   "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=600&h=300&fit=crop",
                 link: "/locations/hong-kong",
+                hours: {
+                  weekday: "Monday - Friday: 9:00 AM - 6:00 PM",
+                  saturday: "Saturday: 10:00 AM - 2:00 PM",
+                  sunday: "Sunday: Closed",
+                },
+                locationDesc: "Prime location in Sheung Wan with convenient access to MTR and major business districts.",
               },
             ].map((office, i) => (
               <Link key={office.country} to={office.link}>
@@ -650,15 +655,63 @@ const Index = () => {
                       </span>
                     </div>
                   </div>
-                  <div className="p-6 space-y-3">
-                    <div className="flex items-start gap-3">
-                      <div className="h-8 w-8 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0 mt-0.5">
-                        <FaGlobe size={16} className="text-secondary" />
-                      </div>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
+                  <div className="p-6 space-y-4">
+                    {/* Services Available - UPER */}
+                    <div className="space-y-2">
+                      <h3 className="font-heading font-bold text-lg text-foreground">
+                        Services Available in {office.country}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        Comprehensive business solutions tailored for the {office.country} market
+                      </p>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="border-t border-border"></div>
+
+                    {/* Office Details - NECHE */}
+                    <div className="space-y-3">
+                      <h4 className="font-heading font-semibold text-base text-foreground">
+                        Office Details
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Visit our {office.country} office for personalized consultation
+                      </p>
+                    </div>
+
+                    {/* Office Address */}
+                    <div className="space-y-2">
+                      <h5 className="font-semibold text-sm text-foreground">
+                        Office Address
+                      </h5>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         {office.address}
                       </p>
                     </div>
+
+                    {/* Business Hours */}
+                    <div className="space-y-2">
+                      <h5 className="font-semibold text-sm text-foreground">
+                        Business Hours
+                      </h5>
+                      <div className="text-sm text-muted-foreground space-y-1">
+                        <p>{office.hours.weekday}</p>
+                        <p>{office.hours.saturday}</p>
+                        <p>{office.hours.sunday}</p>
+                      </div>
+                    </div>
+
+                    {/* Location */}
+                    <div className="space-y-2">
+                      <h5 className="font-semibold text-sm text-foreground">
+                        Location
+                      </h5>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {office.locationDesc}
+                      </p>
+                    </div>
+
+                    {/* Contact Info */}
                     <div className="pt-3 border-t border-border space-y-1">
                       <p className="text-sm text-muted-foreground">
                         <span className="font-semibold text-foreground">
