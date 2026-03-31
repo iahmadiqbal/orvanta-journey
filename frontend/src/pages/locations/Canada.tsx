@@ -58,7 +58,7 @@ const Canada = () => {
       </section>
 
       {/* Important Notice */}
-      <section className="py-12 bg-amber-50 border-y border-amber-200">
+      <section className="py-16 bg-gradient-to-r from-amber-50 to-orange-50 border-y border-amber-200">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             initial="hidden"
@@ -66,19 +66,37 @@ const Canada = () => {
             viewport={{ once: true }}
             variants={fadeUp}
             custom={0}
-            className="max-w-4xl mx-auto"
+            className="max-w-5xl mx-auto"
           >
-            <div className="flex items-start gap-4 bg-white rounded-xl p-6 shadow-md border border-amber-300">
-              <AlertCircle className="text-amber-600 shrink-0 mt-1" size={28} />
-              <div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-2">
-                  Important Notice
-                </h3>
-                <p className="text-muted-foreground text-base leading-relaxed">
-                  We don't provide Legal Services in Canada. However, we offer
-                  comprehensive Immigration, Business, and IT Services to
-                  support your needs.
-                </p>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-amber-300">
+              <div className="flex items-start gap-6">
+                <div className="shrink-0">
+                  <div className="h-16 w-16 rounded-xl bg-amber-100 flex items-center justify-center">
+                    <AlertCircle className="text-amber-600" size={36} />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-heading font-bold text-2xl text-foreground mb-3 flex items-center gap-2">
+                    Important <span className="text-amber-600">Notice</span>
+                  </h3>
+                  <p className="text-muted-foreground text-base leading-relaxed mb-4">
+                    Please note that we <span className="font-semibold text-foreground">do not provide Legal Services</span> in Canada. Our focus is on delivering exceptional Immigration, Business, and IT Services tailored to your specific needs.
+                  </p>
+                  <div className="grid md:grid-cols-3 gap-4 mt-6">
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                      <span className="font-medium text-foreground">Immigration Services</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                      <span className="font-medium text-foreground">Business Consulting</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                      <span className="font-medium text-foreground">IT Solutions</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
