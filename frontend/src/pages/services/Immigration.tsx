@@ -88,11 +88,11 @@ const Immigration = () => {
       <section className="relative py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&h=1080&fit=crop"
+            src="https://images.unsplash.com/photo-1569098644584-210bcd375b59?w=1920&h=1080&fit=crop"
             alt="Immigration Services"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-primary/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
         </div>
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <motion.div
@@ -103,14 +103,14 @@ const Immigration = () => {
             <motion.h1
               variants={fadeUp}
               custom={0}
-              className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-primary-foreground mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-white mb-6 drop-shadow-2xl"
             >
               Immigration <span className="text-accent">Services</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}
               custom={1}
-              className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed"
+              className="text-lg md:text-xl text-white font-semibold leading-relaxed drop-shadow-2xl"
             >
               Expert immigration solutions for visas, permanent residency, work
               permits, and study abroad programs.

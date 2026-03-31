@@ -224,7 +224,7 @@ const Index = () => {
               custom={0}
               className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-extrabold text-white leading-tight mb-6 drop-shadow-2xl"
             >
-              Your Global Partner for Immigration, Business and IT Solutions
+              Your Global Partner for <span className="text-accent">Immigration</span>, <span className="text-accent">Business</span> and <span className="text-accent">IT Solutions</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}

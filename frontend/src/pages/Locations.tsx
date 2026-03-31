@@ -16,7 +16,7 @@ const locations = [
   {
     flag: "🇮🇳",
     name: "India",
-    desc: "Our headquarters in Mohali, Punjab, serving clients across India with comprehensive business solutions.",
+    desc: "Our headquarters in Mohali, Punjab, providing comprehensive business, immigration, IT, and legal services across India with dedicated local expertise.",
     image:
       "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&h=400&fit=crop",
     link: "/locations/india",
@@ -24,8 +24,8 @@ const locations = [
   },
   {
     flag: "🇬🇧",
-    name: "UK",
-    desc: "Strategic presence in London providing expert services for European market expansion.",
+    name: "United Kingdom",
+    desc: "Strategic presence in London delivering expert immigration, business expansion, IT solutions, and legal services for the European market.",
     image:
       "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=400&fit=crop",
     link: "/locations/uk",
@@ -33,8 +33,8 @@ const locations = [
   },
   {
     flag: "🇭🇰",
-    name: "Hongkong",
-    desc: "Asia-Pacific hub in Hong Kong for businesses looking to expand in Asian markets.",
+    name: "Hong Kong",
+    desc: "Asia-Pacific hub offering comprehensive immigration, business consulting, IT development, and legal advisory services for Asian market expansion.",
     image:
       "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=600&h=400&fit=crop",
     link: "/locations/hong-kong",
@@ -43,7 +43,7 @@ const locations = [
   {
     flag: "🇨🇦",
     name: "Canada",
-    desc: "North American operations supporting businesses with immigration and expansion services.",
+    desc: "North American operations specializing in immigration pathways, business investment strategies, and IT services for Canadian market entry.",
     image:
       "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=600&h=400&fit=crop",
     link: "/locations/canada",
@@ -52,7 +52,7 @@ const locations = [
   {
     flag: "🇧🇿",
     name: "Belize",
-    desc: "Central American presence offering specialized business and immigration advisory services.",
+    desc: "Central American presence providing specialized immigration solutions, business consulting, and IT services for Belize and regional markets.",
     image:
       "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&h=400&fit=crop",
     link: "/locations/belize",
