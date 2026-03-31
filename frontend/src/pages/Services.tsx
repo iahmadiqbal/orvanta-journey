@@ -1,3 +1,4 @@
+import * as React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import {
@@ -66,64 +67,83 @@ const services = [
 ];
 
 const Services = () => {
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+
   return (
     <Layout>
       {/* Hero Section with Carousel */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0">
+      <section className="relative h-[320px] md:h-[360px] lg:h-[400px] overflow-hidden">
+        <div className="absolute inset-0 z-0">
           <Carousel
             opts={{
-              align: "start",
               loop: true,
+              align: "start",
             }}
             plugins={[
               Autoplay({
                 delay: 4000,
+                stopOnInteraction: false,
               }),
             ]}
             className="w-full h-full"
+            setApi={(api) => {
+              if (!api) return;
+              
+              setCurrentSlide(api.selectedScrollSnap());
+              
+              api.on("select", () => {
+                setCurrentSlide(api.selectedScrollSnap());
+              });
+            }}
           >
-            <CarouselContent className="h-full">
-              {services.map((service) => (
-                <CarouselItem key={service.title} className="h-full">
+            <CarouselContent className="h-full -ml-0">
+              {services.map((service, index) => (
+                <CarouselItem key={service.title} className="h-full pl-0 basis-full">
                   <div className="relative w-full h-full">
                     <img
                       src={service.image}
                       alt={service.title}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-4 lg:left-8 h-12 w-12 border-2 border-white/60 bg-white/10 text-white hover:bg-white hover:text-primary hover:border-white backdrop-blur-md" />
-            <CarouselNext className="right-4 lg:right-8 h-12 w-12 border-2 border-white/60 bg-white/10 text-white hover:bg-white hover:text-primary hover:border-white backdrop-blur-md" />
+            <CarouselPrevious className="hidden" />
+            <CarouselNext className="hidden" />
           </Carousel>
         </div>
         
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            className="max-w-4xl mx-auto text-center"
-          >
-            <motion.h1
-              variants={fadeUp}
-              custom={0}
-              className="text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-primary-foreground mb-8 drop-shadow-lg"
+        <div className="absolute inset-0 z-10 flex items-start md:items-center justify-center pointer-events-none pt-12 md:pt-0">
+          <div className="container mx-auto px-4 lg:px-8">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              className="max-w-4xl mx-auto text-center"
             >
-              Our <span className="text-accent">Services</span>
-            </motion.h1>
-            <motion.p
-              variants={fadeUp}
-              custom={1}
-              className="text-xl md:text-2xl text-primary-foreground font-medium leading-relaxed drop-shadow-md"
-            >
-              Comprehensive B2B solutions for immigration, business growth, IT
-              development, and legal support across global markets.
-            </motion.p>
-          </motion.div>
+              <motion.h1
+                key={`title-${currentSlide}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-extrabold text-white mb-3 md:mb-6 lg:mb-8 drop-shadow-2xl"
+              >
+                {services[currentSlide]?.title} <span className="text-accent drop-shadow-2xl">Services</span>
+              </motion.h1>
+              <motion.div
+                key={`desc-${currentSlide}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="h-auto md:h-[100px] lg:h-[80px] flex items-center justify-center"
+              >
+                <p className="text-base md:text-xl lg:text-2xl text-white font-semibold leading-relaxed drop-shadow-2xl px-4 max-w-3xl mx-auto">
+                  {services[currentSlide]?.desc}
+                </p>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -159,13 +179,6 @@ const Services = () => {
                       className={`absolute inset-0 bg-gradient-to-br ${service.gradient} group-hover:opacity-30 transition-opacity duration-500`}
                     ></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-                    
-                    {/* Floating Icon */}
-                    <div className="absolute top-6 right-6">
-                      <div className="h-16 w-16 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl">
-                        <service.icon size={32} className="text-white" />
-                      </div>
-                    </div>
                     
                     {/* Title at Bottom */}
                     <div className="absolute bottom-6 left-6 right-6">

@@ -12,23 +12,17 @@ const values = [
   { 
     icon: Shield, 
     title: "Integrity", 
-    desc: "We believe in transparent and honest guidance at every step of your journey. Our commitment to ethical practices ensures you receive trustworthy advice and reliable support throughout your business expansion.",
-    gradient: "from-blue-500/10 to-cyan-500/10",
-    iconColor: "text-blue-600"
+    desc: "We believe in transparent and honest guidance at every step of your journey. Our commitment to ethical practices ensures you receive trustworthy advice and reliable support throughout your business expansion."
   },
   { 
     icon: Award, 
     title: "Excellence", 
-    desc: "Committed to delivering the highest standards of service across all our offerings. Our team continuously updates their expertise to provide cutting-edge solutions that drive your success in global markets.",
-    gradient: "from-purple-500/10 to-pink-500/10",
-    iconColor: "text-purple-600"
+    desc: "Committed to delivering the highest standards of service across all our offerings. Our team continuously updates their expertise to provide cutting-edge solutions that drive your success in global markets."
   },
   { 
     icon: CheckCircle, 
     title: "Reliability", 
-    desc: "Consistent results you can count on, backed by proven track records and satisfied clients worldwide. We deliver on our promises with timely execution and dependable support at every stage of your project.",
-    gradient: "from-emerald-500/10 to-teal-500/10",
-    iconColor: "text-emerald-600"
+    desc: "Consistent results you can count on, backed by proven track records and satisfied clients worldwide. We deliver on our promises with timely execution and dependable support at every stage of your project."
   },
 ];
 
@@ -112,20 +106,20 @@ const About = () => {
               className="grid grid-cols-2 lg:grid-cols-4 gap-6"
             >
               {[
-                { num: "10+", label: "Years Experience", icon: Award, gradient: "from-blue-500/20 to-cyan-500/20" },
-                { num: "5000+", label: "Successful Cases", icon: CheckCircle, gradient: "from-purple-500/20 to-pink-500/20" },
-                { num: "98%", label: "Success Rate", icon: Target, gradient: "from-emerald-500/20 to-teal-500/20" },
-                { num: "25+", label: "Countries Covered", icon: MapPin, gradient: "from-orange-500/20 to-red-500/20" },
+                { num: "10+", label: "Years Experience", icon: Award },
+                { num: "5000+", label: "Successful Cases", icon: CheckCircle },
+                { num: "98%", label: "Success Rate", icon: Target },
+                { num: "25+", label: "Countries Covered", icon: MapPin },
               ].map((stat, i) => (
                 <motion.div
                   key={stat.label}
                   variants={fadeUp}
                   custom={i + 3}
-                  className={`bg-gradient-to-br ${stat.gradient} backdrop-blur-sm rounded-2xl p-6 card-elevated border border-border text-center hover:shadow-xl transition-all duration-300 group`}
+                  className="bg-card rounded-2xl p-6 card-elevated border border-border text-center hover:shadow-xl transition-all duration-300 group"
                 >
                   <div className="flex justify-center mb-4">
-                    <div className="h-12 w-12 rounded-xl bg-white shadow-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <stat.icon size={24} className="text-secondary" />
+                    <div className="h-12 w-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <stat.icon size={24} className="text-accent" />
                     </div>
                   </div>
                   <p className="text-4xl font-heading font-bold text-foreground mb-2">{stat.num}</p>
@@ -219,10 +213,10 @@ const About = () => {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={i}
-                className={`bg-gradient-to-br ${v.gradient} backdrop-blur-sm rounded-2xl p-8 card-elevated border border-border hover:shadow-2xl transition-all duration-300 group`}
+                className="bg-card rounded-2xl p-8 card-elevated border border-border hover:shadow-2xl transition-all duration-300 group"
               >
-                <div className={`h-16 w-16 rounded-xl bg-white shadow-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <v.icon size={32} className={v.iconColor} />
+                <div className="h-16 w-16 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <v.icon size={32} className="text-accent" />
                 </div>
                 <h3 className="font-heading font-bold text-2xl mb-4 text-foreground group-hover:text-accent transition-colors">
                   {v.title}

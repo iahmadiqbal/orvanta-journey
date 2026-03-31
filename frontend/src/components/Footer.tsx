@@ -197,7 +197,9 @@ const Footer = () => {
                 >
                   +91 81969 82305 (India)
                 </a>
-                <span>|</span>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <Phone size={16} className="shrink-0 text-white" />
                 <a
                   href="tel:+447411962102"
                   className="hover:text-accent transition-colors"
