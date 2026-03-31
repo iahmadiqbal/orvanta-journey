@@ -154,7 +154,7 @@ const UK = () => {
       </section>
 
       {/* Section 2: Services Available */}
-      <section className="py-20 lg:py-28 bg-muted">
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-muted/50 to-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <motion.div
@@ -166,38 +166,42 @@ const UK = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-                Services Available in UK
+                Services Available in <span className="text-accent">UK</span>
               </h2>
-              <p className="text-muted-foreground text-lg">
-                Comprehensive business solutions for the UK market
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Comprehensive business solutions tailored for the UK market
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
                   title: "Immigration",
-                  desc: "Visa services, PR applications, and work permits",
-                  icon: "✈️",
+                  desc: "Specialized UK visa services including Skilled Worker visas, Student visas, and settlement applications. Our immigration experts guide you through the UK points-based system, provide document preparation support, and ensure compliance with Home Office requirements. We assist with visa extensions, indefinite leave to remain, and British citizenship applications.",
                   link: "/services/immigration",
+                  image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=400&fit=crop",
+                  gradient: "from-blue-600/20 to-cyan-600/20"
                 },
                 {
                   title: "Business",
-                  desc: "Investment and business expansion strategies",
-                  icon: "💼",
+                  desc: "Strategic business consulting for UK market entry and expansion. We provide expert guidance on company formation, business planning, and investment opportunities in the UK. Our consultants help you navigate regulatory requirements, identify growth opportunities, and establish successful operations in one of Europe's leading business hubs.",
                   link: "/services/business",
+                  image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop",
+                  gradient: "from-purple-600/20 to-pink-600/20"
                 },
                 {
                   title: "IT Services",
-                  desc: "Web development, digital marketing, and more",
-                  icon: "💻",
+                  desc: "Innovative technology solutions including web development, mobile applications, and digital transformation services. We create cutting-edge digital solutions tailored for UK businesses, implement effective SEO strategies, and develop scalable software applications. Our IT team helps you leverage technology to drive growth and competitive advantage.",
                   link: "/services/it-services",
+                  image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop",
+                  gradient: "from-orange-600/20 to-red-600/20"
                 },
                 {
                   title: "Legal Services",
-                  desc: "Legal documentation and risk management",
-                  icon: "⚖️",
+                  desc: "Professional legal consultation and documentation services for UK business operations. Our legal experts assist with contract drafting, employment law compliance, and business agreements. We provide comprehensive legal support to ensure your operations meet UK regulatory requirements and protect your business interests.",
                   link: "/services/legal",
+                  image: "https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=600&h=400&fit=crop",
+                  gradient: "from-emerald-600/20 to-teal-600/20"
                 },
               ].map((service, i) => (
                 <Link key={service.title} to={service.link}>
@@ -207,15 +211,29 @@ const UK = () => {
                     viewport={{ once: true }}
                     variants={fadeUp}
                     custom={i + 1}
-                    className="bg-card rounded-xl p-6 card-elevated border border-border hover:shadow-2xl transition-all duration-300 cursor-pointer group text-center h-full"
+                    className="group relative bg-card rounded-3xl overflow-hidden card-elevated border border-border hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 cursor-pointer h-full"
                   >
-                    <div className="text-5xl mb-4">{service.icon}</div>
-                    <h3 className="font-heading font-bold text-xl text-foreground mb-2 group-hover:text-secondary transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {service.desc}
-                    </p>
+                    <div className="relative h-56 overflow-hidden">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} group-hover:opacity-30 transition-opacity duration-500`}></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                      
+                      <div className="absolute bottom-6 left-6 right-6">
+                        <h3 className="font-heading font-bold text-3xl text-white drop-shadow-2xl group-hover:translate-x-2 transition-transform duration-500">
+                          {service.title}
+                        </h3>
+                      </div>
+                    </div>
+                    
+                    <div className="p-6 bg-gradient-to-br from-card to-card/80">
+                      <p className="text-muted-foreground text-base leading-relaxed">
+                        {service.desc}
+                      </p>
+                    </div>
                   </motion.div>
                 </Link>
               ))}

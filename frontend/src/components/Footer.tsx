@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-6 lg:px-12 py-8 lg:py-10 max-w-[1920px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
           {/* Brand */}
           <div>
             <Link to="/" className="inline-block mb-4">
@@ -23,8 +23,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-primary-foreground/80 text-[15px] leading-relaxed mb-4">
-              Your trusted partner for study, work, and tourist visa
-              applications worldwide.
+              Orvanta Advisory operates strictly as an independent consulting firm and does not provide regulated incorporation or fiduciary services.
             </p>
             <div className="flex gap-2">
               <a
