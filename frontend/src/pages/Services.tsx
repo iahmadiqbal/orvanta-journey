@@ -214,8 +214,8 @@ const Services = () => {
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
               Additional Services
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Complete immigration support beyond visa applications
+            <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
+              We provide complete immigration support that goes beyond visa applications. Our comprehensive services include document preparation, translation, notarization, and expert guidance throughout your immigration journey.
             </p>
           </div>
 
@@ -231,7 +231,7 @@ const Services = () => {
                 title: "Digital Marketing & SEO",
                 desc: "Comprehensive digital marketing strategies to boost your online presence and drive targeted traffic. Our SEO experts optimize your website for search engines.",
                 image:
-                  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+                  "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=800&h=600&fit=crop",
               },
               {
                 title: "App Development",
@@ -243,7 +243,7 @@ const Services = () => {
                 title: "Graphic Design",
                 desc: "Creative graphic design services for branding, marketing materials, and digital content. Our talented designers create visually stunning logos and graphics.",
                 image:
-                  "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=600&fit=crop",
+                  "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
               },
               {
                 title: "Business Consultation",
@@ -255,13 +255,25 @@ const Services = () => {
                 title: "Business Investment",
                 desc: "Explore lucrative investment opportunities in global markets with our expert guidance. Our team provides detailed market analysis and risk assessment.",
                 image:
-                  "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=600&fit=crop",
+                  "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=600&fit=crop",
               },
               {
                 title: "Stock Investment",
-                desc: "Professional stock market advisory and portfolio management services tailored to your financial goals. Get expert insights on market trends.",
+                desc: "Professional stock market advisory and portfolio management services tailored to your financial goals. We provide expert insights and strategic guidance for successful investing.",
                 image:
                   "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop",
+              },
+              {
+                title: "Document Translation & Notarization",
+                desc: "Professional document translation services in multiple languages with certified notarization. We handle legal documents, certificates, and official paperwork for immigration and business purposes.",
+                image:
+                  "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop",
+              },
+              {
+                title: "Video Editing",
+                desc: "Professional video editing services for businesses, content creators, and marketing campaigns. We create engaging promotional videos, social media content, and corporate presentations.",
+                image:
+                  "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=600&fit=crop",
               },
             ].map((service, i) => (
               <motion.div
