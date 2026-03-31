@@ -229,7 +229,7 @@ const Index = () => {
             <motion.p
               variants={fadeUp}
               custom={1}
-              className="text-base md:text-lg lg:text-xl xl:text-2xl font-heading font-semibold text-white mb-6 leading-relaxed drop-shadow-2xl"
+              className="text-base md:text-lg lg:text-xl font-heading font-semibold text-white mb-6 leading-relaxed drop-shadow-2xl"
             >
               Expert B2B services in immigration, business, and IT solutions
               across multiple global markets. We help businesses expand with
@@ -238,7 +238,7 @@ const Index = () => {
             <motion.p
               variants={fadeUp}
               custom={2}
-              className="text-sm md:text-base lg:text-lg text-white/95 mb-8 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-xl"
+              className="text-sm md:text-base text-white/95 mb-8 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-xl"
             >
               We provide strategic guidance and advisory services only; we do
               not facilitate company setup, registration, or office acquisition.

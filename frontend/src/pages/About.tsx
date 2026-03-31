@@ -138,7 +138,7 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-background via-muted/20 to-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -157,15 +157,15 @@ const About = () => {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={0}
-                className="relative bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-3xl p-10 card-elevated border border-border group hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                className="relative bg-card rounded-3xl p-10 card-elevated border-2 border-secondary/20 group hover:shadow-2xl hover:border-secondary/40 transition-all duration-300 overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/20 to-transparent rounded-bl-full"></div>
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-secondary/10 to-transparent rounded-full blur-2xl"></div>
                 <div className="relative z-10">
-                  <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-secondary to-secondary/80 shadow-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <Target size={32} className="text-white" />
+                  <div className="inline-flex h-20 w-20 rounded-2xl bg-gradient-to-br from-secondary to-blue-600 shadow-xl items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <Target size={36} className="text-white" />
                   </div>
-                  <h3 className="font-heading font-bold text-3xl mb-6 text-foreground group-hover:text-secondary transition-colors">
-                    Our Mission
+                  <h3 className="font-heading font-bold text-3xl mb-6 text-foreground">
+                    Our <span className="text-secondary">Mission</span>
                   </h3>
                   <p className="text-muted-foreground text-base leading-relaxed">
                     To simplify global expansion by providing expert, transparent, and personalized consultancy services across immigration, business, IT, and legal domains. We empower individuals and businesses to achieve their international goals with confidence, strategic guidance, and comprehensive support at every step.
@@ -179,15 +179,15 @@ const About = () => {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={1}
-                className="relative bg-gradient-to-br from-amber-500/10 to-orange-500/10 backdrop-blur-sm rounded-3xl p-10 card-elevated border border-border group hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                className="relative bg-card rounded-3xl p-10 card-elevated border-2 border-accent/20 group hover:shadow-2xl hover:border-accent/40 transition-all duration-300 overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/20 to-transparent rounded-bl-full"></div>
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-2xl"></div>
                 <div className="relative z-10">
-                  <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-accent to-amber-500 shadow-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <Eye size={32} className="text-white" />
+                  <div className="inline-flex h-20 w-20 rounded-2xl bg-gradient-to-br from-accent to-amber-500 shadow-xl items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <Eye size={36} className="text-white" />
                   </div>
-                  <h3 className="font-heading font-bold text-3xl mb-6 text-foreground group-hover:text-accent transition-colors">
-                    Our Vision
+                  <h3 className="font-heading font-bold text-3xl mb-6 text-foreground">
+                    Our <span className="text-accent">Vision</span>
                   </h3>
                   <p className="text-muted-foreground text-base leading-relaxed">
                     To be the most trusted global consultancy firm, recognized for excellence, integrity, and innovation across immigration, business, technology, and legal services. We aspire to create lasting partnerships built on genuine commitment to every client's success, growth, and long-term prosperity in international markets.
