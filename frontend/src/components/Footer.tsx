@@ -140,10 +140,10 @@ const Footer = () => {
             <h4 className="font-heading font-semibold mb-3 text-lg">
               Contact Us
             </h4>
-            <ul className="space-y-2 text-[15px] text-primary-foreground/80">
-              <li className="flex items-start gap-2">
+            <div className="space-y-3 text-[15px] text-primary-foreground/80">
+              <div className="flex items-start gap-2 leading-relaxed">
                 <MapPin size={16} className="mt-0.5 shrink-0 text-white" />
-                <div className="leading-relaxed flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-1">
                   <Link
                     to="/locations/india"
                     className="hover:text-accent transition-colors hover:underline"
@@ -162,7 +162,7 @@ const Footer = () => {
                     to="/locations/hong-kong"
                     className="hover:text-accent transition-colors hover:underline"
                   >
-                    Hongkong
+                    Hong Kong
                   </Link>
                   <span>|</span>
                   <Link
@@ -179,44 +179,33 @@ const Footer = () => {
                     Belize
                   </Link>
                 </div>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail
-                  size={16}
-                  className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200"
-                />
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail size={16} className="shrink-0 text-white" />
                 <a
                   href="mailto:info@orvantaadvisory.com"
-                  className="hover:text-accent transition-colors cursor-pointer"
+                  className="hover:text-accent transition-colors"
                 >
                   info@orvantaadvisory.com
                 </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone
-                  size={16}
-                  className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200"
-                />
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <Phone size={16} className="shrink-0 text-white" />
                 <a
                   href="tel:+918196982305"
-                  className="hover:text-accent transition-colors cursor-pointer"
+                  className="hover:text-accent transition-colors"
                 >
-                  India: +91 81969 82305
+                  +91 81969 82305 (India)
                 </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone
-                  size={16}
-                  className="shrink-0 text-white hover:text-accent hover:translate-x-1 transition-all duration-200"
-                />
+                <span>|</span>
                 <a
                   href="tel:+447411962102"
-                  className="hover:text-accent transition-colors cursor-pointer"
+                  className="hover:text-accent transition-colors"
                 >
-                  UK: +44 7411 962102
+                  +44 7411 962102 (UK)
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
 
