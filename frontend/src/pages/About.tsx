@@ -9,9 +9,27 @@ const fadeUp = {
 };
 
 const values = [
-  { icon: Shield, title: "Integrity", desc: "Transparent and honest guidance at every step." },
-  { icon: Award, title: "Excellence", desc: "Committed to the highest standards of service." },
-  { icon: CheckCircle, title: "Reliability", desc: "Consistent results you can count on." },
+  { 
+    icon: Shield, 
+    title: "Integrity", 
+    desc: "We believe in transparent and honest guidance at every step of your journey. Our commitment to ethical practices ensures you receive trustworthy advice and reliable support throughout your business expansion.",
+    gradient: "from-blue-500/10 to-cyan-500/10",
+    iconColor: "text-blue-600"
+  },
+  { 
+    icon: Award, 
+    title: "Excellence", 
+    desc: "Committed to delivering the highest standards of service across all our offerings. Our team continuously updates their expertise to provide cutting-edge solutions that drive your success in global markets.",
+    gradient: "from-purple-500/10 to-pink-500/10",
+    iconColor: "text-purple-600"
+  },
+  { 
+    icon: CheckCircle, 
+    title: "Reliability", 
+    desc: "Consistent results you can count on, backed by proven track records and satisfied clients worldwide. We deliver on our promises with timely execution and dependable support at every stage of your project.",
+    gradient: "from-emerald-500/10 to-teal-500/10",
+    iconColor: "text-emerald-600"
+  },
 ];
 
 const teamMembers = [
@@ -19,25 +37,25 @@ const teamMembers = [
     name: "John Anderson",
     role: "CEO & Founder",
     image: "https://i.pravatar.cc/300?img=12",
-    description: "15+ years of experience in global immigration and business consulting"
+    description: "With over 15 years of experience in global immigration and business consulting, John leads our team with a vision to simplify international expansion. He has successfully guided hundreds of businesses through complex immigration processes and market entry strategies across multiple continents."
   },
   {
     name: "Sarah Chen",
     role: "Head of Immigration Services",
     image: "https://i.pravatar.cc/300?img=5",
-    description: "Expert in visa processing and immigration law across UK, HK, and India"
+    description: "Sarah is a certified immigration consultant with expertise in visa processing and immigration law across UK, Hong Kong, and India. She has helped over 500 clients secure visas, work permits, and permanent residency. Her deep understanding of international immigration regulations ensures smooth application processes."
   },
   {
     name: "Rajesh Kumar",
     role: "Investment Advisor",
     image: "https://i.pravatar.cc/300?img=33",
-    description: "Specializes in real estate and stock market investments"
+    description: "Rajesh specializes in real estate and stock market investments with a proven track record of maximizing returns for clients. With 12+ years in financial advisory, he provides strategic investment planning, portfolio management, and risk assessment services tailored to individual business goals and market conditions."
   },
   {
     name: "Emily Watson",
     role: "Legal Consultant",
     image: "https://i.pravatar.cc/300?img=9",
-    description: "International business law and compliance expert"
+    description: "Emily is an international business law expert specializing in compliance, contract drafting, and risk management. With experience across multiple jurisdictions, she ensures businesses operate within legal frameworks while protecting their interests. Her expertise covers corporate law, employment regulations, and dispute prevention."
   },
 ];
 
@@ -149,12 +167,17 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">Why Clients Trust Us</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+              Why Clients <span className="text-accent">Trust Us</span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Our core values drive everything we do, ensuring exceptional service and lasting partnerships
+            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {values.map((v, i) => (
               <motion.div
                 key={v.title}
@@ -163,13 +186,17 @@ const About = () => {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={i}
-                className="text-center"
+                className={`bg-gradient-to-br ${v.gradient} backdrop-blur-sm rounded-2xl p-8 card-elevated border border-border hover:shadow-2xl transition-all duration-300 group`}
               >
-                <div className="h-16 w-16 rounded-2xl bg-primary/5 flex items-center justify-center mx-auto mb-5">
-                  <v.icon size={30} className="text-primary" />
+                <div className={`h-16 w-16 rounded-xl bg-white shadow-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <v.icon size={32} className={v.iconColor} />
                 </div>
-                <h3 className="font-heading font-bold text-lg mb-2 text-foreground">{v.title}</h3>
-                <p className="text-muted-foreground text-sm">{v.desc}</p>
+                <h3 className="font-heading font-bold text-2xl mb-4 text-foreground group-hover:text-accent transition-colors">
+                  {v.title}
+                </h3>
+                <p className="text-muted-foreground text-base leading-relaxed">
+                  {v.desc}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -180,8 +207,12 @@ const About = () => {
       <section className="py-20 lg:py-28 bg-muted">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">Meet Our Expert Team</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">Dedicated professionals committed to your success</p>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+              Meet Our <span className="text-accent">Expert Team</span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Dedicated professionals with decades of combined experience committed to your success
+            </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, i) => (
@@ -202,9 +233,9 @@ const About = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 </div>
-                <div className="p-6 text-center">
+                <div className="p-6">
                   <h3 className="font-heading font-bold text-xl text-foreground mb-1">{member.name}</h3>
-                  <p className="text-secondary font-semibold text-sm mb-3">{member.role}</p>
+                  <p className="text-accent font-semibold text-sm mb-4">{member.role}</p>
                   <p className="text-muted-foreground text-sm leading-relaxed">{member.description}</p>
                 </div>
               </motion.div>
