@@ -583,6 +583,7 @@ const Index = () => {
               {
                 country: "United Kingdom",
                 flag: "🇬🇧",
+                description: "Our UK office serves as a gateway to European markets, offering comprehensive immigration and business services. We specialize in UK visa applications, business setup, and investment opportunities. With deep knowledge of UK immigration law and business regulations, our team provides expert guidance for individuals and companies looking to establish their presence in the United Kingdom.",
                 address:
                   "Unit 1603, 16/F, The L.Plaza, 367-375 Queens Road Central, Sheung Wan, Hong Kong",
                 phone: "+44 20 1234 5678",
@@ -590,16 +591,11 @@ const Index = () => {
                 image:
                   "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=300&fit=crop",
                 link: "/locations/uk",
-                hours: {
-                  weekday: "Monday - Friday: 9:00 AM - 6:00 PM",
-                  saturday: "Saturday: 10:00 AM - 2:00 PM",
-                  sunday: "Sunday: Closed",
-                },
-                locationDesc: "Centrally located in London with excellent transport links and easy access from all major areas.",
               },
               {
                 country: "India",
                 flag: "🇮🇳",
+                description: "Based in Mohali, Punjab, our India office provides comprehensive immigration and business consulting services. We assist clients with visa applications, business formation, and investment strategies tailored to the Indian market. Our experienced team understands the unique opportunities of doing business in India, offering personalized solutions for entrepreneurs and companies looking to establish their presence.",
                 address:
                   "SCO 29, First Floor, New Sunny Enclave, Sector 125, Mohali - 140301, Punjab, India",
                 phone: "+91 123 456 7890",
@@ -607,16 +603,11 @@ const Index = () => {
                 image:
                   "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&h=300&fit=crop",
                 link: "/locations/india",
-                hours: {
-                  weekday: "Monday - Friday: 9:00 AM - 6:00 PM",
-                  saturday: "Saturday: 10:00 AM - 2:00 PM",
-                  sunday: "Sunday: Closed",
-                },
-                locationDesc: "Conveniently located in Mohali with easy access from Chandigarh and surrounding areas.",
               },
               {
                 country: "Hong Kong",
                 flag: "🇭🇰",
+                description: "Our Hong Kong office is strategically located in Sheung Wan, serving as a hub for Asia-Pacific business and immigration services. We provide expert guidance on visas, company formation, and investment opportunities. With extensive experience in the region's business landscape, our team helps clients navigate the dynamic market and establish their presence in this leading financial center.",
                 address:
                   "Unit 1603, 16/F, The L.Plaza, 367-375 Queens Road Central, Sheung Wan, Hong Kong",
                 phone: "+852 1234 5678",
@@ -624,12 +615,6 @@ const Index = () => {
                 image:
                   "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=600&h=300&fit=crop",
                 link: "/locations/hong-kong",
-                hours: {
-                  weekday: "Monday - Friday: 9:00 AM - 6:00 PM",
-                  saturday: "Saturday: 10:00 AM - 2:00 PM",
-                  sunday: "Sunday: Closed",
-                },
-                locationDesc: "Prime location in Sheung Wan with convenient access to MTR and major business districts.",
               },
             ].map((office, i) => (
               <Link key={office.country} to={office.link}>
@@ -656,74 +641,18 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="p-6 space-y-4">
-                    {/* Services Available - UPER */}
-                    <div className="space-y-2">
-                      <h3 className="font-heading font-bold text-lg text-foreground">
-                        Services Available in {office.country}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        Comprehensive business solutions tailored for the {office.country} market
-                      </p>
-                    </div>
-
-                    {/* Divider */}
-                    <div className="border-t border-border"></div>
-
-                    {/* Office Details - NECHE */}
-                    <div className="space-y-3">
-                      <h4 className="font-heading font-semibold text-base text-foreground">
-                        Office Details
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Visit our {office.country} office for personalized consultation
-                      </p>
-                    </div>
-
-                    {/* Office Address */}
-                    <div className="space-y-2">
-                      <h5 className="font-semibold text-sm text-foreground">
-                        Office Address
-                      </h5>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {office.address}
-                      </p>
-                    </div>
-
-                    {/* Business Hours */}
-                    <div className="space-y-2">
-                      <h5 className="font-semibold text-sm text-foreground">
-                        Business Hours
-                      </h5>
-                      <div className="text-sm text-muted-foreground space-y-1">
-                        <p>{office.hours.weekday}</p>
-                        <p>{office.hours.saturday}</p>
-                        <p>{office.hours.sunday}</p>
-                      </div>
-                    </div>
-
-                    {/* Location */}
-                    <div className="space-y-2">
-                      <h5 className="font-semibold text-sm text-foreground">
-                        Location
-                      </h5>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {office.locationDesc}
-                      </p>
-                    </div>
+                    {/* Description */}
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {office.description}
+                    </p>
 
                     {/* Contact Info */}
-                    <div className="pt-3 border-t border-border space-y-1">
+                    <div className="pt-3 border-t border-border space-y-2">
                       <p className="text-sm text-muted-foreground">
-                        <span className="font-semibold text-foreground">
-                          Phone:
-                        </span>{" "}
-                        {office.phone}
+                        <span className="font-semibold text-foreground">Phone:</span> {office.phone}
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        <span className="font-semibold text-foreground">
-                          Email:
-                        </span>{" "}
-                        {office.email}
+                        <span className="font-semibold text-foreground">Email:</span> {office.email}
                       </p>
                     </div>
                   </div>
