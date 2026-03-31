@@ -288,49 +288,53 @@ const Belize = () => {
       </section>
 
       {/* Contact Information */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-16 lg:py-20 bg-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeUp}
               custom={0}
-              className="text-center mb-16"
+              className="text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-                Contact Information
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
+                Contact <span className="text-accent">Information</span>
               </h2>
-              <p className="text-muted-foreground text-lg">
-                Get in touch with our Belize team
+              <p className="text-muted-foreground text-base">
+                Get in touch with our Belize team for personalized assistance
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
               <motion.div
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={1}
-                className="bg-card rounded-xl p-8 card-elevated border border-border"
+                className="bg-card rounded-2xl p-6 card-elevated border border-border hover:shadow-xl transition-all duration-300 group"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary/10 mb-6">
-                  <Phone className="text-secondary" size={32} />
+                <div className="flex items-start gap-4">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-secondary/10 group-hover:bg-secondary/20 transition-colors shrink-0">
+                    <Phone className="text-secondary" size={28} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-heading font-bold text-lg text-foreground mb-2">
+                      Phone
+                    </h3>
+                    <p className="text-muted-foreground text-sm mb-3">
+                      Call us for immediate assistance
+                    </p>
+                    <a
+                      href="tel:+5011234567"
+                      className="text-secondary font-semibold hover:underline text-base"
+                    >
+                      +501 123 4567
+                    </a>
+                  </div>
                 </div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3">
-                  Phone
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Call us for immediate assistance
-                </p>
-                <a
-                  href="tel:+5011234567"
-                  className="text-secondary font-semibold hover:underline"
-                >
-                  +501 123 4567
-                </a>
               </motion.div>
 
               <motion.div
@@ -339,23 +343,27 @@ const Belize = () => {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={2}
-                className="bg-card rounded-xl p-8 card-elevated border border-border"
+                className="bg-card rounded-2xl p-6 card-elevated border border-border hover:shadow-xl transition-all duration-300 group"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary/10 mb-6">
-                  <Mail className="text-secondary" size={32} />
+                <div className="flex items-start gap-4">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-secondary/10 group-hover:bg-secondary/20 transition-colors shrink-0">
+                    <Mail className="text-secondary" size={28} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-heading font-bold text-lg text-foreground mb-2">
+                      Email
+                    </h3>
+                    <p className="text-muted-foreground text-sm mb-3">
+                      Send us your queries anytime
+                    </p>
+                    <a
+                      href="mailto:belize@orvanta.com"
+                      className="text-secondary font-semibold hover:underline text-base"
+                    >
+                      belize@orvanta.com
+                    </a>
+                  </div>
                 </div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3">
-                  Email
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Send us your queries anytime
-                </p>
-                <a
-                  href="mailto:info@orvantaadvisory.com"
-                  className="text-secondary font-semibold hover:underline"
-                >
-                  info@orvantaadvisory.com
-                </a>
               </motion.div>
             </div>
 
@@ -365,12 +373,12 @@ const Belize = () => {
               viewport={{ once: true }}
               variants={fadeUp}
               custom={3}
-              className="mt-12 text-center"
+              className="text-center"
             >
               <Link to="/contact">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90"
+                  className="bg-gradient-to-r from-accent to-amber-500 text-accent-foreground hover:from-accent/90 hover:to-amber-500/90 shadow-lg hover:shadow-xl transition-all"
                 >
                   Schedule a Consultation
                 </Button>
