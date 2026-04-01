@@ -82,7 +82,7 @@ const About = () => {
               About Orvanta Advisory
             </motion.h1>
             <motion.p variants={fadeUp} custom={1} className="text-lg text-primary-foreground/80 leading-relaxed">
-              A trusted name in Empowering Global Mobility, Business Growth, and Digital Innovation, helping thousands achieve their dreams since 2014.
+              Your trusted partner in global mobility, business expansion, and strategic advisory—delivering clarity, expertise, and results.
             </motion.p>
           </motion.div>
         </div>
@@ -101,13 +101,13 @@ const About = () => {
               <motion.h2 variants={fadeUp} custom={0} className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
                 Who We <span className="text-accent">Are</span>
               </motion.h2>
-              <motion.p variants={fadeUp} custom={1} className="text-muted-foreground text-lg leading-relaxed max-w-4xl mx-auto mb-4">
+              <motion.p variants={fadeUp} custom={1} className="text-muted-foreground text-base leading-relaxed max-w-4xl mx-auto mb-4 text-center">
                 Orvanta Advisory Limited is a global consultancy firm specializing in immigration, business expansion, IT solutions, and legal services. As a boutique advisory practice, we are committed to helping individuals and businesses make informed, strategic cross-border decisions with confidence.
               </motion.p>
-              <motion.p variants={fadeUp} custom={2} className="text-muted-foreground text-base leading-relaxed max-w-4xl mx-auto mb-4">
+              <motion.p variants={fadeUp} custom={2} className="text-muted-foreground text-base leading-relaxed max-w-4xl mx-auto mb-4 text-center">
                 Operating from Hong Kong, we primarily support clients with interests between Canada and India, while also serving a broader international clientele across multiple continents. Our team of certified consultants and industry experts brings deep domain knowledge and a personalized approach to every engagement.
               </motion.p>
-              <motion.p variants={fadeUp} custom={3} className="text-muted-foreground text-base leading-relaxed max-w-4xl mx-auto">
+              <motion.p variants={fadeUp} custom={3} className="text-muted-foreground text-base leading-relaxed max-w-4xl mx-auto text-center">
                 From visa applications and permanent residency to business investments, regulatory navigation, and digital transformation, we provide comprehensive, end-to-end solutions tailored to each client's unique goals. By combining strategic insight with practical execution, we help our clients succeed in today's complex global landscape.
               </motion.p>
             </motion.div>
@@ -189,7 +189,7 @@ const About = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {values.slice(0, 3).map((v, i) => (
+            {values.map((v, i) => (
               <motion.div
                 key={v.title}
                 initial="hidden"
@@ -210,33 +210,6 @@ const About = () => {
                 </p>
               </motion.div>
             ))}
-          </div>
-          
-          {/* Second row - 2 cards centered */}
-          <div className="flex justify-center mt-8">
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl">
-              {values.slice(3, 5).map((v, i) => (
-                <motion.div
-                  key={v.title}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeUp}
-                  custom={i + 3}
-                  className="bg-card rounded-2xl p-8 card-elevated border border-border hover:shadow-2xl transition-all duration-300 group"
-                >
-                  <div className="h-16 w-16 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <v.icon size={32} className="text-accent" />
-                  </div>
-                  <h3 className="font-heading font-bold text-2xl mb-4 text-foreground group-hover:text-accent transition-colors">
-                    {v.title}
-                  </h3>
-                  <p className="text-muted-foreground text-base leading-relaxed">
-                    {v.desc}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

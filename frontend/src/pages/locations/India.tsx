@@ -187,11 +187,7 @@ const India = () => {
                           Office Address
                         </h4>
                         <p className="text-muted-foreground leading-relaxed">
-                          SCO 29, First Floor
-                          <br />
-                          New Sunny Enclave, Sector 125
-                          <br />
-                          Mohali – 140301, Punjab, India
+                          Sco29, first floor, new sunny enclave, sector 125, Mohali-140301
                         </p>
                       </div>
                     </div>

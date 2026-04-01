@@ -37,7 +37,7 @@ const immigrationServices = [
   {
     icon: FaUserCheck,
     title: "PR Service",
-    desc: "Permanent residency application assistance for Canada, Australia, and other immigration-friendly countries.",
+    desc: "Permanent residency application assistance for Canada and other immigration-friendly countries.",
     features: [
       "Eligibility assessment",
       "Points calculation and optimization",

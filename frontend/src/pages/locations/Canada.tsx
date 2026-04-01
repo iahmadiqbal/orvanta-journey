@@ -188,11 +188,7 @@ const Canada = () => {
                           Office Address
                         </h4>
                         <p className="text-muted-foreground leading-relaxed">
-                          5th Avenue NE
-                          <br />
-                          Calgary, Alberta, T2A 5L7
-                          <br />
-                          Canada
+                          5th Avenue NE, Calgary, Alberta, T2A 5L7
                         </p>
                       </div>
                     </div>

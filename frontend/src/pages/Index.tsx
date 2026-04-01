@@ -122,25 +122,21 @@ const features = [
 const testimonials = [
   {
     name: "Michael Roberts",
-    role: "Business Owner, Toronto",
     text: "Orvanta made our Canadian immigration process seamless. Their expert guidance and attention to detail helped us secure our permanent residency faster than expected. Highly recommended!",
     image: "https://i.pravatar.cc/150?img=12",
   },
   {
-    name: "Priya Sharma",
-    role: "Software Engineer, Mumbai",
+    name: "James Mitchell",
     text: "The team at Orvanta provided exceptional support for my UK work visa. They handled everything professionally and kept me informed throughout the entire process. Thank you!",
-    image: "https://i.pravatar.cc/150?img=47",
+    image: "https://i.pravatar.cc/150?img=33",
   },
   {
     name: "David Chen",
-    role: "Entrepreneur, Hong Kong",
     text: "Outstanding investment advisory services! Orvanta helped me diversify my portfolio and navigate international business opportunities with confidence. Their expertise is unmatched.",
     image: "https://i.pravatar.cc/150?img=68",
   },
   {
     name: "Lisa Anderson",
-    role: "Retiree, Belize",
     text: "Moving to Belize was a dream come true, thanks to Orvanta. They guided us through the QRP program and made our relocation stress-free. We couldn't be happier!",
     image: "https://i.pravatar.cc/150?img=44",
   },
@@ -458,9 +454,6 @@ const Index = () => {
                           <p className="font-heading font-semibold text-foreground text-lg">
                             {t.name}
                           </p>
-                          <p className="text-muted-foreground text-sm">
-                            {t.role}
-                          </p>
                         </div>
                       </div>
                     </motion.div>
@@ -564,12 +557,6 @@ const Index = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                    <div className="absolute bottom-4 left-4">
-                      <div className="text-4xl mb-2">{office.flag}</div>
-                      <span className="text-white font-heading font-bold text-2xl drop-shadow-lg">
-                        {office.country}
-                      </span>
-                    </div>
                   </div>
                   <div className="p-6 space-y-4">
                     {/* Description */}

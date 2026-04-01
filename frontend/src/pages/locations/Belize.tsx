@@ -188,11 +188,7 @@ const Belize = () => {
                           Office Address
                         </h4>
                         <p className="text-muted-foreground leading-relaxed">
-                          2118 Guava Street
-                          <br />
-                          Belama Phase 1, Belize City
-                          <br />
-                          Belize
+                          2118 Guava Street, Belama Phase 1, Belize City, Belize
                         </p>
                       </div>
                     </div>
