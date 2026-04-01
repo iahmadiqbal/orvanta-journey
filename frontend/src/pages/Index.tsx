@@ -557,6 +557,11 @@ const Index = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+                      <span className="text-white font-heading font-bold text-2xl drop-shadow-lg">
+                        {office.country}
+                      </span>
+                    </div>
                   </div>
                   <div className="p-6 space-y-4">
                     {/* Description */}
