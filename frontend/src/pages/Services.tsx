@@ -129,7 +129,12 @@ const Services = () => {
                 transition={{ duration: 0.5 }}
                 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-extrabold text-white mb-3 md:mb-6 lg:mb-8 drop-shadow-2xl"
               >
-                {services[currentSlide]?.title} <span className="text-accent drop-shadow-2xl">Services</span>
+                {services[currentSlide]?.title.includes('Services') 
+                  ? services[currentSlide]?.title.split(' ').map((word, idx) => 
+                      word === 'Services' ? <span key={idx} className="text-accent drop-shadow-2xl">{word}</span> : word + ' '
+                    )
+                  : <>{services[currentSlide]?.title} <span className="text-accent drop-shadow-2xl">Services</span></>
+                }
               </motion.h1>
               <motion.div
                 key={`desc-${currentSlide}`}
