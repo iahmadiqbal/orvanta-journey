@@ -380,7 +380,8 @@ const Contact = () => {
                     <p className="font-semibold text-foreground text-base">
                       Phone
                     </p>
-                    <p className="text-muted-foreground text-sm">+91 81969 82305</p>
+                    <p className="text-muted-foreground text-sm">+91 81969 82305 (India)</p>
+                    <p className="text-muted-foreground text-sm">+44 7411 962102 (UK)</p>
                   </div>
                 </div>
               </motion.div>

@@ -586,7 +586,7 @@ const Index = () => {
                 description: "Our UK office serves as a gateway to European markets, offering comprehensive immigration and business services. We specialize in UK visa applications, business setup, and investment opportunities. With deep knowledge of UK immigration law and business regulations, our team provides expert guidance for individuals and companies looking to establish their presence in the United Kingdom.",
                 address:
                   "Unit 1603, 16/F, The L.Plaza, 367-375 Queens Road Central, Sheung Wan, Hong Kong",
-                phone: "+44 20 1234 5678",
+                phone: "+44 7411 962102 (UK)",
                 email: "uk@orvanta.com",
                 image:
                   "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=300&fit=crop",
@@ -598,7 +598,7 @@ const Index = () => {
                 description: "Based in Mohali, Punjab, our India office provides comprehensive immigration and business consulting services. We assist clients with visa applications, business formation, and investment strategies tailored to the Indian market. Our experienced team understands the unique opportunities of doing business in India, offering personalized solutions for entrepreneurs and companies looking to establish their presence.",
                 address:
                   "SCO 29, First Floor, New Sunny Enclave, Sector 125, Mohali - 140301, Punjab, India",
-                phone: "+91 123 456 7890",
+                phone: "+91 81969 82305 (India)",
                 email: "india@orvanta.com",
                 image:
                   "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&h=300&fit=crop",
