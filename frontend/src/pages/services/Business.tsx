@@ -35,7 +35,7 @@ const businessServices = [
     desc: "Comprehensive support for businesses looking to expand into new international markets and territories.",
     features: [
       "Market entry strategy",
-      "Business planning and setup guidance",
+      "Business planning",
       "Regulatory compliance advisory",
       "Partnership and networking support",
       "Operational optimization",

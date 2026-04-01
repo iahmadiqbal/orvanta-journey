@@ -188,11 +188,7 @@ const Canada = () => {
                           Office Address
                         </h4>
                         <p className="text-muted-foreground leading-relaxed">
-                          123 Business Street
-                          <br />
-                          Toronto, ON M5H 2N2
-                          <br />
-                          Canada
+                          5th Avenue NE, Calgary, Alberta, T2A 5L7
                         </p>
                       </div>
                     </div>
@@ -295,10 +291,10 @@ const Canada = () => {
                       Call us for immediate assistance
                     </p>
                     <a
-                      href="tel:+11234567890"
+                      href="tel:+447411962102"
                       className="text-secondary font-semibold hover:underline text-base"
                     >
-                      +1 123 456 7890
+                      +44 7411 962102
                     </a>
                   </div>
                 </div>
@@ -324,10 +320,10 @@ const Canada = () => {
                       Send us your queries anytime
                     </p>
                     <a
-                      href="mailto:canada@orvanta.com"
+                      href="mailto:info@orvantaadvisory.com"
                       className="text-secondary font-semibold hover:underline text-base"
                     >
-                      canada@orvanta.com
+                      info@orvantaadvisory.com
                     </a>
                   </div>
                 </div>

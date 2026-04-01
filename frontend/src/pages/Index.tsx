@@ -94,48 +94,6 @@ const countries = [
       "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=400&h=300&fit=crop",
     gradient: "from-red-500/30 via-rose-500/30 to-pink-500/30",
   },
-  {
-    name: "Australia",
-    desc: "Excellent study and skilled worker programs.",
-    details: [
-      "World-class universities and research institutes",
-      "Skilled Migration & Graduate visa options",
-      "High average salary and living standards",
-      "Beautiful climate and outdoor lifestyle",
-      "Strong demand in healthcare, IT & engineering",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=400&h=300&fit=crop",
-    gradient: "from-blue-400/30 via-cyan-500/30 to-teal-500/30",
-  },
-  {
-    name: "Germany",
-    desc: "Tuition-free education and strong economy.",
-    details: [
-      "No tuition fees at public universities",
-      "EU Blue Card for skilled professionals",
-      "Largest economy in Europe",
-      "High quality of life and work-life balance",
-      "Opportunity to settle permanently after 5 years",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400&h=300&fit=crop",
-    gradient: "from-amber-500/30 via-orange-500/30 to-red-500/30",
-  },
-  {
-    name: "UAE",
-    desc: "Thriving job market and business opportunities.",
-    details: [
-      "Tax-free income for professionals",
-      "Golden Visa for investors & skilled talent",
-      "Booming sectors: tech, finance & real estate",
-      "World-class infrastructure and lifestyle",
-      "Strategic hub connecting East and West",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop",
-    gradient: "from-emerald-500/30 via-green-500/30 to-teal-600/30",
-  },
 ];
 
 const features = [
@@ -164,25 +122,21 @@ const features = [
 const testimonials = [
   {
     name: "Michael Roberts",
-    role: "Business Owner, Toronto",
     text: "Orvanta made our Canadian immigration process seamless. Their expert guidance and attention to detail helped us secure our permanent residency faster than expected. Highly recommended!",
     image: "https://i.pravatar.cc/150?img=12",
   },
   {
-    name: "Priya Sharma",
-    role: "Software Engineer, Mumbai",
+    name: "James Mitchell",
     text: "The team at Orvanta provided exceptional support for my UK work visa. They handled everything professionally and kept me informed throughout the entire process. Thank you!",
-    image: "https://i.pravatar.cc/150?img=47",
+    image: "https://i.pravatar.cc/150?img=33",
   },
   {
     name: "David Chen",
-    role: "Entrepreneur, Hong Kong",
     text: "Outstanding investment advisory services! Orvanta helped me diversify my portfolio and navigate international business opportunities with confidence. Their expertise is unmatched.",
     image: "https://i.pravatar.cc/150?img=68",
   },
   {
     name: "Lisa Anderson",
-    role: "Retiree, Belize",
     text: "Moving to Belize was a dream come true, thanks to Orvanta. They guided us through the QRP program and made our relocation stress-free. We couldn't be happier!",
     image: "https://i.pravatar.cc/150?img=44",
   },
@@ -228,7 +182,7 @@ const Index = () => {
               custom={2}
               className="text-[10px] md:text-xs text-white/70 mb-8 mx-auto font-normal drop-shadow-lg backdrop-blur-[2px] text-center px-4"
             >
-              We provide strategic guidance and advisory services only; we do not facilitate company setup, registration, or office acquisition.
+              *We provide strategic guidance and advisory services only; we do not facilitate company setup, registration, or office acquisition.
             </motion.p>
             <motion.div
               variants={fadeUp}
@@ -356,65 +310,17 @@ const Index = () => {
             </p>
           </div>
 
-          {/* First row - 3 cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-            {countries.slice(0, 3).map((c, i) => (
-              <motion.div
-                key={c.name}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                custom={i}
-                className="bg-card rounded-2xl overflow-hidden card-elevated border border-border group cursor-pointer"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={c.image}
-                    alt={c.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${c.gradient} group-hover:opacity-60 transition-opacity duration-300`}
-                  ></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-heading font-bold text-lg mb-1 text-foreground group-hover:text-secondary transition-colors">
-                    {c.name}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-3">
-                    {c.desc}
-                  </p>
-                  <ul className="space-y-1.5">
-                    {c.details.map((d) => (
-                      <li
-                        key={d}
-                        className="flex items-start gap-2 text-sm text-muted-foreground"
-                      >
-                        <span className="text-secondary font-bold mt-0.5">
-                          ✓
-                        </span>
-                        <span>{d}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Second row - 2 cards centered on desktop, full width on mobile */}
+          {/* Grid - 2 cards centered */}
           <div className="flex justify-center">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full lg:w-auto">
-              {countries.slice(3, 5).map((c, i) => (
+              {countries.map((c, i) => (
                 <motion.div
                   key={c.name}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeUp}
-                  custom={i + 3}
+                  custom={i}
                   className="bg-card rounded-2xl overflow-hidden card-elevated border border-border group cursor-pointer lg:w-[calc((100vw-8rem)/3)] lg:max-w-[400px]"
                 >
                   <div className="relative h-48 overflow-hidden">
@@ -501,11 +407,8 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              Meet Our Expert Team
+              Meet Our Clients
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Experienced professionals dedicated to your success
-            </p>
           </div>
           <div className="max-w-6xl mx-auto">
             <Carousel
@@ -551,9 +454,6 @@ const Index = () => {
                           <p className="font-heading font-semibold text-foreground text-lg">
                             {t.name}
                           </p>
-                          <p className="text-muted-foreground text-sm">
-                            {t.role}
-                          </p>
                         </div>
                       </div>
                     </motion.div>
@@ -578,16 +478,16 @@ const Index = () => {
               Visit us at one of our offices around the world.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 country: "United Kingdom",
                 flag: "🇬🇧",
-                description: "Our UK office serves as a gateway to European markets, offering comprehensive immigration and business services. We specialize in UK visa applications, business setup, and investment opportunities. With deep knowledge of UK immigration law and business regulations, our team provides expert guidance for individuals and companies looking to establish their presence in the United Kingdom.",
+                description: "Our UK office serves as a gateway to European markets, offering comprehensive immigration and business services. We specialize in UK visa applications, Business Expansion / Business Growth, and investment opportunities. With deep knowledge of UK immigration law and business regulations, our team provides expert guidance for individuals and companies looking to establish their presence in the United Kingdom.",
                 address:
-                  "Unit 1603, 16/F, The L.Plaza, 367-375 Queens Road Central, Sheung Wan, Hong Kong",
-                phone: "+44 7411 962102 (UK)",
-                email: "uk@orvanta.com",
+                  "167–169 Great Portland Street, 5th Floor, London, W1W 5PF",
+                phone: "+44 7411 962102",
+                email: "info@orvantaadvisory.com",
                 image:
                   "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=300&fit=crop",
                 link: "/locations/uk",
@@ -597,9 +497,9 @@ const Index = () => {
                 flag: "🇮🇳",
                 description: "Based in Mohali, Punjab, our India office provides comprehensive immigration and business consulting services. We assist clients with visa applications, business formation, and investment strategies tailored to the Indian market. Our experienced team understands the unique opportunities of doing business in India, offering personalized solutions for entrepreneurs and companies looking to establish their presence.",
                 address:
-                  "SCO 29, First Floor, New Sunny Enclave, Sector 125, Mohali - 140301, Punjab, India",
-                phone: "+91 81969 82305 (India)",
-                email: "india@orvanta.com",
+                  "SCO 29, First Floor, New Sunny Enclave, Sector 125, Mohali – 140301",
+                phone: "+91 81969 82305",
+                email: "info@orvantaadvisory.com",
                 image:
                   "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&h=300&fit=crop",
                 link: "/locations/india",
@@ -609,12 +509,36 @@ const Index = () => {
                 flag: "🇭🇰",
                 description: "Our Hong Kong office is strategically located in Sheung Wan, serving as a hub for Asia-Pacific business and immigration services. We provide expert guidance on visas, company formation, and investment opportunities. With extensive experience in the region's business landscape, our team helps clients navigate the dynamic market and establish their presence in this leading financial center.",
                 address:
-                  "Unit 1603, 16/F, The L.Plaza, 367-375 Queens Road Central, Sheung Wan, Hong Kong",
-                phone: "+852 1234 5678",
-                email: "hongkong@orvanta.com",
+                  "Unit 1603, 16/F, The L. Plaza, 367–375 Queen's Road Central, Sheung Wan, Hong Kong",
+                phone: "+852 92901601",
+                email: "info@orvantaadvisory.com",
                 image:
                   "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=600&h=300&fit=crop",
                 link: "/locations/hong-kong",
+              },
+              {
+                country: "Canada",
+                flag: "🇨🇦",
+                description: "Our Canada office specializes in immigration pathways, business investment strategies, and IT services for Canadian market entry. We provide expert guidance on Express Entry, Provincial Nominee Programs, and business expansion opportunities. Our team helps clients navigate Canada's immigration-friendly policies and establish successful operations in this dynamic North American market.",
+                address:
+                  "5th Avenue NE, Calgary, Alberta, T2A 5L7",
+                phone: "+44 7411 962102",
+                email: "info@orvantaadvisory.com",
+                image:
+                  "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=600&h=300&fit=crop",
+                link: "/locations/canada",
+              },
+              {
+                country: "Belize",
+                flag: "🇧🇿",
+                description: "Our Belize office provides specialized immigration solutions, business consulting, and IT services for Belize and regional markets. We assist with residency programs, business formation, and investment opportunities in Central America. Our consultants offer personalized guidance for individuals and businesses looking to establish their presence in this growing market.",
+                address:
+                  "2118 Guava Street, Belama Phase 1, Belize City, Belize",
+                phone: "+44 7411 962102",
+                email: "info@orvantaadvisory.com",
+                image:
+                  "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&h=300&fit=crop",
+                link: "/locations/belize",
               },
             ].map((office, i) => (
               <Link key={office.country} to={office.link}>
@@ -633,12 +557,6 @@ const Index = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                    <div className="absolute bottom-4 left-4">
-                      <div className="text-4xl mb-2">{office.flag}</div>
-                      <span className="text-white font-heading font-bold text-2xl drop-shadow-lg">
-                        {office.country}
-                      </span>
-                    </div>
                   </div>
                   <div className="p-6 space-y-4">
                     {/* Description */}

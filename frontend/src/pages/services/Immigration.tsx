@@ -37,7 +37,7 @@ const immigrationServices = [
   {
     icon: FaUserCheck,
     title: "PR Service",
-    desc: "Permanent residency application assistance for Canada, Australia, and other immigration-friendly countries.",
+    desc: "Permanent residency application assistance for Canada and other immigration-friendly countries.",
     features: [
       "Eligibility assessment",
       "Points calculation and optimization",
@@ -130,7 +130,7 @@ const Immigration = () => {
               Comprehensive support for all your immigration needs
             </p>
             <p className="text-muted-foreground text-base leading-relaxed text-left">
-              We specialize in providing end-to-end immigration solutions for individuals and businesses across multiple global markets. Our experienced immigration consultants guide you through complex visa processes, permanent residency applications, and work permit requirements with personalized attention. From initial consultation to successful visa approval, we handle documentation, application submissions, and follow-ups to ensure a smooth immigration journey. With expertise in UK, Canada, Australia, and other major destinations, we help you navigate immigration regulations confidently and achieve your relocation goals efficiently.
+              We specialize in providing end-to-end immigration solutions for individuals and businesses across multiple global markets. Our experienced immigration consultants guide you through complex visa processes, permanent residency applications, and work permit requirements with personalized attention. From initial consultation to successful visa approval, we handle documentation, application submissions, and follow-ups to ensure a smooth immigration journey. With expertise in UK, Canada, and other major destinations, we help you navigate immigration regulations confidently and achieve your relocation goals efficiently.
             </p>
           </div>
 

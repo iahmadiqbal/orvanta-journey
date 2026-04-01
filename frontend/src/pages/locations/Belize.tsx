@@ -188,11 +188,7 @@ const Belize = () => {
                           Office Address
                         </h4>
                         <p className="text-muted-foreground leading-relaxed">
-                          45 Marine Parade
-                          <br />
-                          Belize City
-                          <br />
-                          Belize
+                          2118 Guava Street, Belama Phase 1, Belize City, Belize
                         </p>
                       </div>
                     </div>
@@ -295,10 +291,10 @@ const Belize = () => {
                       Call us for immediate assistance
                     </p>
                     <a
-                      href="tel:+5011234567"
+                      href="tel:+447411962102"
                       className="text-secondary font-semibold hover:underline text-base"
                     >
-                      +501 123 4567
+                      +44 7411 962102
                     </a>
                   </div>
                 </div>
@@ -324,10 +320,10 @@ const Belize = () => {
                       Send us your queries anytime
                     </p>
                     <a
-                      href="mailto:belize@orvanta.com"
+                      href="mailto:info@orvantaadvisory.com"
                       className="text-secondary font-semibold hover:underline text-base"
                     >
-                      belize@orvanta.com
+                      info@orvantaadvisory.com
                     </a>
                   </div>
                 </div>

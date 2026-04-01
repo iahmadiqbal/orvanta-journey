@@ -186,9 +186,9 @@ const UK = () => {
                           Office Address
                         </h4>
                         <p className="text-muted-foreground leading-relaxed">
-                          123 Business Street
+                          167–169 Great Portland Street, 5th Floor
                           <br />
-                          London, EC1A 1BB
+                          London, W1W 5PF
                           <br />
                           United Kingdom
                         </p>
@@ -276,10 +276,10 @@ const UK = () => {
                       Call us for immediate assistance
                     </p>
                     <a
-                      href="tel:+442012345678"
+                      href="tel:+447411962102"
                       className="text-secondary font-semibold hover:underline text-base"
                     >
-                      +44 20 1234 5678
+                      +44 7411 962102
                     </a>
                   </div>
                 </div>
@@ -305,10 +305,10 @@ const UK = () => {
                       Send us your queries anytime
                     </p>
                     <a
-                      href="mailto:uk@orvanta.com"
+                      href="mailto:info@orvantaadvisory.com"
                       className="text-secondary font-semibold hover:underline text-base"
                     >
-                      uk@orvanta.com
+                      info@orvantaadvisory.com
                     </a>
                   </div>
                 </div>

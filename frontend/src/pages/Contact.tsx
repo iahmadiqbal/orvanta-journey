@@ -31,8 +31,6 @@ const Contact = () => {
     email: "",
     phone: "",
     address: "",
-    desiredCountry: "",
-    visaType: "",
     message: "",
   });
   const [loading, setLoading] = useState(false);
@@ -48,8 +46,6 @@ const Contact = () => {
         email: form.email,
         phone: form.phone,
         address: form.address,
-        desiredCountry: form.desiredCountry,
-        visaType: form.visaType,
         message: form.message,
       });
 
@@ -67,8 +63,6 @@ const Contact = () => {
           email: "",
           phone: "",
           address: "",
-          desiredCountry: "",
-          visaType: "",
           message: "",
         });
       } else {
@@ -219,80 +213,6 @@ const Contact = () => {
 
                 <div>
                   <label className="text-sm font-medium text-foreground mb-1.5 block">
-                    Desired Country <span className="text-red-500">*</span>
-                  </label>
-                  <Select
-                    value={form.desiredCountry}
-                    onValueChange={(value) =>
-                      setForm({ ...form, desiredCountry: value })
-                    }
-                    required
-                  >
-                    <SelectTrigger className="h-12 text-base [&>span]:text-muted-foreground data-[placeholder]:text-muted-foreground focus:ring-0 focus:ring-offset-0">
-                      <SelectValue placeholder="Select Country" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="canada" className="text-base">
-                        Canada
-                      </SelectItem>
-                      <SelectItem value="australia" className="text-base">
-                        Australia
-                      </SelectItem>
-                      <SelectItem value="uk" className="text-base">
-                        United Kingdom
-                      </SelectItem>
-                      <SelectItem value="usa" className="text-base">
-                        United States
-                      </SelectItem>
-                      <SelectItem value="germany" className="text-base">
-                        Germany
-                      </SelectItem>
-                      <SelectItem value="newzealand" className="text-base">
-                        New Zealand
-                      </SelectItem>
-                      <SelectItem value="portugal" className="text-base">
-                        Portugal
-                      </SelectItem>
-                      <SelectItem value="uae" className="text-base">
-                        UAE / Dubai
-                      </SelectItem>
-                      <SelectItem value="other" className="text-base">
-                        Other
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">
-                    Visa Type <span className="text-red-500">*</span>
-                  </label>
-                  <Select
-                    value={form.visaType}
-                    onValueChange={(value) =>
-                      setForm({ ...form, visaType: value })
-                    }
-                    required
-                  >
-                    <SelectTrigger className="h-12 text-base [&>span]:text-muted-foreground data-[placeholder]:text-muted-foreground focus:ring-0 focus:ring-offset-0">
-                      <SelectValue placeholder="Visa Type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="study" className="text-base">
-                        Study Visa
-                      </SelectItem>
-                      <SelectItem value="work" className="text-base">
-                        Work Visa
-                      </SelectItem>
-                      <SelectItem value="immigrant" className="text-base">
-                        Immigrant Visa
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">
                     Your Message
                   </label>
                   <Textarea
@@ -346,17 +266,8 @@ const Contact = () => {
                     <MapPin size={22} className="text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground text-base">Orvanta Advisory</p>
-                    <p className="text-muted-foreground text-sm">5th Avenue, Calgary, Alberta, Canada</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="h-12 w-12 rounded-xl bg-primary/5 flex items-center justify-center shrink-0">
-                    <MapPin size={22} className="text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground text-base">Orvanta Advisory</p>
-                    <p className="text-muted-foreground text-sm">167-169 Great Portland Street, 5th Floor, London W1W 5PF</p>
+                    <p className="font-semibold text-foreground text-base">Canada</p>
+                    <p className="text-muted-foreground text-sm">5th Avenue NE, Calgary, Alberta, T2A 5L7</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -380,8 +291,7 @@ const Contact = () => {
                     <p className="font-semibold text-foreground text-base">
                       Phone
                     </p>
-                    <p className="text-muted-foreground text-sm">+91 81969 82305 (India)</p>
-                    <p className="text-muted-foreground text-sm">+44 7411 962102 (UK)</p>
+                    <p className="text-muted-foreground text-sm">+44 7411 962102</p>
                   </div>
                 </div>
               </motion.div>
