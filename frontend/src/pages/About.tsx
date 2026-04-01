@@ -12,17 +12,27 @@ const values = [
   { 
     icon: Shield, 
     title: "Integrity", 
-    desc: "We believe in transparent and honest guidance at every step of your journey. Our commitment to ethical practices ensures you receive trustworthy advice and reliable support throughout your business expansion."
+    desc: "We uphold the highest standards of honesty, transparency, and ethical conduct in every engagement. Our client relationships are built on trust, and we are committed to providing advice that aligns with both regulatory standards and our moral principles. We carefully assess each case to ensure responsible and ethical client selection."
   },
   { 
     icon: Award, 
-    title: "Excellence", 
-    desc: "Committed to delivering the highest standards of service across all our offerings. Our team continuously updates their expertise to provide cutting-edge solutions that drive your success in global markets."
+    title: "Accuracy", 
+    desc: "Our advisory is grounded in verified information, thorough research, and up-to-date regulatory knowledge. We avoid assumptions and ensure that every recommendation is based on facts and practical realities. This commitment allows our clients to make well-informed and confident decisions."
   },
   { 
     icon: CheckCircle, 
-    title: "Reliability", 
-    desc: "Consistent results you can count on, backed by proven track records and satisfied clients worldwide. We deliver on our promises with timely execution and dependable support at every stage of your project."
+    title: "Confidentiality", 
+    desc: "We treat all client information with the utmost discretion and care. Strict data protection practices and secure systems are maintained to safeguard sensitive information at every stage. Our clients can trust that their personal and business matters remain private and protected."
+  },
+  { 
+    icon: Target, 
+    title: "Realism", 
+    desc: "We believe in setting clear, practical expectations rather than offering overly optimistic or misleading assurances. Our guidance is honest, transparent, and aligned with real-world outcomes. This approach helps clients plan effectively and avoid unnecessary risks."
+  },
+  { 
+    icon: Eye, 
+    title: "Scope Discipline", 
+    desc: "We maintain clarity in defining the scope of our services, ensuring clients understand exactly what we offer. By setting clear boundaries, we deliver focused, high-quality outcomes without overpromising. This disciplined approach enables efficient execution and stronger client trust."
   },
 ];
 
@@ -72,7 +82,7 @@ const About = () => {
               About Orvanta Advisory
             </motion.h1>
             <motion.p variants={fadeUp} custom={1} className="text-lg text-primary-foreground/80 leading-relaxed">
-              A trusted name in immigration consultancy, helping thousands achieve their global dreams since 2014.
+              A trusted name in Empowering Global Mobility, Business Growth, and Digital Innovation, helping thousands achieve their dreams since 2014.
             </motion.p>
           </motion.div>
         </div>
@@ -92,40 +102,14 @@ const About = () => {
                 Who We <span className="text-accent">Are</span>
               </motion.h2>
               <motion.p variants={fadeUp} custom={1} className="text-muted-foreground text-lg leading-relaxed max-w-4xl mx-auto mb-4">
-                Orvanta Advisory is a leading global consultancy firm specializing in immigration, business expansion, IT solutions, and legal services. With over a decade of experience, we've successfully guided thousands of clients and businesses to achieve their international goals across multiple continents.
+                Orvanta Advisory Limited is a global consultancy firm specializing in immigration, business expansion, IT solutions, and legal services. As a boutique advisory practice, we are committed to helping individuals and businesses make informed, strategic cross-border decisions with confidence.
               </motion.p>
-              <motion.p variants={fadeUp} custom={2} className="text-muted-foreground text-base leading-relaxed max-w-4xl mx-auto">
-                Our team of certified consultants and industry experts delivers personalized, strategic guidance tailored to your unique needs. From visa applications and permanent residency to business investments and digital transformation, we provide comprehensive solutions that drive success in today's global marketplace.
+              <motion.p variants={fadeUp} custom={2} className="text-muted-foreground text-base leading-relaxed max-w-4xl mx-auto mb-4">
+                Operating from Hong Kong, we primarily support clients with interests between Canada and India, while also serving a broader international clientele across multiple continents. Our team of certified consultants and industry experts brings deep domain knowledge and a personalized approach to every engagement.
               </motion.p>
-            </motion.div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="grid grid-cols-2 lg:grid-cols-4 gap-6"
-            >
-              {[
-                { num: "10+", label: "Years Experience", icon: Award },
-                { num: "5000+", label: "Successful Cases", icon: CheckCircle },
-                { num: "98%", label: "Success Rate", icon: Target },
-                { num: "25+", label: "Countries Covered", icon: MapPin },
-              ].map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  variants={fadeUp}
-                  custom={i + 3}
-                  className="bg-card rounded-2xl p-6 card-elevated border border-border text-center hover:shadow-xl transition-all duration-300 group"
-                >
-                  <div className="flex justify-center mb-4">
-                    <div className="h-12 w-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <stat.icon size={24} className="text-accent" />
-                    </div>
-                  </div>
-                  <p className="text-4xl font-heading font-bold text-foreground mb-2">{stat.num}</p>
-                  <p className="text-muted-foreground text-sm font-medium">{stat.label}</p>
-                </motion.div>
-              ))}
+              <motion.p variants={fadeUp} custom={3} className="text-muted-foreground text-base leading-relaxed max-w-4xl mx-auto">
+                From visa applications and permanent residency to business investments, regulatory navigation, and digital transformation, we provide comprehensive, end-to-end solutions tailored to each client's unique goals. By combining strategic insight with practical execution, we help our clients succeed in today's complex global landscape.
+              </motion.p>
             </motion.div>
           </div>
         </div>
@@ -162,7 +146,7 @@ const About = () => {
                     Our <span className="text-secondary">Mission</span>
                   </h3>
                   <p className="text-muted-foreground text-base leading-relaxed">
-                    To simplify global expansion by providing expert, transparent, and personalized consultancy services across immigration, business, IT, and legal domains. We empower individuals and businesses to achieve their international goals with confidence, strategic guidance, and comprehensive support at every step.
+                    To empower individuals and businesses to make informed decisions in international mobility, business expansion, and technology readiness through disciplined, ethical, and structured advisory. We are committed to simplifying global growth by delivering expert, transparent, and personalized consultancy services across immigration, business, IT, and legal domains—providing strategic guidance and comprehensive support at every step.
                   </p>
                 </div>
               </motion.div>
@@ -184,7 +168,7 @@ const About = () => {
                     Our <span className="text-accent">Vision</span>
                   </h3>
                   <p className="text-muted-foreground text-base leading-relaxed">
-                    To be the most trusted global consultancy firm, recognized for excellence, integrity, and innovation across immigration, business, technology, and legal services. We aspire to create lasting partnerships built on genuine commitment to every client's success, growth, and long-term prosperity in international markets.
+                    To be a trusted global boutique advisory firm, recognized for excellence, integrity, and innovation across immigration, business, technology, and legal services. We aim to deliver clarity in cross-border opportunities between Canada and India through a globally positioned platform, while building lasting partnerships grounded in a genuine commitment to our clients' success, growth, and long-term prosperity in international markets.
                   </p>
                 </div>
               </motion.div>
@@ -204,8 +188,8 @@ const About = () => {
               Our core values drive everything we do, ensuring exceptional service and lasting partnerships
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {values.map((v, i) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {values.slice(0, 3).map((v, i) => (
               <motion.div
                 key={v.title}
                 initial="hidden"
@@ -227,46 +211,32 @@ const About = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Our Team */}
-      <section className="py-20 lg:py-28 bg-muted">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              Meet Our <span className="text-accent">Expert Team</span>
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Dedicated professionals committed to your success
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {teamMembers.map((member, i) => (
-              <motion.div
-                key={member.name}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                custom={i}
-                className="bg-card rounded-2xl overflow-hidden card-elevated border border-border group cursor-pointer hover:shadow-2xl transition-all duration-300"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                </div>
-                <div className="p-5">
-                  <h3 className="font-heading font-bold text-lg text-foreground mb-1">{member.name}</h3>
-                  <p className="text-accent font-semibold text-sm mb-3">{member.role}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{member.description}</p>
-                </div>
-              </motion.div>
-            ))}
+          
+          {/* Second row - 2 cards centered */}
+          <div className="flex justify-center mt-8">
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl">
+              {values.slice(3, 5).map((v, i) => (
+                <motion.div
+                  key={v.title}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  custom={i + 3}
+                  className="bg-card rounded-2xl p-8 card-elevated border border-border hover:shadow-2xl transition-all duration-300 group"
+                >
+                  <div className="h-16 w-16 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <v.icon size={32} className="text-accent" />
+                  </div>
+                  <h3 className="font-heading font-bold text-2xl mb-4 text-foreground group-hover:text-accent transition-colors">
+                    {v.title}
+                  </h3>
+                  <p className="text-muted-foreground text-base leading-relaxed">
+                    {v.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

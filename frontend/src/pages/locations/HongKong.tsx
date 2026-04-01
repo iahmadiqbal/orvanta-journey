@@ -191,9 +191,9 @@ const HongKong = () => {
                           Office Address
                         </h4>
                         <p className="text-muted-foreground leading-relaxed">
-                          Unit 1603, 16/F, The L.Plaza
+                          Unit 1603, 16/F, The L. Plaza
                           <br />
-                          367-375 Queens Road Central
+                          367–375 Queen's Road Central
                           <br />
                           Sheung Wan, Hong Kong
                         </p>
@@ -281,10 +281,10 @@ const HongKong = () => {
                       Call us for immediate assistance
                     </p>
                     <a
-                      href="tel:+85212345678"
+                      href="tel:+85292901601"
                       className="text-secondary font-semibold hover:underline text-base"
                     >
-                      +852 1234 5678
+                      +852 92901601
                     </a>
                   </div>
                 </div>
@@ -310,10 +310,10 @@ const HongKong = () => {
                       Send us your queries anytime
                     </p>
                     <a
-                      href="mailto:hongkong@orvanta.com"
+                      href="mailto:info@orvantaadvisory.com"
                       className="text-secondary font-semibold hover:underline text-base"
                     >
-                      hongkong@orvanta.com
+                      info@orvantaadvisory.com
                     </a>
                   </div>
                 </div>

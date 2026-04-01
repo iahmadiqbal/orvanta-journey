@@ -191,7 +191,7 @@ const India = () => {
                           <br />
                           New Sunny Enclave, Sector 125
                           <br />
-                          Mohali - 140301, Punjab, India
+                          Mohali – 140301, Punjab, India
                         </p>
                       </div>
                     </div>
@@ -277,10 +277,10 @@ const India = () => {
                       Call us for immediate assistance
                     </p>
                     <a
-                      href="tel:+911234567890"
+                      href="tel:+918196982305"
                       className="text-secondary font-semibold hover:underline text-base"
                     >
-                      +91 123 456 7890
+                      +91 81969 82305
                     </a>
                   </div>
                 </div>
@@ -306,10 +306,10 @@ const India = () => {
                       Send us your queries anytime
                     </p>
                     <a
-                      href="mailto:india@orvanta.com"
+                      href="mailto:info@orvantaadvisory.com"
                       className="text-secondary font-semibold hover:underline text-base"
                     >
-                      india@orvanta.com
+                      info@orvantaadvisory.com
                     </a>
                   </div>
                 </div>
