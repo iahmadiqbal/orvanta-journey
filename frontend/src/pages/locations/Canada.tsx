@@ -291,10 +291,10 @@ const Canada = () => {
                       Call us for immediate assistance
                     </p>
                     <a
-                      href="tel:+447411962102"
+                      href="tel:+17097402930"
                       className="text-secondary font-semibold hover:underline text-base"
                     >
-                      +44 7411 962102
+                      +1 709 740 2930
                     </a>
                   </div>
                 </div>

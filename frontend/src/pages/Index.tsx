@@ -522,7 +522,7 @@ const Index = () => {
                 description: "Our Canada office specializes in immigration pathways, business investment strategies, and IT services for Canadian market entry. We provide expert guidance on Express Entry, Provincial Nominee Programs, and business expansion opportunities. Our team helps clients navigate Canada's immigration-friendly policies and establish successful operations in this dynamic North American market.",
                 address:
                   "5th Avenue NE, Calgary, Alberta, T2A 5L7",
-                phone: "+44 7411 962102",
+                phone: "+1 709 740 2930",
                 email: "info@orvantaadvisory.com",
                 image:
                   "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=600&h=300&fit=crop",
